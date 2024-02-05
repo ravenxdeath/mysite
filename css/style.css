@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+.space-grotesk-container {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+/* NavBar CSS Part */
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    height: 7vh;
+ 
+
+    
+}
+.raven{
+    width: 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.raven img{
+    width: 14%;
+    border: 3px solid whitesmoke;
+    border-radius: 50%;
+    justify-content: left;
+}
+.fonta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+    padding-left: 15px;
+
+}
+.nav-list{
+    width: 75%;
+    display: flex;
+    align-items: center;
+
+}
+.nav-list li{
+    /* display: flex;
+
+    justify-content: flex-end; */
+
+    list-style: none;
+    padding: 26px 30px;
+}
+
+.nav-list a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    color-interpolation-filters: linearRGB;
+
+}
+.nav-list a:hover{
+    text-decoration: none;
+    color: rgb(223, 211, 211);
+
+}
+
+.rightNav{
+    width: 25%;
+    /* background-color: blueviolet; */
+    text-align: right;
+    /* display: flex;
+    justify-content: right; */
+}
+#search{
+    padding: 6px;
+    font-size: 18px;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+@keyframes animationLeft2Right {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);  
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);  
+    }
+}
+
+.animate-whoami {
+    display: inline-block;
+    animation: animationLeft2Right 2.5s ease-out;
+}
+/* sections */
+
+.background{
+   
+    background: rgba(0,0,0,0.7) url('../images/vinlandsaga4k.png');
+    background-size: cover;
+    background-blend-mode: darken;
+
+    background-attachment: fixed;
+
+
+ 
+
+    
+
+}
+
+.sec01{
+    height: 100vh;
+}
+
+.box-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    max-width: 80%;
+    height: 80%;
+    margin: auto;
+    
+}
+
+.shalf01{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    padding-left: 120px;
+
+}
+.txt-big {
+    font-size: 45px;
+    padding-left: 270px;
+    text-align: center;
+ 
+}
+.txt-small {
+    font-size: 18px;
+    padding-left: 250px;
+    text-align: match-center;
+
+
+}
+.shalf02{
+    width: 50%;
+    padding-right: 100px;
+    padding-top: 300px;
+
+}
+.shalf02 img{
+    width: 75%;
+    padding: 1px;
+    padding-top: 0;
+    border: 4px solid gray;
+    border-radius: 50px;
+    display: block;
+    margin: 0 auto;
+} 
+
+
+
+/* Buttons  */
+
+.butt {
+    padding: 8px 20px;
+    margin: 7px 3px;
+    border: 2px solid whitesmoke;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    background: none;
+    cursor: pointer;
+} 
+
+.butt-small {
+    padding: 3px 8px;
+    vertical-align: middle;
+    
+    margin-right: 20px;
+} 
+
+.butt-email{
+    padding: 3px 8px;
+    vertical-align: middle;
+}
+
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #364c62;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+/* footer CSS Part */
+
+.footer {
+    background-color: #181A1B;
+    color: white;
+    padding: 7px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin: 5px;
+    margin-bottom: 5px;
+}
+
+.row a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.row i {
+    font-size: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    margin: 0 15px;
+}
+
+.footer a {
+    color: #42b983;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: rgb(223, 211, 211);
+}
+
+
+.location-modification{
+    background-color: #091f2a;
+    color: white;
+    padding: 2px;
+    text-align: center;
+    text-decoration: italic;
+    color: rgb(223, 211, 211);
+}
+
+/* Responsive MEDIA QUERY */
+
+@media only screen and (max-width: 1380px) {
+    .nav-list{
+        flex-direction: column;
+    }
+    .navbar{
+        height: 445px;
+
+        flex-direction: column;
+        transition: all 0.5s ease-out;
+    }
+    .rightNav{
+        text-align: center;
+    }
+    #search{
+        width: 100%;
+    }
+    .navbar .burger{
+        display: block;
+        height: 445px;
+
+    }
+
+    .height-nav{
+        height: 52px;
+    }
+    .visibility{
+        opacity: 0;
+    }
+}
+
+
+.burger{
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 3%;
+    top: 8 px;
+}
+
+.line {
+    width: 33px;
+    background-color: whitesmoke;
+    height: 4px;
+    margin: 5px 3px;
+}
+
+/* info page css */
+
+.centralHeader {
+    margin-top: 10px;
+    color: whitesmoke;  
+    text-align: left; 
+    margin-left: 60px; 
+    margin-bottom: 10px;
+
+}
+
+.centralHeadersmall {
+    margin-top: 10px;
+    color: whitesmoke;  
+    text-align: left; 
+    margin-left: 60px; 
+    margin-bottom: 10px;
+
+}
+
+.makingcolumn{
+    width: 60%;
+}
+.makingcolumn2{
+    width: 40%;
+}
+
+
+/* table createion  */
+
+.favorite-table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 10px auto;
+}
+
+.category-header {
+    background-color: #0808085e;
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: left;
+}
+
+.favorite-table td, .favorite-table th {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: left;
+}
+
+.favorite-table tbody tr:hover {
+    background-color: #327f69;
+}
+
+
+
+
+/* pop up email form 
+*/
+
