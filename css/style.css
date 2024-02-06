@@ -275,9 +275,9 @@ ul li {
     color: rgb(223, 211, 211);
 }
 
-/* Responsive MEDIA QUERY */
+/* Responsive MEDIA QUERY */            
 
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 980px) {
     .nav-list{
         flex-direction: column;
     }
