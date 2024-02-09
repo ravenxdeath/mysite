@@ -26,8 +26,6 @@
     top: 0;
     cursor: pointer;
     height: 7vh;
- 
-
     
 }
 .raven{
@@ -218,6 +216,9 @@
 /* footer CSS Part */
 
 .footer {
+    position: sticky;
+
+    width: 100%;
     background-color: #181A1B;
     color: white;
     padding: 7px;

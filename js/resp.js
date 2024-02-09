@@ -30,3 +30,20 @@ document.addEventListener('DOMContentLoaded', function () {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
     });
 });
+
+
+window.addEventListener('scroll', function() {
+    var footer = document.getElementById('footer');
+    var footerHeight = footer.offsetHeight;
+    var mainHeight = document.querySelector('main').offsetHeight;
+    var scrollPosition = window.scrollY + window.innerHeight;
+
+    if (scrollPosition >= mainHeight) {
+        footer.classList.add('fixed');
+    } else {
+        footer.classList.remove('fixed');
+    }
+});
+
+
+
