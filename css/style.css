@@ -115,14 +115,11 @@
     background-size: cover;
     background-blend-mode: darken;
 
-    background-attachment: fixed;
+    background-attachment: scroll;
 
-
- 
-
-    
 
 }
+
 
 .sec01{
     height: 100vh;
@@ -275,9 +272,9 @@ ul li {
     color: rgb(223, 211, 211);
 }
 
-/* Responsive MEDIA QUERY */            
+/* Responsive MEDIA QUERY */
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1266px) {
     .nav-list{
         flex-direction: column;
     }
