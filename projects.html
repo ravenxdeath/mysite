@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Tahmid Raven</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="images/linux.png" type="image/png">
+    <style>
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(66, 185, 131, 0.2);
+        }
+
+        .project-title {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #3da876;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="images/luchadortocat.png" alt="Github Luchadortocat">
+                <span class="logo-text">TAHMID'S PORTFOLIO</span>
+            </div>
+            
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="myblog.html">BookReviews</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="email.html" class="cta-button">Email Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-page">
+        <div class="about-header">
+            <h1 class="glitch" data-text="My Projects">My Projects</h1>
+            <h2>A showcase of my work</h2>
+        </div>
+
+        <div class="projects-container">
+            <section class="project-category">
+                <h2 class="category-title">Android Development</h2>
+                <div class="project-card">
+                    <h3 class="project-title">Pomokaijuu</h3>
+                    <p class="project-description">A productivity Android app built from scratch using Flutter, combining task management with engaging gamification elements.</p>
+                    <div class="project-links">
+                        <a href="https://ravendeath.itch.io/" class="project-link"><i class="fas fa-gamepad"></i> Try it out</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-category">
+                <h2 class="category-title">MERN Stack Projects</h2>
+                <div class="project-card">
+                    <h3 class="project-title">Care4All</h3>
+                    <p class="project-description">A comprehensive medical website serving both humans and pets, featuring appointment booking, nearby hospital locator, and an extensive health library.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/care4all_medicenter.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Shopiee</h3>
+                    <p class="project-description">A sophisticated multi-vendor marketplace platform with integrated B2B functionality.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/ShopieeMart.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Yoga Master</h3>
+                    <p class="project-description">A specialized yoga course management application for organizing and tracking yoga sessions.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/Yoga_Master_website.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-category">
+                <h2 class="category-title">Game Development</h2>
+                <div class="project-card">
+                    <h3 class="project-title">Nintendo_XD</h3>
+                    <p class="project-description">A retro-inspired gaming console built using emu8086 assembly language, featuring classic games like Wordle, Rock-Paper-Scissors, and Number Guesser.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/Nintendo_XD.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Test of Strength</h3>
+                    <p class="project-description">An OpenGL-based survival game where players face waves of enemies, collect points, and prepare for an epic boss battle in Level 3.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/megaeonise/Test-of-Strength.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Asteroid Shooting Game</h3>
+                    <p class="project-description">An OpenGL-based space shooter where players defend against falling asteroids.</p>
+                    <div class="project-links">
+                        <a href="https://ravendeath.itch.io/spaceoutcast-v1" class="project-link"><i class="fas fa-gamepad"></i> Play Game</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-category">
+                <h2 class="category-title">AI & Deep Learning</h2>
+                <div class="project-card">
+                    <h3 class="project-title">Ford Car Price Prediction</h3>
+                    <p class="project-description">A machine learning model developed to predict Ford car prices based on various features and market data.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/Ford-Car-Price-Prediction.git" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Chronic Disease Prediction</h3>
+                    <p class="project-description">Advanced deep learning models for predicting chronic diseases using electronic health records (EHRs) and medical notes.</p>
+                </div>
+            </section>
+
+            <section class="project-category">
+                <h2 class="category-title">C++ & Systems Programming</h2>
+                <div class="project-card">
+                    <h3 class="project-title">cpp_lab</h3>
+                    <p class="project-description">A repository documenting the journey of diving back into C++ programming and systems development.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/TahmidRaven/cpp_lab" class="project-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="contacts.html">Contact</a>
+ 
+            </div>
+            <p class="copyright">Tahmid Iqbal © 2024 - All rights reserved</p>
+        </div>
+        <button id="backToTop" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

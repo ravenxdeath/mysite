@@ -1,183 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="space-grotesk-container">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="css/style.css" class="css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <title>Tahmid Raven- who am i?</title>
-
+    <title>About Me - Tahmid Raven</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/linux.png" type="image/png">
-
-
 </head>
-<body class="space-grotesk-container">
-    
-    <header>
-        <nav class="navbar background height-nav">
-            <ul class="nav-list visibility">
-                <div class="raven">
-                    <img src="images/luchadortocat.png" alt="an image of github luchadortocat. this is how github looks in my eyes">
-                    <br>
-                    <b class="fonta">TAHMID'S PORTFOLIO</b>
-                </div>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutme.html">AboutMe</a></li>
-                <li><a href="https://github.com/TahmidRaven/Uni_Management_Engagement_Sys">Projects</a></li>
-                <li><a href="myblog.html">MyBlog</a></li>
-                <li><a href="#contacts">Contacts</a></li>
-                <li><a href="email.html">
-                    <button class="butt butt-email">Email Me</button></a>
-                </li>
-            </ul>
-            <div class="rightNav visibility">
-                <input type="text" name="search" id="search">
-                <button class="butt butt-small">Search</button>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="images/luchadortocat.png" alt="Github Luchadortocat">
+                <span class="logo-text">TAHMID'S PORTFOLIO</span>
             </div>
-            <div class="burger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-        </nav>
-    </header>
-    <main style="padding-bottom: 12">
-        <section class="background sec01">
 
-            <div class="background">
-                <h1 class="centralname" style="text-align: center; color: white; font-size:45px; padding-top:2%; ">TAHMID IQBAL</h1>
-                <br><p> <h3 class="centralHeadersmall">I'm a creative person. Used to play music. Now a days I hardly get anytime to do so. However, I do find to read books whenever I can.</h3></p>
-            </div><br>
-            <hr>
-            <div class="centralHeader">
-                <h2>PERSONAL INFORMATION</h2>
-                <p></p>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html" class="active">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="myblog.html">BookReviews</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="email.html" class="cta-button">Email Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-page">
+        <div class="about-header">
+            <h1 class="glitch" data-text="Hi 👋, I'm Tahmid (aka Raven)">Hi 👋, I'm Tahmid (aka Raven)</h1>
+            <h2>Full-Stack Developer, Game Creator, and ML-DL Enthusiast</h2>
+            <div class="typing-container">
+                <div class="typing-text">Fullstack | Game Dev | Always Learning Something</div>
             </div>
-    
-            <div class="boxer-main">
-                <ul class="centralHeadersmall">
-                    <li><strong>Full Name:</strong><br> Tahmid Iqbal</li>
-                    <li><strong>Date of Birth:</strong><br> 17th August</li>
-                    <li><strong>Nationality:</strong><br> Bangladeshi</li>
-                    <li><strong>Marital Status:</strong><br> Single</li>
-                    <li><strong>Address:</strong><br> Aftabnagar, Block-F, Sector-2</li>
-                    <li><strong>Phone Number:</strong><br> 01773714424</li>
-                    <li><strong>Email Address:</strong><br> ravenendless@gmail.com</li>
-                </ul>
-            </div><br>
-    
-            <div class="centralHeader">
-                <h2>HOBBIES</h2>
+        </div>
+
+        <section class="about-section">
+            <h2>✨ About Me</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Currently Building</h3>
+                    <p>Apps with Flutter+Firebase</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Creating Games</h3>
+                    <p>Check out my games on <a href="https://ravendeath.itch.io/" target="_blank">Itch.io</a></p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Exploring</h3>
+                    <p>Django, React, and AI</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-star"></i>
+                    <h3>Goals</h3>
+                    <p>To innovate in tech, one project at a time!</p>
+                </div>
             </div>
-            <div class="boxer-main">
-                <ul class="centralHeadersmall">
-                    <li>Reading Books</li>
-                    <li>Watching Movies</li>
-                    <li>Binging TV Series</li>
-                </ul>
+        </section>
+
+        <section class="featured-project">
+            <h2>🎮 Featured Project: RougeKnight</h2>
+            <div class="project-showcase">
+                <div class="video-container">
+                    <img src="https://img.youtube.com/vi/9yOeBbe6nXI/maxresdefault.jpg" alt="RougeKnight Gameplay">
+                    <div class="project-links">
+                        <a href="https://www.youtube.com/watch?v=9yOeBbe6nXI" target="_blank" class="project-btn">
+                            <i class="fab fa-youtube"></i> Watch Gameplay
+                        </a>
+                        <a href="https://ravendeath.itch.io/rougeknight" target="_blank" class="project-btn">
+                            <i class="fas fa-download"></i> Download Game
+                        </a>
+                    </div>
+                </div>
             </div>
-    
-                <div class="centralHeader">
-                    <h2 class="centralHeadersmall">Get to know me w/ popculture:
-                        <title>Favorite List</title>
-                    </head>
-                    <body>
-                    
-                        <table class="favorite-table">
-                            <thead>
-                                <tr>
-                                    <th class="category-header">Favorite Books</th>
-                                    <th class="category-header">Favorite Movies</th>
-                                    <th class="category-header">Favorite TV Series</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1. 1984</td>
-                                    <td>1. Perfect Blue</td>
-                                    <td>1. Breaking Bad</td>
-                                </tr>
-                                <tr>
-                                    <td>2. Good Omens</td>
-                                    <td>2. Taxi Driver</td>
-                                    <td>2. Vikings</td>
-                                </tr>
-                                <tr>
-                                    <td>3. Monster</td>
-                                    <td>3. Empire Strikes Back</td>
-                                    <td>3. Lost</td>
-                                </tr>
-                                <tr>
-                                    <td>4. One Piece</td>
-                                    <td>4. Return of The King</td>
-                                    <td>4. Punisher</td>
-                                </tr>
-                                <tr>
-                                    <td>5. A Song of ICE & Fire</td>
-                                    <td>5. 300</td>
-                                    <td>5. The Walking Dead</td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </h2>
+        </section>
+
+        <section class="skills-section">
+            <h2>🛠️ Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++">
+                    <span>C++</span>
                 </div>
-    
-                <div class="centralHeader">
-                    <h2>Favorite Links:</h2>
-                    
+                <div class="skill-item">
+                    <img src="https://img.icons8.com/color/48/000000/flutter.png" alt="Flutter">
+                    <span>Flutter</span>
                 </div>
-                </section>
+                <div class="skill-item">
+                    <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="Firebase">
+                    <span>Firebase</span>
                 </div>
-    
+                <div class="skill-item">
+                    <img src="https://img.icons8.com/plasticine/100/000000/react.png" alt="React">
+                    <span>React</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://img.icons8.com/color/48/000000/django.png" alt="Django">
+                    <span>Django</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://img.icons8.com/color/48/000000/python--v1.png" alt="Python">
+                    <span>Python</span>
+                </div>
+                <div class="skill-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" alt="Godot">
+                    <span>Godot</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>📫 Connect with Me</h2>
+            <div class="contact-links">
+                <a href="mailto:tahmidendless@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>tahmidendless@gmail.com</span>
+                </a>
+                <a href="https://tahmidraven.online/" class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Portfolio</span>
+                </a>
+                <a href="https://ravendeath.itch.io/" class="contact-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Itch.io Games</span>
+                </a>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer">
-            <div class="row">
-                <a href="https://github.com/TahmidRaven"><i class="fa fa-github"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100073382900528"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/tahmid_raven/"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@tahmidraven"><i class="fa fa-youtube"></i></a>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="contacts.html">Contact</a>
+
             </div>
-
-            <div class="row">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutme.html">About Me</a></li>
-                    <li><a href="contacts.html">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="https://www.bracu.ac.bd/" target="_blank">BRACU Website</a></li>
-                    <a href="https://piazza.com/bracu.ac.bd/spring2023/cse391/home" target="_blank">Piazza</a>
-
-
-                </ul>
-            </div>
-
-            <div class="row font-bold">
-                Tahmid Iqbal Copyright © 2024 Tahmid - All rights reserved || Designed By: Tahmid
-            </div>
-            <button id="backToTopBtn">Back 2 Top</button>
-
+            <p class="copyright">Tahmid Iqbal © 2024 - All rights reserved</p>
         </div>
-        
+        <button id="backToTop" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </footer>
-</div>
-<div class="location-modification">
-    <script>
-        document.write('Page location at: ' + window.location.href + '<br>');
-        document.write('Last modified on: ' + document.lastModified);
-    </script>
-    <script src="js/resp.js"></script>
 
-</div>
-
-
+    <script src="js/main.js"></script>
 </body>
-
 </html>

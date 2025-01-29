@@ -1,97 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="space-grotesk-container">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="css/style.css" class="css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <title>Tahmid Raven- who am i?</title>
-
+    <title>Contact Me - Tahmid Raven</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/linux.png" type="image/png">
+    <style>
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
 
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(66, 185, 131, 0.2);
+        }
+
+        .contact-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .contact-card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateX(5px);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px) rotate(360deg);
+            color: white;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #3da876;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body class="space-grotesk-container color-white">
-    <nav class="navbar background height-nav">
-        <ul class="nav-list visibility">
-            <div class="raven">
-                <img src="images/luchadortocat.png" alt="an image of github luchadortocat. this is how github looks in my eyes">
-                <br>
-                <b class="fonta">TAHMID'S PORTFOLIO</b>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="images/luchadortocat.png" alt="Github Luchadortocat">
+                <span class="logo-text">TAHMID'S PORTFOLIO</span>
             </div>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutme.html">AboutMe</a></li>
-            <li><a href="https://github.com/TahmidRaven/Uni_Management_Engagement_Sys">Projects</a></li>
-            <li><a href="myblog.html">MyBlog</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-            <li><a href="email.html">
-                <button class="butt butt-email">Email Me</button></a>
-            </li>
-        </ul>
-        <div class="rightNav visibility">
-            <input type="text" name="search" id="search">
-            <button class="butt butt-small">Search</button>
-        </div>
-        <div class="burger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+            
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="myblog.html">BookReviews</a></li>
+                <li><a href="contacts.html" class="active">Contact</a></li>
+                <li><a href="email.html" class="cta-button">Email Me</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section class="background sec01">
-
-
-
-
-    </section>
-
-    <footer>
-        <div class="footer">
-            <div class="row">
-                <a href="https://github.com/TahmidRaven"><i class="fa fa-github"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100073382900528"><i class="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/tahmid_raven/"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@tahmidraven"><i class="fa fa-youtube"></i></a>
-            </div>
-
-            <div class="row">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutme.html">About Me</a></li>
-                    <li><a href="contacts.html">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="https://www.bracu.ac.bd/" target="_blank">BRACU Website</a></li>
-                    <a href="https://piazza.com/bracu.ac.bd/spring2023/cse391/home" target="_blank">Piazza</a>
-
-
-                </ul>
-            </div>
-
-            <div class="row font-bold">
-                Tahmid Iqbal Copyright © 2024 Tahmid - All rights reserved || Designed By: Tahmid
-            </div>
-            <button id="backToTopBtn">Back 2 Top</button>
-
+    <main class="about-page">
+        <div class="about-header">
+            <h1 class="glitch" data-text="Contact Me">Contact Me</h1>
+            <h2>Let's Connect and Create Something Amazing</h2>
         </div>
-        
+
+        <div class="contact-container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card-content">
+                        <i class="contact-icon fas fa-envelope"></i>
+                        <h3 class="contact-title">Personal Email</h3>
+                        <p class="contact-info">For general inquiries and collaborations</p>
+                        <a href="mailto:tahmidraven@gmail.com" class="contact-link">
+                            tahmidraven@gmail.com
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-content">
+                        <i class="contact-icon fas fa-briefcase"></i>
+                        <h3 class="contact-title">Business Email</h3>
+                        <p class="contact-info">For business opportunities and partnerships</p>
+                        <a href="mailto:tahmidendless@gmail.com" class="contact-link">
+                            tahmidendless@gmail.com
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-card-content">
+                        <i class="contact-icon fab fa-whatsapp"></i>
+                        <h3 class="contact-title">WhatsApp</h3>
+                        <p class="contact-info">Quick messages and informal chat</p>
+                        <a href="https://wa.me/01773714424" class="contact-link">
+                            +880 1773714424
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://github.com/TahmidRaven" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100073382900528" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/tahmid_raven/" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@tahmidraven" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+            <div class="contact-form">
+                <h3 class="contact-title">Send Me a Message</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="contacts.html">Contact</a>
+ 
+            </div>
+            <p class="copyright">Tahmid Iqbal © 2024 - All rights reserved</p>
+        </div>
+        <button id="backToTop" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </footer>
 
-</div>
-<div class="location-modification">
-    <script>
-        document.write('Page location at: ' + window.location.href + '<br>');
-        document.write('Last modified on: ' + document.lastModified);
-    </script>
-    <script src="js/resp.js" defer></script>
-
-</div>
-
+    <script src="js/main.js"></script>
 </body>
-
 </html>
-
