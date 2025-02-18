@@ -19,11 +19,11 @@ The **main** and **newsite** branches contain the previous versions of the websi
 ## Contact Information
 
 For any issues or further information, please contact [TahmidRaven](https://github.com/TahmidRaven).
-
+Checkout the website @  [tahmidraven.online](https://tahmidraven.online)
 
 ## Screenshots
 
-The current versions of the website are shown below:
+The current version of the website is shown below: 
 
 ![image](https://github.com/user-attachments/assets/aad26fae-92a4-49c6-aa36-ebb0ec04f9cd)
 ![image](https://github.com/user-attachments/assets/53dc8401-0dda-438b-a6fb-6dcc4b990483)
