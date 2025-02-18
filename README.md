@@ -12,9 +12,10 @@ The **main** and **newsite** branches contain the previous versions of the websi
 2. The **deploy** branch will eventually be merged when ready for deployment.
 3. Any updates or changes will be reflected in the **deploy** branch once merged.
 
-## Current Versions
+## Contact Information
 
-The current versions of the website are available in the **main** and **newsite** branches.
+For any issues or further information, please contact [TahmidRaven](https://github.com/TahmidRaven).
+
 
 ## Screenshots
 
@@ -23,6 +24,4 @@ The current versions of the website are shown below:
 ![Screenshot 1](path_to_screenshot1.png)
 ![Screenshot 2](path_to_screenshot2.png)
 
-## Contact Information
 
-For any issues or further information, please contact [TahmidRaven](https://github.com/TahmidRaven).
