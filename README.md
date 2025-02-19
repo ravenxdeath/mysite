@@ -3,10 +3,11 @@
 # Website Link
 
 You can access the website at: [tahmidraven.online](https://tahmidraven.online)
+**deploy** branch is the current website version 
 
 ## Deployment Information
 
-As of **February 19, 2025**, the website is being deployed from the **deploy** branch. However, please note that the **deploy** branch is currently **not being merged**.
+As of **February 19, 2025**, the website is being deployed from the **deploy** branch. However, please note that the **deploy** branch is currently **not being merged**. 
 
 The **main** and **newsite** branches contain the previous versions of the website, which are currently live.
 
