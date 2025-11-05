@@ -1,0 +1,426 @@
+%-------------------------
+% Modern Professional CV
+% Author: Enhanced by Grok (xAI)
+% Based on: sb2nov/resume + Deedy-Resume inspirations
+% License: MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[sfdefault]{roboto}
+\usepackage{fontawesome5}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage[colorlinks=true, linkcolor=darkblue, urlcolor=darkblue, citecolor=darkblue]{hyperref}
+
+
+\input{glyphtounicode}
+
+% ---------- Colors ----------
+\definecolor{accent}{HTML}{2c3e50}   % Dark blue-gray
+\definecolor{heading}{HTML}{34495e}
+\definecolor{subheading}{HTML}{7f8c8d}
+\definecolor{darkblue}{RGB}{40,24,80}  % dark blue
+
+
+% ---------- Page Style ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ---------- Margins ----------
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.2in}
+
+% ---------- Section Formatting ----------
+\titleformat{\section}
+  {\vspace{-6pt}\scshape\large\color{heading}\raggedright}{}{0em}{}[\color{accent}\titlerule\vspace{-6pt}]
+
+% ---------- Custom Commands ----------
+\newcommand{\resumeItem}[1]{\item\small{#1\vspace{-2pt}}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+  \begin{tabularx}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & \small#2 \\
+    \textit{\small#3} & \small#4 \\
+  \end{tabularx}\vspace{-8pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \begin{tabularx}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \small#1 & \small#2 \\
+  \end{tabularx}\vspace{-6pt}
+}
+
+\newcommand{\resumeIconText}[2]{{\color{accent}#1}~\small#2}
+
+% Skill bar (optional, comment out if not needed)
+\newcommand{\skillbar}[2]{
+  \small #1 \hfill
+  \begin{tikzpicture}
+    \fill[accent] (0,0) rectangle (#2*0.35, 0.12);
+    \draw[accent!30] (0,0) rectangle (3.5, 0.12);
+  \end{tikzpicture}
+}
+
+% List setups
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-5pt}}
+
+% ---------- PDF Metadata ----------
+\pdfgentounicode=1
+
+%-------------------------------------------
+\begin{document}
+
+% ========== HEADER ==========
+\begin{center}
+    {\Huge \scshape \color{heading} Tahmid Iqbal} \\ \vspace{6pt}
+    \small
+    \resumeIconText{\faPhone}{+880 1773 714424} $|$
+    \href{mailto:tahmidraven@gmail.com}{\resumeIconText{\faEnvelope}{\underline{tahmidraven@gmail.com}}} $|$
+    \href{https://www.linkedin.com/in/tahmidiqbal}{\resumeIconText{\faLinkedin}{\underline{in/tahmidiqbal}}} $|$
+    \href{https://ravendeath.itch.io}{\resumeIconText{\faGamepad}{\underline{ravendeath.itch.io}}} $|$
+    \newline
+    \href{https://tahmidraven.online}{\resumeIconText{\faGlobe}{\underline{tahmidraven.online}}} \\
+    \vspace{2pt}
+    \resumeIconText{\faMapMarker}{South Badda, Dhaka, Bangladesh}
+\end{center}
+
+% ========== SUMMARY ==========
+\section{Summary}
+\small{\justifying
+  Game Developer with hands-on experience in Unity, Godot, Flutter, and web Frameworks. Recent CS graduate from BRAC University with a track record of building diverse projects—from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about crafting interactive experiences, solving complex problems, and continuously learning cutting-edge tech.
+}\vspace{-6pt}
+
+% ========== EDUCATION ==========
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {BRAC University}{Dhaka, Bangladesh}
+    {Bachelor of Science in Computer Science \& Engineering (CGPA: 3.26)}{Fall 2021 -- Summer 2025}
+  \resumeSubheading
+    {Dinajpur Government College}{Dinajpur, Bangladesh}
+    {Higher Secondary Certificate - HSC (GPA: 5.00)}{2020}
+  \resumeSubheading
+    {Dinajpur Zilla School}{Dinajpur, Bangladesh}
+    {Secondary School Certificate - SSC (GPA: 5.00)}{2018}
+\resumeSubHeadingListEnd
+
+% ========== TECHNICAL SKILLS ==========
+% ========== TECHNICAL SKILLS (CLEAN, NO PROFICIENCY) ==========
+\section{Technical Skills}
+\resumeItemListStart
+  \resumeItem{\textbf{Game Engines:} Godot (GDScript), Unreal (C\#)}
+  \resumeItem{\textbf{Languages:} Python, C++, GdScript, Django, Dart, C, HTML, Tailwind CSS, PHP, JavaScript, React}
+  \resumeItem{\textbf{Frameworks \& Libraries:} Flutter, MERN Stack, ML/DL, React Native}
+  \resumeItem{\textbf{Tools \& Platforms:} Git, Linux, MySQL, MariaDB, STM-F446RE, Arduino, Raspberry Pi 4}
+
+\resumeItemListEnd
+
+% % ========== EXPERIENCE ==========
+% \section{Experience}
+% \resumeSubHeadingListStart
+
+%   \resumeSubheading
+%     {Director of Publication}{2024}
+%     {BRAC University Communication \& Language Club (BUCLC)}{Dhaka, Bangladesh}
+%     \resumeItemListStart
+%       \resumeItem{Joined to enhance communication skills; transitioned from introvert to confident collaborator}
+%       \resumeItem{Built connections and overcame social anxieties through team projects and events}
+%     \resumeItemListEnd
+
+%   \resumeSubheading
+%     {Director of Press Release}{2024}
+%     {BRAC University Computer Club (BUCC)}{Dhaka, Bangladesh}
+%     \resumeItemListStart
+%       \resumeItem{Improved formal writing skills by creating tech-related articles in a corporate-like environment}
+%       \resumeItem{Worked in a team to upgrade personal and professional capabilities}
+%     \resumeItemListEnd
+
+%   \resumeSubheading
+%     {Member, BRAC University Computer Club (BUCC)}{2021 -- 2025}
+%     {}{Dhaka, Bangladesh}
+%     \resumeItemListStart
+%       \resumeItem{Participated in events like IntraHactive 1.0, IT Career Guidelines, and AI Workshop}
+%     \resumeItemListEnd
+
+%   \resumeSubheading
+%     {Member, BRAC University Communication \& Language Club (BUCLC)}{2022 -- 2025}
+%     {}{Dhaka, Bangladesh}
+%     \resumeItemListStart
+%       \resumeItem{Engaged in events including SPEAKATHON, Speak Bold, Cultural Exchange, Through The Lens, and Vocal Verve}
+%     \resumeItemListEnd
+
+% \resumeSubHeadingListEnd
+
+
+
+% % ========== TRAININGS \& CERTIFICATIONS ==========
+% \section{Trainings \& Certifications}
+% \resumeItemListStart
+%   \resumeItem{Android Development -- Angela Yu, Udemy}
+%   \resumeItem{Machine Learning -- Andrew Ng}
+%   \resumeItem{Full-Stack JavaScript -- The Odin Project}
+%   \resumeItem{Duke of Edinburgh International Award -- Bronze Level}
+% \resumeItemListEnd
+
+% % ========== SOFT SKILLS ==========
+% \section{Soft Skills}
+% \resumeItemListStart
+%   \resumeItem{Team Collaboration, Problem-Solving, Time Management, Communication}
+% \resumeItemListEnd
+
+
+% {
+% \hypersetup{urlcolor=black, linkcolor=black}
+
+% ========== PROJECTS ==========
+\section{Projects}
+{\hypersetup{urlcolor=darkblue, linkcolor=darkblue}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Nintendo_XD}{\textbf{Nintendo\_XD: Retro Gaming Console }} $|$ \emph{emu8086 Assembly}}{2024}
+\resumeItemListStart
+  \resumeItem{Built a retro-inspired gaming console using 8086 assembly language}
+  \resumeItem{Features classic games: Wordle, Rock-Paper-Scissors, Number Guesser}
+  \resumeItem{Designed for educational and nostalgic gameplay; more titles in development}
+  \resumeItem{\href{https://github.com/TahmidRaven/Nintendo_XD}{Game Here}}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+  {\href{https://ravendeath.itch.io/rougeknight}{\textbf{RougeKnight: 2D Platformer Game}} $|$ \emph{Godot Engine, GDScript}}{2024}
+\resumeItemListStart
+  \resumeItem{Developed a rogue knight adventure game with coin collection mechanics}
+  \resumeItem{Built first level using free assets; live on itch.io}
+  \resumeItem{\href{https://ravendeath.itch.io/rougeknight}{Download \& Play}}
+  \resumeItem{\href{https://youtu.be/9yOeBbe6nXI}{Watch Gameplay}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://ravendeath.itch.io/pomokaijuu}{\textbf{PomoKaijuu: Mobile Productivity App}} $|$ \emph{Flutter, Firebase}}{2023}
+\resumeItemListStart
+  \resumeItem{Pomodoro-based app with task management, rewards, and gamification}
+  \resumeItem{Designed for productivity with intuitive UI/UX}
+  \resumeItem{Used GoogleAuth for authentication \& Firebase for Database}
+  %\resumeItem{More on \href{https://ravendeath.itch.io}{ravendeath.itch.io}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/TahmidRaven/Test-of-Strength}{\textbf{Test-of-Strength: 2D Action Game}} $|$ \emph{Python, OpenGL}}{2024}
+\resumeItemListStart
+  \resumeItem{Developed and animated player character movements, attack and block transitions using OpenGL}
+  \resumeItem{Visual design and character drawing pipeline in the \texttt{tahmid1\_drawing\_char} and \texttt{animation} branches}
+  \resumeItem{Integrated combat mechanics, stances, and boss poise system for a dynamic gameplay experience}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Test-of-Strength}{github.com/TahmidRaven/Test-of-Strength}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/TahmidRaven/Expedition_Compiler}{\textbf{Expedition Compiler}} $|$ \emph{C, Lex (Flex), Yacc (Bison)}}{2025}
+\resumeItemListStart
+  \resumeItem{Compiler Design project themed around a fantasy expedition through syntax and semantics}
+  \resumeItem{Implemented lexical analysis, syntax parsing, and modular symbol table system}
+  \resumeItem{Includes token and error logging with fantasy-styled structured outputs}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Expedition_Compiler}{github.com/TahmidRaven/Expedition\_Compiler}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/TahmidRaven/MordorSH}{\textbf{MordorSH: A Lord of The Rings Inspired UNIX Shell}} $|$ \emph{C, UNIX}}{2025}
+\resumeItemListStart
+  \resumeItem{A custom UNIX shell in C inspired by Tolkien’s Middle-earth, supporting core CLI operations}
+  \resumeItem{Implemented piping, I/O redirection, command sequencing, and history navigation features}
+  \resumeItem{Added themed commands like \texttt{neofetch}, \texttt{man}}
+  \resumeItem{For immersive experience created \texttt{mkdir,cd,ls,echo,exit} \& interrupt command}
+  %\resumeItem{\href{https://github.com/TahmidRaven/MordorSH}{github.com/TahmidRaven/MordorSH}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/TahmidRaven/Uni_Management_Engagement_Sys}{\textbf{Student Management \& Engagement System}} $|$ \emph{PHP, MySQL, HTML/CSS/JS}}{2023}
+\resumeItemListStart
+  \resumeItem{Student Community forum, transportation booking, and blood donation modules}
+  \resumeItem{Improved student engagement and system usability}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Uni_Management_Engagement_Sys}{github.com/TahmidRaven/Uni\_Management\_Engagement\_Sys}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+  {\href{https://github.com/TahmidRaven/care4all_medicenter}{\textbf{Care4All: Medical Web Platform}} $|$ \emph{MongoDB, Express.js, React, Node.js}}{2024}
+\resumeItemListStart
+  \resumeItem{Developed a healthcare platform serving humans and pets with appointment booking, \newline hospital locator, and knowledge base features}
+  \resumeItem{Integrated Google Maps API and secure patient-doctor communication routes}
+  \resumeItem{Designed responsive UI and scalable backend for smooth multi-user experience}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Budget_Like_A_Raven}{\textbf{Budget Like A Raven: Personal Finance App}} $|$ \emph{Flutter, Dart, Material Design}}{2025}
+\resumeItemListStart
+  \resumeItem{Built a cross-platform personal finance app to track income, expenses, remaining balance \& recent transactions}
+  \resumeItem{Developed intuitive UI with Flutter and Material Design for Android and iOS devices}
+  \resumeItem{Implemented features for adding, viewing, and resetting financial entries,\newline with plans for charts and category management}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Budget_Like_A_Raven}{github.com/TahmidRaven/Budget\_Like\_A\_Raven}}
+\resumeItemListEnd
+
+
+  \resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/pookie_scheduler_prototype-}{\textbf{pookie\_scheduler\_prototype: University Class Scheduler}} $|$ \emph{C++, Dart, Swift, CMake}}{2024}
+    \resumeItemListStart
+      \resumeItem{Built a personal university class scheduler that shows class times and locations,\newline adjusting schedules automatically during Ramadan}
+      \resumeItem{Developed cross-platform functionality for desktop and mobile using C++, Dart, and Swift}
+      \resumeItem{Integrated responsive UI updates and timetable logic for accurate scheduling}
+    \resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Smart_Coffee_Machine_ArduinoUno}{\textbf{Smart Coffee Machine}} $|$ \emph{Arduino Uno, C/C++, I2C, PWM, OneWire}}{2025}
+    \resumeItemListStart
+      \resumeItem{Designed an automated coffee machine integrating sensors, actuators, and microcontroller logic}
+      \resumeItem{Implemented brewing, mixing \& mug detection using IR sensors, PWM motors, and temperature monitoring}
+      \resumeItem{Communicated with OLED display via I2C and temperature sensors via OneWire for real-time feedback}
+      \resumeItem{\href{https://youtube.com/shorts/YfagplvcO6o}{Watch on YouTube}}
+    \resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/ShopieeMart}{\textbf{ShopieeMart: B2B and B2C Marketplace}} $|$ \emph{MongoDB, Node.js, React, Tailwind CSS}}{2024}
+    \resumeItemListStart
+      \resumeItem{Developed a full-stack marketplace supporting both B2B and B2C with admin CRUD functionalities}
+      \resumeItem{Built responsive frontend with React and Tailwind CSS and backend with Node.js and MongoDB}
+      \resumeItem{Configured secure environment and database connections for reliable operation}
+    \resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Yoga_Master_website}{\textbf{Yoga Master Website: MERN Project}} $|$ \emph{MongoDB, Express.js, React, Node.js}}{2024}
+    \resumeItemListStart
+      \resumeItem{Implemented authentication, CRUD operations, and admin panel for user and content management}
+      \resumeItem{Developed secure backend routes with Express.js and MongoDB}
+      \resumeItem{Enhanced frontend UI with React for improved user experience}
+    \resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/SolarOutcast}{\textbf{Solar Outcast: Top-Down Shooter Game}} $|$ \emph{Flutter, Dart, C++}}{2024}
+\resumeItemListStart
+  \resumeItem{Top-down space shooter game in Flutter which navigate the solar system and battle enemies}
+  \resumeItem{Implemented game mechanics including player movement, combat \& exploration}
+  \resumeItem{Game is live on itch.io: \href{https://ravendeath.itch.io/spaceoutcast-v1}{Play Now}}
+  %\resumeItem{\href{https://github.com/TahmidRaven/SolarOutcast}{github.com/TahmidRaven/SolarOutcast}}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/VendingMachine_FSM}{\textbf{VendingMachine\_FSM: \$60 Product Vending Machine}} $|$ \emph{Altera Quartus 8.1, Mealy FSM, Verilog, VHDL}}{2025}
+\resumeItemListStart
+  \resumeItem{Designed a Mealy-based finite state machine to manage a \$60 product vending machine problem}
+  \resumeItem{Implemented state diagram, Verilog code, and waveform simulations for accurate transaction handling}
+  \resumeItem{Developed hardware logic using Altera Quartus 8.1 integrating FSM concepts with VHDL and Verilog}
+  %\resumeItem{\href{https://github.com/TahmidRaven/VendingMachine_FSM}{github.com/TahmidRaven/VendingMachine\_FSM}}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/RAVEN_VSFS}{\textbf{RAVEN\_VSFS: Very Simple File System Validator and Repair Tool}} $|$ \emph{C, Makefile}}{2025}
+\resumeItemListStart
+  \resumeItem{Developed a file system image validator and repair utility for the Very Simple File System (VSFS) in C}
+  \resumeItem{Implemented superblock, inode, and data block validation with interactive repair capabilities for inconsistencies}
+  \resumeItem{Tracked block usage, detected duplicate/orphaned blocks, and ensured post-repair filesystem consistency}
+  %\resumeItem{\href{https://github.com/TahmidRaven/RAVEN_VSFS}{github.com/TahmidRaven/RAVEN\_VSFS}}
+\resumeItemListEnd
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Ford-Car-Price-Prediction}{\textbf{Ford Car Price Prediction}} $|$ \emph{Python, Jupyter Notebook, Machine Learning}}{2024}
+\resumeItemListStart
+  \resumeItem{Built a model to predict Ford car prices with 88\% accuracy using Logistic Regression}
+  \resumeItem{Compared Logistic and Linear Regression for classification vs regression tasks}
+  \resumeItem{Visualized model predictions and correlations to improve interpretability}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Ford-Car-Price-Prediction}{github.com/TahmidRaven/Ford-Car-Price-Prediction}}
+\resumeItemListEnd
+
+
+\resumeProjectHeading
+    {\href{https://github.com/TahmidRaven/Tiny_Projects_Vault}{\textbf{Tiny Projects Vault}} $|$ \emph{Python}}{2023 -- 2025}
+\resumeItemListStart
+  \resumeItem{PyChatbot: Attempted chatbot implementation using APIs (limited by API tokens)}
+  \resumeItem{Email Automata: Automated email handling with connection bug fixes}
+  \resumeItem{Password Generator: Simple password generator utility}
+  \resumeItem{QR Code Generator: Created QR codes with custom color palettes}
+  %\resumeItem{\href{https://github.com/TahmidRaven/Tiny_Projects_Vault}{github.com/TahmidRaven/Tiny\_Projects\_Vault}}
+\resumeItemListEnd
+
+% \hypersetup{urlcolor=blue, linkcolor=blue}
+% }
+
+
+% ========== EXPERIENCE ==========
+\section*{Experience}
+
+\noindent\textbf{Director of Press Release \& Publications} \hfill 2022 -- 2025\\
+\textit{\textbf{BRAC University Computer Club (BUCC), Dhaka, Bangladesh}}
+\begin{itemize}[leftmargin=1.2em]
+  \item Improved formal writing skills by creating tech-related articles in a corporate-like environment.
+  \item Worked in a team to upgrade personal and professional capabilities.
+  \item Participated in events like IntraHactive 1.0, IT Career Guidelines, and AI Workshop.
+\end{itemize}
+
+\vspace{0.3em}
+
+\noindent\textbf{Director of Publication} \hfill 2022 -- 2025\\
+\textit{\textbf{BRAC University Communication \& Language Club (BUCLC), Dhaka, Bangladesh}}
+\begin{itemize}[leftmargin=1.2em]
+  \item Joined to enhance communication skills; transitioned from introvert to confident collaborator.
+  \item Built connections and overcame social anxieties through team projects and events.
+  \item Organized SPEAKATHON, Speak Bold, Cultural Exchange, Through The Lens, and Vocal Verse.
+
+\end{itemize}
+% ========== END OF EXPERIENCE ==========
+
+
+
+
+
+% ========== TRAININGS \& CERTIFICATIONS ==========
+\section{Trainings \& Certifications}
+\resumeItemListStart
+  \resumeItem{Android Development -- Angela Yu, Udemy}
+  \resumeItem{Machine Learning -- Andrew Ng}
+  \resumeItem{Full-Stack JavaScript -- The Odin Project}
+  \resumeItem{Duke of Edinburgh International Award -- Bronze Level}
+\resumeItemListEnd
+
+% ========== SOFT SKILLS ==========
+\section{Soft Skills}
+\resumeItemListStart
+  \resumeItem{Team Collaboration, Problem-Solving, Time Management, Communication}
+\resumeItemListEnd
+% ========== EXTRACURRICULAR ACTIVITIES ==========
+\section{Extracurricular Activities \& Hobbies}
+\resumeItemListStart
+  \resumeItem{Robotics Enthusiast (Arduino \& Raspberry Pi)}
+  \resumeItem{Music (Rabindra Sangeet \& LOFI), Vocal Verse -- BUCLC}
+  \resumeItem{Volunteer Work: BRACU 16th Convocation, TechConnect Career Fair}
+  \resumeItem{Hobbies: Keyboard Modding, Competitive Gaming, Reading, Music}
+\resumeItemListEnd
+
+% ========== LANGUAGES ==========
+\section{Languages}
+\resumeItemListStart
+  \resumeItem{Bangla (Native), English (Proficient), Japanese (Beginner)}
+\resumeItemListEnd
+    
+\resumeSubHeadingListEnd
+\end{document}
+
