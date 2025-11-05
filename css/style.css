@@ -108,7 +108,7 @@ body {
     padding-top: 80px;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/vinlandsaga4k.png');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/vinlandsaga1k.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -170,6 +170,110 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+/* Image Carousel Styles */
+.image-carousel {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.carousel-container {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(66,185,131,0.3);
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: relative;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(66, 185, 131, 0.8);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 0;
+}
+
+.carousel-btn:hover {
+    background: rgba(66, 185, 131, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.image-carousel:hover .carousel-btn {
+    opacity: 1;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: var(--primary-color);
+    width: 30px;
+    border-radius: 5px;
 }
 
 .profile-img {
@@ -348,7 +452,7 @@ body {
 .about-page {
     padding-top: 80px;
     min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/vinlandsaga4k.png');
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/vinlandsaga1k.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
