@@ -8,70 +8,257 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/punchline.png" type="image/png">
     <style>
+        .projects-page-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background: linear-gradient(135deg, rgba(66, 185, 131, 0.1) 0%, rgba(26, 26, 26, 0.9) 100%);
+        }
+
         .projects-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        .project-category {
-            margin-bottom: 3rem;
+        /* Category Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+            padding: 1rem;
         }
 
-        .category-title {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(66, 185, 131, 0.3);
+            border-radius: 25px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 185, 131, 0.3);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(66, 185, 131, 0.1);
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(66, 185, 131, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(66, 185, 131, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(66, 185, 131, 0.2);
+            border-color: rgba(66, 185, 131, 0.5);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-year {
+            background: rgba(66, 185, 131, 0.2);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         .project-title {
             color: var(--text-light);
             font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .project-description {
             color: #ccc;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            min-height: 80px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(66, 185, 131, 0.15);
+            color: var(--primary-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(66, 185, 131, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(66, 185, 131, 0.25);
+            transform: scale(1.05);
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .project-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
+            padding: 0.7rem 1.3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3da876 100%);
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-size: 0.9rem;
+            font-weight: 600;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(66, 185, 131, 0.3);
         }
 
         .project-link:hover {
-            background-color: #3da876;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(66, 185, 131, 0.4);
+            background: linear-gradient(135deg, #3da876 0%, var(--primary-color) 100%);
+        }
+
+        .project-link.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-link.secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        /* Category Section Headers */
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(66, 185, 131, 0.3);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .category-title {
+            color: var(--text-light);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .category-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -102,202 +289,432 @@
     </nav>
 
     <main class="about-page">
-        <div class="about-header">
+        <div class="projects-page-header">
             <h1 class="glitch" data-text="My Projects">My Projects</h1>
-            <h2>A showcase of my work</h2>
+            <h2 style="color: var(--primary-color); margin-top: 1rem;">Showcasing Innovation & Creativity</h2>
         </div>
 
         <div class="projects-container">
-            <section class="project-category">
-                <h2 class="category-title">🎮 Game Development</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">Nintendo_XD: Retro Gaming Console</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> emu8086 Assembly | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Built a retro-inspired gaming console using 8086 assembly language. Features classic games: Wordle, Rock-Paper-Scissors, Number Guesser. Designed for educational and nostalgic gameplay; more titles in development.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Nintendo_XD" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                        <a href="https://github.com/TahmidRaven/Nintendo_XD" class="project-link" target="_blank"><i class="fas fa-gamepad"></i> Play Game</a>
-                    </div>
-                </div>
+            <!-- Category Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Projects</button>
+                <button class="filter-btn" data-category="game">🎮 Games</button>
+                <button class="filter-btn" data-category="mobile">📱 Mobile</button>
+                <button class="filter-btn" data-category="web">🌐 Web</button>
+                <button class="filter-btn" data-category="systems">💻 Systems</button>
+                <button class="filter-btn" data-category="hardware">🤖 Hardware</button>
+                <button class="filter-btn" data-category="ml">🤖 ML</button>
+                <button class="filter-btn" data-category="misc">🔧 Misc</button>
+            </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">RougeKnight: 2D Platformer Game</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Godot Engine, GDScript | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Developed a rogue knight adventure game with coin collection mechanics. Built first level using free assets; live on itch.io.</p>
-                    <div class="project-links">
-                        <a href="https://ravendeath.itch.io/rougeknight" class="project-link" target="_blank"><i class="fas fa-download"></i> Download & Play</a>
-                        <a href="https://youtu.be/9yOeBbe6nXI" class="project-link" target="_blank"><i class="fab fa-youtube"></i> Watch Gameplay</a>
-                    </div>
+            <!-- Game Development -->
+            <section class="category-section" data-category="game">
+                <div class="category-header">
+                    <i class="fas fa-gamepad category-icon"></i>
+                    <h2 class="category-title">Game Development</h2>
                 </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Test-of-Strength: 2D Action Game</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Python, OpenGL | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Developed and animated player character movements, attack and block transitions using OpenGL. Integrated combat mechanics, stances, and boss poise system for a dynamic gameplay experience.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Test-of-Strength" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-gamepad project-icon"></i>
+                                <h3 class="project-title">Nintendo_XD: Retro Gaming Console</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Built a retro-inspired gaming console using 8086 assembly language. Features classic games: Wordle, Rock-Paper-Scissors, Number Guesser. Designed for educational and nostalgic gameplay.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">emu8086 Assembly</span>
+                            <span class="tech-tag">Assembly</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Nintendo_XD" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Solar Outcast: Top-Down Shooter Game</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Flutter, Dart, C++ | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Top-down space shooter game in Flutter which navigate the solar system and battle enemies. Implemented game mechanics including player movement, combat & exploration.</p>
-                    <div class="project-links">
-                        <a href="https://ravendeath.itch.io/spaceoutcast-v1" class="project-link" target="_blank"><i class="fas fa-gamepad"></i> Play Game</a>
-                        <a href="https://github.com/TahmidRaven/SolarOutcast" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-gamepad project-icon"></i>
+                                <h3 class="project-title">RougeKnight: 2D Platformer</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Developed a rogue knight adventure game with coin collection mechanics. Built first level using free assets; live on itch.io.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GDScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ravendeath.itch.io/rougeknight" class="project-link" target="_blank"><i class="fas fa-download"></i> Play Game</a>
+                            <a href="https://youtu.be/9yOeBbe6nXI" class="project-link secondary" target="_blank"><i class="fab fa-youtube"></i> Watch</a>
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            <section class="project-category">
-                <h2 class="category-title">📱 Mobile Development</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">PomoKaijuu: Mobile Productivity App</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Flutter, Firebase | <strong>Year:</strong> 2023</p>
-                    <p class="project-description">Pomodoro-based app with task management, rewards, and gamification. Designed for productivity with intuitive UI/UX. Used GoogleAuth for authentication & Firebase for Database.</p>
-                    <div class="project-links">
-                        <a href="https://ravendeath.itch.io/pomokaijuu" class="project-link" target="_blank"><i class="fas fa-mobile-alt"></i> View App</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-gamepad project-icon"></i>
+                                <h3 class="project-title">Test-of-Strength: 2D Action</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Developed and animated player character movements, attack and block transitions using OpenGL. Integrated combat mechanics, stances, and boss poise system.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenGL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Test-of-Strength" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Budget Like A Raven: Personal Finance App</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Flutter, Dart, Material Design | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">Built a cross-platform personal finance app to track income, expenses, remaining balance & recent transactions. Developed intuitive UI with Flutter and Material Design for Android and iOS devices.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Budget_Like_A_Raven" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">pookie_scheduler_prototype: University Class Scheduler</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> C++, Dart, Swift, CMake | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Built a personal university class scheduler that shows class times and locations, adjusting schedules automatically during Ramadan. Developed cross-platform functionality for desktop and mobile using C++, Dart, and Swift.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/pookie_scheduler_prototype-" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="project-category">
-                <h2 class="category-title">🌐 Web Development (MERN Stack)</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">Care4All: Medical Web Platform</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> MongoDB, Express.js, React, Node.js | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Developed a healthcare platform serving humans and pets with appointment booking, hospital locator, and knowledge base features. Integrated Google Maps API and secure patient-doctor communication routes.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/care4all_medicenter" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">ShopieeMart: B2B and B2C Marketplace</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> MongoDB, Node.js, React, Tailwind CSS | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Developed a full-stack marketplace supporting both B2B and B2C with admin CRUD functionalities. Built responsive frontend with React and Tailwind CSS and backend with Node.js and MongoDB.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/ShopieeMart" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Yoga Master Website: MERN Project</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> MongoDB, Express.js, React, Node.js | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Implemented authentication, CRUD operations, and admin panel for user and content management. Developed secure backend routes with Express.js and MongoDB. Enhanced frontend UI with React for improved user experience.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Yoga_Master_website" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Student Management & Engagement System</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> PHP, MySQL, HTML/CSS/JS | <strong>Year:</strong> 2023</p>
-                    <p class="project-description">Student Community forum, transportation booking, and blood donation modules. Improved student engagement and system usability.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Uni_Management_Engagement_Sys" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-gamepad project-icon"></i>
+                                <h3 class="project-title">Solar Outcast: Top-Down Shooter</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Top-down space shooter game in Flutter navigating the solar system and battling enemies. Implemented game mechanics including player movement, combat & exploration.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ravendeath.itch.io/spaceoutcast-v1" class="project-link" target="_blank"><i class="fas fa-gamepad"></i> Play Now</a>
+                            <a href="https://github.com/TahmidRaven/SolarOutcast" class="project-link secondary" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="project-category">
-                <h2 class="category-title">💻 Systems Programming</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">MordorSH: A Lord of The Rings Inspired UNIX Shell</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> C, UNIX | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">A custom UNIX shell in C inspired by Tolkien's Middle-earth, supporting core CLI operations. Implemented piping, I/O redirection, command sequencing, and history navigation features. Added themed commands like neofetch, man, mkdir, cd, ls, echo, exit & interrupt command.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/MordorSH" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
+            <!-- Mobile Development -->
+            <section class="category-section" data-category="mobile">
+                <div class="category-header">
+                    <i class="fas fa-mobile-alt category-icon"></i>
+                    <h2 class="category-title">Mobile Development</h2>
                 </div>
-
-                <div class="project-card">
-                    <h3 class="project-title">Expedition Compiler</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> C, Lex (Flex), Yacc (Bison) | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">Compiler Design project themed around a fantasy expedition through syntax and semantics. Implemented lexical analysis, syntax parsing, and modular symbol table system. Includes token and error logging with fantasy-styled structured outputs.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Expedition_Compiler" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-mobile-alt project-icon"></i>
+                                <h3 class="project-title">PomoKaijuu: Productivity App</h3>
+                            </div>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-description">Pomodoro-based app with task management, rewards, and gamification. Designed for productivity with intuitive UI/UX. Used GoogleAuth for authentication & Firebase for Database.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Dart</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ravendeath.itch.io/pomokaijuu" class="project-link" target="_blank"><i class="fas fa-mobile-alt"></i> View App</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">RAVEN_VSFS: Very Simple File System Validator and Repair Tool</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> C, Makefile | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">Developed a file system image validator and repair utility for the Very Simple File System (VSFS) in C. Implemented superblock, inode, and data block validation with interactive repair capabilities for inconsistencies. Tracked block usage, detected duplicate/orphaned blocks, and ensured post-repair filesystem consistency.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/RAVEN_VSFS" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-mobile-alt project-icon"></i>
+                                <h3 class="project-title">Budget Like A Raven</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">Cross-platform personal finance app to track income, expenses, remaining balance & recent transactions. Developed intuitive UI with Flutter and Material Design.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Material Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Budget_Like_A_Raven" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-mobile-alt project-icon"></i>
+                                <h3 class="project-title">University Class Scheduler</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Personal university class scheduler showing class times and locations, adjusting schedules automatically during Ramadan. Cross-platform functionality for desktop and mobile.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">CMake</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/pookie_scheduler_prototype-" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="project-category">
-                <h2 class="category-title">🤖 Hardware & Embedded Systems</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">Smart Coffee Machine</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Arduino Uno, C/C++, I2C, PWM, OneWire | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">Designed an automated coffee machine integrating sensors, actuators, and microcontroller logic. Implemented brewing, mixing & mug detection using IR sensors, PWM motors, and temperature monitoring. Communicated with OLED display via I2C and temperature sensors via OneWire for real-time feedback.</p>
-                    <div class="project-links">
-                        <a href="https://youtube.com/shorts/YfagplvcO6o" class="project-link" target="_blank"><i class="fab fa-youtube"></i> Watch on YouTube</a>
-                        <a href="https://github.com/TahmidRaven/Smart_Coffee_Machine_ArduinoUno" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                    </div>
+            <!-- Web Development -->
+            <section class="category-section" data-category="web">
+                <div class="category-header">
+                    <i class="fas fa-globe category-icon"></i>
+                    <h2 class="category-title">Web Development (MERN Stack)</h2>
                 </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-heartbeat project-icon"></i>
+                                <h3 class="project-title">Care4All: Medical Platform</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Healthcare platform serving humans and pets with appointment booking, hospital locator, and knowledge base features. Integrated Google Maps API and secure communication routes.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/care4all_medicenter" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">VendingMachine_FSM: $60 Product Vending Machine</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Altera Quartus 8.1, Mealy FSM, Verilog, VHDL | <strong>Year:</strong> 2025</p>
-                    <p class="project-description">Designed a Mealy-based finite state machine to manage a $60 product vending machine problem. Implemented state diagram, Verilog code, and waveform simulations for accurate transaction handling. Developed hardware logic using Altera Quartus 8.1 integrating FSM concepts with VHDL and Verilog.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/VendingMachine_FSM" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-shopping-cart project-icon"></i>
+                                <h3 class="project-title">ShopieeMart: Marketplace</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Full-stack marketplace supporting both B2B and B2C with admin CRUD functionalities. Built responsive frontend with React and Tailwind CSS and backend with Node.js and MongoDB.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/ShopieeMart" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-spa project-icon"></i>
+                                <h3 class="project-title">Yoga Master Website</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Implemented authentication, CRUD operations, and admin panel for user and content management. Developed secure backend routes with Express.js and MongoDB.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Yoga_Master_website" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-university project-icon"></i>
+                                <h3 class="project-title">Student Management System</h3>
+                            </div>
+                            <span class="project-year">2023</span>
+                        </div>
+                        <p class="project-description">Student Community forum, transportation booking, and blood donation modules. Improved student engagement and system usability.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">HTML/CSS/JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Uni_Management_Engagement_Sys" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="project-category">
-                <h2 class="category-title">🤖 Machine Learning</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">Ford Car Price Prediction</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Python, Jupyter Notebook, Machine Learning | <strong>Year:</strong> 2024</p>
-                    <p class="project-description">Built a model to predict Ford car prices with 88% accuracy using Logistic Regression. Compared Logistic and Linear Regression for classification vs regression tasks. Visualized model predictions and correlations to improve interpretability.</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Ford-Car-Price-Prediction" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            <!-- Systems Programming -->
+            <section class="category-section" data-category="systems">
+                <div class="category-header">
+                    <i class="fas fa-terminal category-icon"></i>
+                    <h2 class="category-title">Systems Programming</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-terminal project-icon"></i>
+                                <h3 class="project-title">MordorSH: UNIX Shell</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">Custom UNIX shell in C inspired by Tolkien's Middle-earth, supporting core CLI operations. Implemented piping, I/O redirection, command sequencing, and history navigation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">UNIX</span>
+                            <span class="tech-tag">Shell</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/MordorSH" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-code project-icon"></i>
+                                <h3 class="project-title">Expedition Compiler</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">Compiler Design project themed around a fantasy expedition through syntax and semantics. Implemented lexical analysis, syntax parsing, and modular symbol table system.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Lex (Flex)</span>
+                            <span class="tech-tag">Yacc (Bison)</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Expedition_Compiler" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-hdd project-icon"></i>
+                                <h3 class="project-title">RAVEN_VSFS: File System Tool</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">File system image validator and repair utility for the Very Simple File System (VSFS) in C. Implemented superblock, inode, and data block validation with interactive repair capabilities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Makefile</span>
+                            <span class="tech-tag">File Systems</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/RAVEN_VSFS" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section class="project-category">
-                <h2 class="category-title">🔧 Miscellaneous Projects</h2>
-                
-                <div class="project-card">
-                    <h3 class="project-title">Tiny Projects Vault</h3>
-                    <p class="project-description"><strong>Tech Stack:</strong> Python | <strong>Year:</strong> 2023 - 2025</p>
-                    <p class="project-description">Collection of small utility projects including: PyChatbot (attempted chatbot implementation using APIs), Email Automata (automated email handling with connection bug fixes), Password Generator (simple password generator utility), QR Code Generator (created QR codes with custom color palettes).</p>
-                    <div class="project-links">
-                        <a href="https://github.com/TahmidRaven/Tiny_Projects_Vault" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            <!-- Hardware & Embedded Systems -->
+            <section class="category-section" data-category="hardware">
+                <div class="category-header">
+                    <i class="fas fa-microchip category-icon"></i>
+                    <h2 class="category-title">Hardware & Embedded Systems</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-coffee project-icon"></i>
+                                <h3 class="project-title">Smart Coffee Machine</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">Automated coffee machine integrating sensors, actuators, and microcontroller logic. Implemented brewing, mixing & mug detection using IR sensors, PWM motors, and temperature monitoring.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Arduino Uno</span>
+                            <span class="tech-tag">C/C++</span>
+                            <span class="tech-tag">I2C</span>
+                            <span class="tech-tag">PWM</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://youtube.com/shorts/YfagplvcO6o" class="project-link" target="_blank"><i class="fab fa-youtube"></i> Watch Demo</a>
+                            <a href="https://github.com/TahmidRaven/Smart_Coffee_Machine_ArduinoUno" class="project-link secondary" target="_blank"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-cog project-icon"></i>
+                                <h3 class="project-title">Vending Machine FSM</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">Mealy-based finite state machine to manage a $60 product vending machine problem. Implemented state diagram, Verilog code, and waveform simulations for accurate transaction handling.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Verilog</span>
+                            <span class="tech-tag">VHDL</span>
+                            <span class="tech-tag">FSM</span>
+                            <span class="tech-tag">Altera Quartus</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/VendingMachine_FSM" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Machine Learning -->
+            <section class="category-section" data-category="ml">
+                <div class="category-header">
+                    <i class="fas fa-brain category-icon"></i>
+                    <h2 class="category-title">Machine Learning</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-car project-icon"></i>
+                                <h3 class="project-title">Ford Car Price Prediction</h3>
+                            </div>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <p class="project-description">Built a model to predict Ford car prices with 88% accuracy using Logistic Regression. Compared Logistic and Linear Regression for classification vs regression tasks.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Jupyter</span>
+                            <span class="tech-tag">Logistic Regression</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Ford-Car-Price-Prediction" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Miscellaneous Projects -->
+            <section class="category-section" data-category="misc">
+                <div class="category-header">
+                    <i class="fas fa-toolbox category-icon"></i>
+                    <h2 class="category-title">Miscellaneous Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-box project-icon"></i>
+                                <h3 class="project-title">Tiny Projects Vault</h3>
+                            </div>
+                            <span class="project-year">2023-2025</span>
+                        </div>
+                        <p class="project-description">Collection of small utility projects: PyChatbot, Email Automata, Password Generator, QR Code Generator. Various Python utilities for automation and productivity.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Utilities</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TahmidRaven/Tiny_Projects_Vault" class="project-link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -310,7 +727,6 @@
                 <a href="index.html">Home</a>
                 <a href="aboutme.html">About Me</a>
                 <a href="contacts.html">Contact</a>
- 
             </div>
             <p class="copyright">Tahmid Iqbal © 2025 - All rights reserved</p>
         </div>
@@ -320,5 +736,38 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Category Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const categorySections = document.querySelectorAll('.category-section');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const category = this.getAttribute('data-category');
+
+                    // Show/hide sections based on filter
+                    categorySections.forEach(section => {
+                        if (category === 'all' || section.getAttribute('data-category') === category) {
+                            section.style.display = 'block';
+                            // Animate cards
+                            const cards = section.querySelectorAll('.project-card');
+                            cards.forEach((card, index) => {
+                                card.style.animation = `fadeInUp 0.6s ease forwards`;
+                                card.style.animationDelay = `${index * 0.1}s`;
+                            });
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
