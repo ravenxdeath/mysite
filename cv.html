@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Tahmid Iqbal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="images/punchline.png" type="image/png">
+    <style>
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .cv-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .cv-header h1 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .cv-header .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .cv-header .contact-info a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cv-header .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .cv-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .cv-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(66, 185, 131, 0.3);
+        }
+
+        .cv-section p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .cv-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .cv-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-item-title {
+            font-weight: bold;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .cv-item-org {
+            color: var(--primary-color);
+            font-style: italic;
+            margin-top: 0.25rem;
+        }
+
+        .cv-item-date {
+            color: #999;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .cv-item-location {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .cv-item ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            color: #ccc;
+        }
+
+        .cv-item li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .cv-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .cv-item a:hover {
+            text-decoration: underline;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .skill-category strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-cv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .download-cv-btn:hover {
+            background-color: #3da876;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            .navbar, .footer, .download-cv-btn {
+                display: none;
+            }
+            .cv-container {
+                max-width: 100%;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cv-item-header {
+                flex-direction: column;
+            }
+            .cv-item-date {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <img src="images/punchline.png" alt="Github Luchadortocat">
+                <span class="logo-text">TAHMID'S PORTFOLIO</span>
+            </div>
+            
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="myblog.html">BookReviews</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="cv.html" class="active">CV</a></li>
+                <li><a href="email.html" class="cta-button">Email Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="about-page">
+        <div class="about-header">
+            <h1 class="glitch" data-text="Curriculum Vitae">Curriculum Vitae</h1>
+            <h2>Tahmid Iqbal</h2>
+        </div>
+
+        <div class="cv-container">
+             <div style="text-align: center; margin-bottom: 2rem;">
+                 <a href="TAHMID_IQBAL_GD_Nov25.pdf" download class="download-cv-btn">
+                     <i class="fas fa-download"></i> Download My CV PDF
+                 </a>
+             </div>
+
+            <!-- Header -->
+            <div class="cv-header">
+                <h1>Tahmid Iqbal</h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +880 1773 714424</span>
+                    <span>|</span>
+                    <a href="mailto:tahmidraven@gmail.com"><i class="fas fa-envelope"></i> tahmidraven@gmail.com</a>
+                    <span>|</span>
+                    <a href="https://www.linkedin.com/in/tahmidiqbal" target="_blank"><i class="fab fa-linkedin"></i> in/tahmidiqbal</a>
+                    <span>|</span>
+                    <a href="https://ravendeath.itch.io" target="_blank"><i class="fas fa-gamepad"></i> ravendeath.itch.io</a>
+                    <span>|</span>
+                    <a href="https://tahmidraven.online" target="_blank"><i class="fas fa-globe"></i> tahmidraven.online</a>
+                </div>
+                <div style="margin-top: 0.5rem; color: #999;">
+                    <i class="fas fa-map-marker-alt"></i> South Badda, Dhaka, Bangladesh
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="cv-section">
+                <h2>Summary</h2>
+                <p>
+                    Game Developer with hands-on experience in Unity, Godot, Flutter, and web Frameworks. Recent CS graduate from BRAC University with a track record of building diverse projects—from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about crafting interactive experiences, solving complex problems, and continuously learning cutting-edge tech.
+                </p>
+            </div>
+
+            <!-- Education -->
+            <div class="cv-section">
+                <h2>Education</h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Bachelor of Science in Computer Science & Engineering (CGPA: 3.26)</div>
+                            <div class="cv-item-org">BRAC University</div>
+                            <div class="cv-item-location">Dhaka, Bangladesh</div>
+                        </div>
+                        <div class="cv-item-date">Fall 2021 -- Summer 2025</div>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Higher Secondary Certificate - HSC (GPA: 5.00)</div>
+                            <div class="cv-item-org">Dinajpur Government College</div>
+                            <div class="cv-item-location">Dinajpur, Bangladesh</div>
+                        </div>
+                        <div class="cv-item-date">2020</div>
+                    </div>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Secondary School Certificate - SSC (GPA: 5.00)</div>
+                            <div class="cv-item-org">Dinajpur Zilla School</div>
+                            <div class="cv-item-location">Dinajpur, Bangladesh</div>
+                        </div>
+                        <div class="cv-item-date">2018</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="cv-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-list">
+                    <div class="skill-category">
+                        <strong>Game Engines:</strong> Godot (GDScript), Unreal (C#)
+                    </div>
+                    <div class="skill-category">
+                        <strong>Languages:</strong> Python, C++, GDScript, Django, Dart, C, HTML, Tailwind CSS, PHP, JavaScript, React
+                    </div>
+                    <div class="skill-category">
+                        <strong>Frameworks & Libraries:</strong> Flutter, MERN Stack, ML/DL, React Native
+                    </div>
+                    <div class="skill-category">
+                        <strong>Tools & Platforms:</strong> Git, Linux, MySQL, MariaDB, STM-F446RE, Arduino, Raspberry Pi 4
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="cv-section">
+                <h2>Experience</h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Director of Press Release & Publications</div>
+                            <div class="cv-item-org">BRAC University Computer Club (BUCC), Dhaka, Bangladesh</div>
+                        </div>
+                        <div class="cv-item-date">2022 -- 2025</div>
+                    </div>
+                    <ul>
+                        <li>Improved formal writing skills by creating tech-related articles in a corporate-like environment.</li>
+                        <li>Worked in a team to upgrade personal and professional capabilities.</li>
+                        <li>Participated in events like IntraHactive 1.0, IT Career Guidelines, and AI Workshop.</li>
+                    </ul>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Director of Publication</div>
+                            <div class="cv-item-org">BRAC University Communication & Language Club (BUCLC), Dhaka, Bangladesh</div>
+                        </div>
+                        <div class="cv-item-date">2022 -- 2025</div>
+                    </div>
+                    <ul>
+                        <li>Joined to enhance communication skills; transitioned from introvert to confident collaborator.</li>
+                        <li>Built connections and overcame social anxieties through team projects and events.</li>
+                        <li>Organized SPEAKATHON, Speak Bold, Cultural Exchange, Through The Lens, and Vocal Verse.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="cv-section">
+                <h2>Projects</h2>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Nintendo_XD" target="_blank">Nintendo_XD: Retro Gaming Console</a> | <em>emu8086 Assembly</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Built a retro-inspired gaming console using 8086 assembly language</li>
+                        <li>Features classic games: Wordle, Rock-Paper-Scissors, Number Guesser</li>
+                        <li>Designed for educational and nostalgic gameplay; more titles in development</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://ravendeath.itch.io/rougeknight" target="_blank">RougeKnight: 2D Platformer Game</a> | <em>Godot Engine, GDScript</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed a rogue knight adventure game with coin collection mechanics</li>
+                        <li>Built first level using free assets; live on itch.io</li>
+                        <li><a href="https://youtu.be/9yOeBbe6nXI" target="_blank">Watch Gameplay</a></li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://ravendeath.itch.io/pomokaijuu" target="_blank">PomoKaijuu: Mobile Productivity App</a> | <em>Flutter, Firebase</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2023</div>
+                    </div>
+                    <ul>
+                        <li>Pomodoro-based app with task management, rewards, and gamification</li>
+                        <li>Designed for productivity with intuitive UI/UX</li>
+                        <li>Used GoogleAuth for authentication & Firebase for Database</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Test-of-Strength" target="_blank">Test-of-Strength: 2D Action Game</a> | <em>Python, OpenGL</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed and animated player character movements, attack and block transitions using OpenGL</li>
+                        <li>Visual design and character drawing pipeline in the tahmid1_drawing_char and animation branches</li>
+                        <li>Integrated combat mechanics, stances, and boss poise system for a dynamic gameplay experience</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Expedition_Compiler" target="_blank">Expedition Compiler</a> | <em>C, Lex (Flex), Yacc (Bison)</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Compiler Design project themed around a fantasy expedition through syntax and semantics</li>
+                        <li>Implemented lexical analysis, syntax parsing, and modular symbol table system</li>
+                        <li>Includes token and error logging with fantasy-styled structured outputs</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/MordorSH" target="_blank">MordorSH: A Lord of The Rings Inspired UNIX Shell</a> | <em>C, UNIX</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>A custom UNIX shell in C inspired by Tolkien's Middle-earth, supporting core CLI operations</li>
+                        <li>Implemented piping, I/O redirection, command sequencing, and history navigation features</li>
+                        <li>Added themed commands like neofetch, man, mkdir, cd, ls, echo, exit & interrupt command</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Uni_Management_Engagement_Sys" target="_blank">Student Management & Engagement System</a> | <em>PHP, MySQL, HTML/CSS/JS</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2023</div>
+                    </div>
+                    <ul>
+                        <li>Student Community forum, transportation booking, and blood donation modules</li>
+                        <li>Improved student engagement and system usability</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/care4all_medicenter" target="_blank">Care4All: Medical Web Platform</a> | <em>MongoDB, Express.js, React, Node.js</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed a healthcare platform serving humans and pets with appointment booking, hospital locator, and knowledge base features</li>
+                        <li>Integrated Google Maps API and secure patient-doctor communication routes</li>
+                        <li>Designed responsive UI and scalable backend for smooth multi-user experience</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Budget_Like_A_Raven" target="_blank">Budget Like A Raven: Personal Finance App</a> | <em>Flutter, Dart, Material Design</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Built a cross-platform personal finance app to track income, expenses, remaining balance & recent transactions</li>
+                        <li>Developed intuitive UI with Flutter and Material Design for Android and iOS devices</li>
+                        <li>Implemented features for adding, viewing, and resetting financial entries, with plans for charts and category management</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/pookie_scheduler_prototype-" target="_blank">pookie_scheduler_prototype: University Class Scheduler</a> | <em>C++, Dart, Swift, CMake</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Built a personal university class scheduler that shows class times and locations, adjusting schedules automatically during Ramadan</li>
+                        <li>Developed cross-platform functionality for desktop and mobile using C++, Dart, and Swift</li>
+                        <li>Integrated responsive UI updates and timetable logic for accurate scheduling</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Smart_Coffee_Machine_ArduinoUno" target="_blank">Smart Coffee Machine</a> | <em>Arduino Uno, C/C++, I2C, PWM, OneWire</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Designed an automated coffee machine integrating sensors, actuators, and microcontroller logic</li>
+                        <li>Implemented brewing, mixing & mug detection using IR sensors, PWM motors, and temperature monitoring</li>
+                        <li>Communicated with OLED display via I2C and temperature sensors via OneWire for real-time feedback</li>
+                        <li><a href="https://youtube.com/shorts/YfagplvcO6o" target="_blank">Watch on YouTube</a></li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/ShopieeMart" target="_blank">ShopieeMart: B2B and B2C Marketplace</a> | <em>MongoDB, Node.js, React, Tailwind CSS</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Developed a full-stack marketplace supporting both B2B and B2C with admin CRUD functionalities</li>
+                        <li>Built responsive frontend with React and Tailwind CSS and backend with Node.js and MongoDB</li>
+                        <li>Configured secure environment and database connections for reliable operation</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Yoga_Master_website" target="_blank">Yoga Master Website: MERN Project</a> | <em>MongoDB, Express.js, React, Node.js</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Implemented authentication, CRUD operations, and admin panel for user and content management</li>
+                        <li>Developed secure backend routes with Express.js and MongoDB</li>
+                        <li>Enhanced frontend UI with React for improved user experience</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/SolarOutcast" target="_blank">Solar Outcast: Top-Down Shooter Game</a> | <em>Flutter, Dart, C++</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Top-down space shooter game in Flutter which navigate the solar system and battle enemies</li>
+                        <li>Implemented game mechanics including player movement, combat & exploration</li>
+                        <li>Game is live on itch.io: <a href="https://ravendeath.itch.io/spaceoutcast-v1" target="_blank">Play Now</a></li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/VendingMachine_FSM" target="_blank">VendingMachine_FSM: $60 Product Vending Machine</a> | <em>Altera Quartus 8.1, Mealy FSM, Verilog, VHDL</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Designed a Mealy-based finite state machine to manage a $60 product vending machine problem</li>
+                        <li>Implemented state diagram, Verilog code, and waveform simulations for accurate transaction handling</li>
+                        <li>Developed hardware logic using Altera Quartus 8.1 integrating FSM concepts with VHDL and Verilog</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/RAVEN_VSFS" target="_blank">RAVEN_VSFS: Very Simple File System Validator and Repair Tool</a> | <em>C, Makefile</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2025</div>
+                    </div>
+                    <ul>
+                        <li>Developed a file system image validator and repair utility for the Very Simple File System (VSFS) in C</li>
+                        <li>Implemented superblock, inode, and data block validation with interactive repair capabilities for inconsistencies</li>
+                        <li>Tracked block usage, detected duplicate/orphaned blocks, and ensured post-repair filesystem consistency</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Ford-Car-Price-Prediction" target="_blank">Ford Car Price Prediction</a> | <em>Python, Jupyter Notebook, Machine Learning</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2024</div>
+                    </div>
+                    <ul>
+                        <li>Built a model to predict Ford car prices with 88% accuracy using Logistic Regression</li>
+                        <li>Compared Logistic and Linear Regression for classification vs regression tasks</li>
+                        <li>Visualized model predictions and correlations to improve interpretability</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">
+                                <a href="https://github.com/TahmidRaven/Tiny_Projects_Vault" target="_blank">Tiny Projects Vault</a> | <em>Python</em>
+                            </div>
+                        </div>
+                        <div class="cv-item-date">2023 -- 2025</div>
+                    </div>
+                    <ul>
+                        <li>PyChatbot: Attempted chatbot implementation using APIs (limited by API tokens)</li>
+                        <li>Email Automata: Automated email handling with connection bug fixes</li>
+                        <li>Password Generator: Simple password generator utility</li>
+                        <li>QR Code Generator: Created QR codes with custom color palettes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trainings & Certifications -->
+            <div class="cv-section">
+                <h2>Trainings & Certifications</h2>
+                <ul style="color: #ccc; line-height: 2;">
+                    <li>Android Development -- Angela Yu, Udemy</li>
+                    <li>Machine Learning -- Andrew Ng</li>
+                    <li>Full-Stack JavaScript -- The Odin Project</li>
+                    <li>Duke of Edinburgh International Award -- Bronze Level</li>
+                </ul>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="cv-section">
+                <h2>Soft Skills</h2>
+                <p style="color: #ccc;">Team Collaboration, Problem-Solving, Time Management, Communication</p>
+            </div>
+
+            <!-- Extracurricular Activities & Hobbies -->
+            <div class="cv-section">
+                <h2>Extracurricular Activities & Hobbies</h2>
+                <ul style="color: #ccc; line-height: 2;">
+                    <li>Robotics Enthusiast (Arduino & Raspberry Pi)</li>
+                    <li>Music (Rabindra Sangeet & LOFI), Vocal Verse -- BUCLC</li>
+                    <li>Volunteer Work: BRACU 16th Convocation, TechConnect Career Fair</li>
+                    <li>Hobbies: Keyboard Modding, Competitive Gaming, Reading, Music</li>
+                </ul>
+            </div>
+
+            <!-- Languages -->
+            <div class="cv-section">
+                <h2>Languages</h2>
+                <p style="color: #ccc;">Bangla (Native), English (Proficient), Japanese (Beginner)</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="contacts.html">Contact</a>
+            </div>
+            <p class="copyright">Tahmid Iqbal © 2025 - All rights reserved</p>
+        </div>
+        <button id="backToTop" aria-label="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
