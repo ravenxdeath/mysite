@@ -1,22 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Redirect</title>
-    <script>
-        window.onload = function() {
-            var email = "tahmidendless@gmail.com";  
-            var subject = encodeURIComponent("State your Business Here");
-            var body = encodeURIComponent("Hello, Tahmid. I would like to...");
-            window.location.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email + "&su=" + subject + "&body=" + body;
-        };
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Redirecting...</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .loading-icon {
+      font-size: 3rem;
+      color: #42b983;
+      margin-bottom: 1rem;
+      animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    a {
+      color: #42b983;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #3da876;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <script>
+    window.onload = function() {
+      const email = "tahmidendless@gmail.com";
+      const subject = encodeURIComponent("State your Business Here");
+      const body = encodeURIComponent("Hello, Tahmid. I would like to...");
+      const mailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+
+      // Redirect after a short delay (so the message is visible)
+      setTimeout(() => {
+        window.location.href = mailUrl;
+      }, 1200);
+
+      // Update the fallback link
+      document.getElementById("emailLink").href = mailUrl;
+    };
+  </script>
 </head>
+
 <body>
-    <p>If you are not redirected, <a id="emailLink" href="#">click here</a>.</p>
-    <script>
-        document.getElementById("emailLink").href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + "example@gmail.com" + "&su=" + "Subject Here" + "&body=" + "Hello, I would like to...";
-    </script>
+  <i class="fas fa-envelope loading-icon"></i>
+  <p>Redirecting you to Gmail...</p>
+  <a id="emailLink" href="#">Click here if you are not redirected automatically</a>
 </body>
 </html>

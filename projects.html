@@ -66,7 +66,7 @@
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(66, 185, 131, 0.1);
-            cursor: pointer;
+            cursor: default;
         }
 
         .project-card::before {
@@ -79,6 +79,7 @@
             background: linear-gradient(135deg, rgba(66, 185, 131, 0.1) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none; /* 🟢 Fix: allow link clicks */
         }
 
         .project-card:hover {
@@ -155,6 +156,8 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 10; /* 🟢 Fix: ensure above overlay */
         }
 
         .project-link {
@@ -170,6 +173,9 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(66, 185, 131, 0.3);
+            position: relative;
+            z-index: 20; /* 🟢 Fix */
+            pointer-events: auto; /* 🟢 Fix: clickable again */
         }
 
         .project-link:hover {
@@ -262,6 +268,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-content">
@@ -279,7 +286,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="cv.html">CV</a></li>
+                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
                 <li><a href="projects.html" class="active">Projects</a></li>
                 <li><a href="myblog.html">BookReviews</a></li>
                 <li><a href="contacts.html">Contact</a></li>
@@ -388,6 +395,30 @@
                             <a href="https://github.com/TahmidRaven/SolarOutcast" class="project-link secondary" target="_blank"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div>
+                                <i class="fas fa-gamepad project-icon"></i>
+                                <h3 class="project-title">MiniSnake: 30-Second Challenge</h3>
+                            </div>
+                            <span class="project-year">2025</span>
+                        </div>
+                        <p class="project-description">
+                            A fast-paced 30-second snake game built for the 10-Minute Build Challenge. 
+                            Eat, grow, and survive in this retro-inspired arcade mini-game — playable directly in your browser.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GDScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ravendeath.itch.io/minisnake" class="project-link" target="_blank">
+                                <i class="fas fa-play"></i> Play Game
+                            </a>
+                        </div>
+                    </div>
+                    
                 </div>
             </section>
 
@@ -691,6 +722,7 @@
                 </div>
             </section>
 
+
             <!-- Miscellaneous Projects -->
             <section class="category-section" data-category="misc">
                 <div class="category-header">
@@ -744,18 +776,12 @@
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
                     this.classList.add('active');
-
                     const category = this.getAttribute('data-category');
-
-                    // Show/hide sections based on filter
                     categorySections.forEach(section => {
                         if (category === 'all' || section.getAttribute('data-category') === category) {
                             section.style.display = 'block';
-                            // Animate cards
                             const cards = section.querySelectorAll('.project-card');
                             cards.forEach((card, index) => {
                                 card.style.animation = `fadeInUp 0.6s ease forwards`;
