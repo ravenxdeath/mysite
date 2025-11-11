@@ -113,17 +113,18 @@
       .glitch-preloader { font-size: 2rem; }
       .loading-text { font-size: 1rem; }
     }
-</style>
-</head>
-
-<body>
-
-<!-- Preloader -->
-<div id="preloader">
-  <img src="images/punchline.png" class="loader-logo" alt="Logo">
-  <h1 class="glitch-preloader" data-text="Tahmid Raven">Tahmid Raven</h1>
-  <p class="loading-text">Tahmid is landing… Initializing Raven.exe</p>
-</div>
+  </style>
+  </head>
+  
+  <body>
+  
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="images/punchline.png" class="loader-logo" alt="Logo">
+    <h1 class="glitch-preloader" data-text="Tahmid Raven">Tahmid Raven</h1>
+    <p class="loading-text">Tahmid is landing… Initializing Raven.exe</p>
+  </div>
+  
 
 <!-- Page Content -->
 <div id="content">
@@ -142,11 +143,11 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
                 <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html" class="active">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="myblog.html" class="active">BookReviews</a></li>
                 <li><a href="contacts.html">Contact</a></li>
                 <li><a href="email.html" class="cta-button">Email Me</a></li>
             </ul>
@@ -239,9 +240,10 @@
                     <div class="carousel-container">
                         <div class="carousel-track">
                             <div class="carousel-slide"><img src="images/TarcMuseumTour.webp" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
-                            <div class="carousel-slide"><img src="images/Cox23.jpg" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
                             <div class="carousel-slide"><img src="images/raven-main.jpg" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
+                            <div class="carousel-slide"><img src="images/Cox23.jpg" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
                             <div class="carousel-slide active"><img src="images/RS69.jpg" alt="Tahmid Raven" class="profile-img"></div>
+                            <div class="carousel-slide"><img src="images/cox25.jpg" alt="Tahmid Raven" class="profile-img"></div>
                             <div class="carousel-slide"><img src="images/shadapathor24.png" alt="Tahmid Raven" class="profile-img"></div>
                             <div class="carousel-slide"><img src="images/matita23.png" alt="Tahmid Raven" class="profile-img"></div>
                         </div>
@@ -277,33 +279,18 @@
 </div> <!-- End content -->
 
 <script src="js/main.js"></script>
-
-<!-- Preloader Script (Runs Once per Session) -->
 <script>
-    window.addEventListener("load", () => {
-      const preloader = document.getElementById("preloader");
-      const content = document.getElementById("content");
-    
-      const isFirstLoad = !sessionStorage.getItem("preloaderShown");
-    
-      // Set initial display
-      preloader.style.display = "flex";
-      content.style.display = "none";
-      document.body.style.overflow = "hidden";
-    
-      // Determine animation duration
-      const delay = isFirstLoad ? 4250 : 1500; // 4s for first load, 1s for reloads
-    
-      setTimeout(() => {
-        preloader.classList.add("hide");
-        content.style.display = "block";
-        content.classList.add("show");
-        document.body.style.overflow = "auto";
-        sessionStorage.setItem("preloaderShown", "true");
-      }, delay);
-    });
-    </script>
-    
-    
+  // Show preloader for at least 6s and then fade in content
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    const content = document.getElementById("content");
+
+    setTimeout(() => {
+      preloader.classList.add("hide");
+      content.classList.add("show");
+      document.body.style.overflow = "auto"; // Enable scroll
+    }, 6000);
+  });
+</script>
 </body>
 </html>

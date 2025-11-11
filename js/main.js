@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Auto-play - change slide every 3 seconds
-    setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 2500);
 
     // Back to top button
     const backToTopButton = document.getElementById('backToTop');
