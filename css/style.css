@@ -616,6 +616,23 @@ body {
     50% { border-color: var(--primary-color) }
 }
 
+/* Ensure all project/card images fill the card */
+.project-card, .about-item, .carousel-slide {
+    position: relative;
+    width: 100%;
+    height: 250px; /* or any default height */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.project-card img, 
+.about-item img, 
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 /* Optional: for responsive mobile height */
 @media (max-width: 768px) {
     .project-card, .about-item, .carousel-slide {
