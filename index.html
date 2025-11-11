@@ -4,105 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tahmid Raven - Portfolio</title>
-<link rel="preload" as="image" href="images/vinlandsaga0k.png">
-
-<link rel="preload" as="image" href="images/TarcMuseumTour.webp">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/punchline.png" type="image/png">
+    <link rel="preload" as="image" href="images/vinlandsaga0k.webp">
+    <link rel="preload" as="image" href="images/raven-main.jpg">
+    <link rel="preload" as="image" href="images/Cox23.jpg">
+    <link rel="preload" as="image" href="images/TarcMuseumTour.webp">
+
 </head>
 
 <body>
-
-<!-- Raven Themed Preloader -->
-<div id="hybrid-preloader">
-    <img src="images/punchline.png" alt="Loading Logo" class="loader-logo">
-    <h1 class="glitch" data-text="TAHMID RAVEN">TAHMID RAVEN</h1>
-    <p class="loading-text">Initializing system core: Raven Protocol…</p>
-  </div>
-  
-  <style>
-  /* === HYBRID PRELOADER === */
-  #hybrid-preloader {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle at center, #0a0a0f 0%, #000000 90%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 9999;
-    transition: opacity 0.7s ease, visibility 0.7s ease;
-  }
-  
-  /* Logo pulse */
-  .loader-logo {
-    width: 100px;
-    height: 100px;
-    animation: pulse 2s infinite ease-in-out;
-  }
-  
-  @keyframes pulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-  }
-  
-  /* Glitch text appears slightly later */
-  .glitch {
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.3rem;
-    color: #00fff9;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 20px;
-    opacity: 0;
-    animation: glitchReveal 0.4s ease forwards 1s, glitchColor 1.2s infinite 1.4s;
-  }
-  
-  @keyframes glitchReveal {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @keyframes glitchColor {
-    0% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
-    25% { text-shadow: -2px 0 #00fff9, 2px 0 #ff004c; }
-    50% { text-shadow: 2px 2px #ff004c, -2px -2px #00fff9; }
-    75% { text-shadow: -2px -2px #00fff9, 2px 2px #ff004c; }
-    100% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
-  }
-  
-  /* Loading text with blink effect */
-  .loading-text {
-    margin-top: 15px;
-    color: #aaa;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards 1.4s, blink 1.2s infinite 2s;
-  }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-  
-  /* Fade out when loaded */
-  #hybrid-preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-  }
-  </style>
-    
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
@@ -200,8 +112,7 @@
                     }
                 </style>
                 
-                
-                
+            
                 
                 <!-- new seciton added -->
 
@@ -231,10 +142,10 @@
                                 <img src="images/TarcMuseumTour.webp" alt="Tahmid Raven" class="profile-img" loading="eager">
                             </div>
                             <div class="carousel-slide">
-                                <img src="images/raven-main.jpg" alt="Tahmid Raven" class="profile-img">
+                                <img src="images/raven-main.jpg" alt="Tahmid Raven" class="profile-img" loading="eager">
                             </div>
                             <div class="carousel-slide">
-                                <img src="images/Cox23.jpg" alt="Tahmid Raven" class="profile-img">
+                                <img src="images/Cox23.jpg" alt="Tahmid Raven" class="profile-img" loading="eager">
                             </div>
                             <div class="carousel-slide active">
                                 <img src="images/RS69.jpg" alt="Tahmid Raven" class="profile-img">
@@ -280,16 +191,6 @@
         </button>
     </footer>
 
-    
-    <script>
-        window.addEventListener("load", () => {
-          const preloader = document.getElementById("hybrid-preloader");
-          setTimeout(() => preloader.classList.add("hide"), 800);
-        });
-        </script>
-        
-        
     <script src="js/main.js"></script>
-    
 </body>
 </html>
