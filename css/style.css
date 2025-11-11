@@ -108,7 +108,7 @@ body {
     padding-top: 80px;
     display: flex;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/vinlandsaga0k.png');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/vinlandsaga0k.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
