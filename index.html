@@ -12,70 +12,99 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/punchline.png" type="image/png">
 </head>
+<script src="js/main.js"></script>
 
 <body>
 
-<!-- Raven Themed Preloader -->
-<div id="raven-preloader">
-    <h1 class="glitch" data-text="TAHMID RAVEN">TAHMID RAVEN</h1>
-    <p class="loading-text">Loading the experience...</p>
-  </div>
-  
-  <style>
-  /* === Raven Preloader === */
-  #raven-preloader {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle at center, #0a0a0f 0%, #000000 80%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 9999;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
-  }
-  
-  #raven-preloader .glitch {
-    position: relative;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.5rem;
-    color: #00fff9;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: glitchColor 1.2s infinite;
-  }
-  
-  @keyframes glitchColor {
-    0% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
-    25% { text-shadow: -2px 0 #00fff9, 2px 0 #ff004c; }
-    50% { text-shadow: 2px 2px #ff004c, -2px -2px #00fff9; }
-    75% { text-shadow: -2px -2px #00fff9, 2px 2px #ff004c; }
-    100% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
-  }
-  
-  .loading-text {
-    margin-top: 20px;
-    color: #aaa;
-    font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
-    animation: blink 1.2s infinite;
-  }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-  
-  #raven-preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-  }
-  </style>
-  
-    
+    <style>
+        /* === HYBRID PRELOADER (2.2s) === */
+        #hybrid-preloader {
+          position: fixed;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: radial-gradient(circle at center, #0a0a0f 0%, #000000 90%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          z-index: 9999;
+          transition: opacity 0.7s ease, visibility 0.7s ease;
+        }
+        
+        /* Logo pulse */
+        .loader-logo {
+          width: 100px;
+          height: 100px;
+          animation: pulse 2.2s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.5; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        /* Glitch text appears slightly later */
+        .glitch {
+          position: relative;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.3rem;
+          color: #00fff9;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-top: 20px;
+          opacity: 0;
+          animation: glitchReveal 0.6s ease forwards 1s, glitchColor 1.2s infinite 1.6s;
+        }
+        
+        @keyframes glitchReveal {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes glitchColor {
+          0% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
+          25% { text-shadow: -2px 0 #00fff9, 2px 0 #ff004c; }
+          50% { text-shadow: 2px 2px #ff004c, -2px -2px #00fff9; }
+          75% { text-shadow: -2px -2px #00fff9, 2px 2px #ff004c; }
+          100% { text-shadow: 2px 0 #ff004c, -2px 0 #00fff9; }
+        }
+        
+        /* Loading text with blink effect */
+        .loading-text {
+          margin-top: 15px;
+          color: #aaa;
+          font-size: 1rem;
+          font-family: 'Poppins', sans-serif;
+          letter-spacing: 1px;
+          opacity: 0;
+          animation: fadeIn 0.6s ease forwards 1.4s, blink 1.2s infinite 2s;
+        }
+        
+        @keyframes fadeIn {
+          to { opacity: 1; }
+        }
+        
+        @keyframes blink {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
+        }
+        
+        /* Fade out when loaded */
+        #hybrid-preloader.hide {
+          opacity: 0;
+          visibility: hidden;
+        }
+        </style>
+        
+        <script>
+        window.addEventListener("load", () => {
+          const preloader = document.getElementById("hybrid-preloader");
+          // Wait about 2.2 seconds total before hiding
+          setTimeout(() => preloader.classList.add("hide"), 2200);
+        });
+        </script>
+        
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
@@ -252,16 +281,6 @@
             <i class="fas fa-arrow-up"></i>
         </button>
     </footer>
-
-    
-    <script>
-        window.addEventListener("load", () => {
-          const preloader = document.getElementById("raven-preloader");
-          preloader.classList.add("hide");
-        });
-        </script>
-        
-    <script src="js/main.js"></script>
     
 </body>
 </html>
