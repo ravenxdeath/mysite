@@ -121,13 +121,10 @@ body {
     display: flex;
     align-items: center;
     gap: 4rem;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .hero-text {
     flex: 1;
-    min-width: 250px;
 }
 
 .glitch {
@@ -135,8 +132,8 @@ body {
     font-weight: 700;
     position: relative;
     text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                 -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                 0.025em 0.05em 0 rgba(0,0,255,0.75);
+                -0.025em -0.05em 0 rgba(0,255,0,0.75),
+                0.025em 0.05em 0 rgba(0,0,255,0.75);
     animation: glitch 500ms infinite;
 }
 
@@ -156,7 +153,6 @@ body {
     margin-top: 2rem;
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
 .social-icon {
@@ -172,7 +168,6 @@ body {
 
 .hero-image {
     flex: 1;
-    min-width: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,15 +176,13 @@ body {
 /* Image Carousel Styles */
 .image-carousel {
     position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 400px;
+    height: 400px;
 }
 
 .carousel-container {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 400px;
+    height: 400px;
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(66,185,131,0.3);
@@ -216,7 +209,7 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
     border-radius: 20px;
     display: block;
@@ -284,9 +277,8 @@ body {
 }
 
 .profile-img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(66,185,131,0.3);
@@ -364,25 +356,40 @@ body {
 
 /* Animations */
 @keyframes glitch {
-    0%,14% {
+    0% {
         text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                     -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                     0.025em 0.05em 0 rgba(0,0,255,0.75);
+                    -0.025em -0.05em 0 rgba(0,255,0,0.75),
+                    0.025em 0.05em 0 rgba(0,0,255,0.75);
     }
-    15%,49% {
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
+                    -0.025em -0.05em 0 rgba(0,255,0,0.75),
+                    0.025em 0.05em 0 rgba(0,0,255,0.75);
+    }
+    15% {
         text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
-                     0.025em 0.025em 0 rgba(0,255,0,0.75),
-                     -0.05em -0.05em 0 rgba(0,0,255,0.75);
+                    0.025em 0.025em 0 rgba(0,255,0,0.75),
+                    -0.05em -0.05em 0 rgba(0,0,255,0.75);
     }
-    50%,99% {
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
+                    0.025em 0.025em 0 rgba(0,255,0,0.75),
+                    -0.05em -0.05em 0 rgba(0,0,255,0.75);
+    }
+    50% {
         text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
-                     0.05em 0 0 rgba(0,255,0,0.75),
-                     0 -0.05em 0 rgba(0,0,255,0.75);
+                    0.05em 0 0 rgba(0,255,0,0.75),
+                    0 -0.05em 0 rgba(0,0,255,0.75);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
+                    0.05em 0 0 rgba(0,255,0,0.75),
+                    0 -0.05em 0 rgba(0,0,255,0.75);
     }
     100% {
         text-shadow: -0.025em 0 0 rgba(255,0,0,0.75),
-                     -0.025em -0.025em 0 rgba(0,255,0,0.75),
-                     -0.025em -0.05em 0 rgba(0,0,255,0.75);
+                    -0.025em -0.025em 0 rgba(0,255,0,0.75),
+                    -0.025em -0.05em 0 rgba(0,0,255,0.75);
     }
 }
 
@@ -399,7 +406,8 @@ body {
     }
 
     .profile-img {
-        max-width: 300px;
+        width: 300px;
+        height: 300px;
     }
 }
 
@@ -437,32 +445,10 @@ body {
         flex-direction: column;
         gap: 1rem;
     }
-
-    .hero {
-        background-attachment: scroll;
-        padding-top: 60px;
-    }
 }
 
-@media (max-width: 480px) {
-    .glitch {
-        font-size: 2rem;
-    }
+/* Add these styles to your existing style.css file */
 
-    .subtitle {
-        font-size: 1rem;
-    }
-
-    .hero-text {
-        padding: 0 1rem;
-    }
-
-    .profile-img {
-        max-width: 250px;
-    }
-}
-
-/* About Page and Other Shared Sections */
 .about-page {
     padding-top: 80px;
     min-height: 100vh;
@@ -554,7 +540,6 @@ body {
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
 }
 
 .project-btn {
@@ -629,4 +614,35 @@ body {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: var(--primary-color) }
+}
+
+/* Optional: for responsive mobile height */
+@media (max-width: 768px) {
+    .project-card, .about-item, .carousel-slide {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card, .about-item, .carousel-slide {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-header {
+        padding: 2rem 1rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
 }
