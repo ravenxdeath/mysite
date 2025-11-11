@@ -401,6 +401,11 @@ body {
     .profile-img {
         max-width: 300px;
     }
+
+    .image-carousel,
+    .carousel-container {
+        max-width: 300px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -442,6 +447,12 @@ body {
         background-attachment: scroll;
         padding-top: 60px;
     }
+
+    .image-carousel,
+    .carousel-container,
+    .profile-img {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -457,8 +468,14 @@ body {
         padding: 0 1rem;
     }
 
-    .profile-img {
-        max-width: 250px;
+    .profile-img,
+    .image-carousel,
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .carousel-slide img {
+        border-radius: 15px;
     }
 }
 
