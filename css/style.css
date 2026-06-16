@@ -526,7 +526,9 @@ body.no-scroll { overflow: hidden; }
     .profile-img, .image-carousel, .carousel-container { width: 300px; height: 300px; }
 }
 
-@media (max-width: 768px) {
+/* Collapse the 7-item nav to a hamburger early enough that the
+   monospace links never crowd the logo on tablets. */
+@media (max-width: 900px) {
     .menu-toggle { display: block; cursor: pointer; }
     .bar {
         width: 25px; height: 3px;
@@ -553,6 +555,16 @@ body.no-scroll { overflow: hidden; }
 }
 
 .menu-toggle { display: none; }
+
+@media (max-width: 480px) {
+    .nav-content { padding: 0 1.1rem; }
+    .logo-text { font-size: 0.95rem; }
+    .hero { padding-top: 84px; }
+    .glitch { font-size: 2.2rem; }
+    .subtitle { font-size: 1.1rem; }
+    .about-section, .skills-section, .featured-project, .contact-section { padding: 1.6rem 1.1rem; }
+    .stat-label { font-size: 0.84rem; }
+}
 
 /* ============================================================
    INNER PAGES (about / cv / projects / contact / blog)

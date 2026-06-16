@@ -161,7 +161,8 @@
 
   @media (max-width: 992px) {
     .hero-cmds { margin-left: auto; margin-right: auto; }
-    .hud-stats { left: 50%; transform: translateX(-50%); bottom: -8px; }
+    /* Don't overlay the photo on stacked/mobile layouts */
+    .hud-stats { display: none; }
   }
   @media (max-width: 480px) {
     .boot-logo { width: 88px; height: 88px; }
