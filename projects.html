@@ -11,7 +11,7 @@
         .projects-page-header {
             text-align: center;
             padding: 4rem 2rem 2rem;
-            background: linear-gradient(135deg, rgba(66, 185, 131, 0.1) 0%, rgba(26, 26, 26, 0.9) 100%);
+            background: linear-gradient(135deg, rgba(46, 230, 166, 0.1) 0%, rgba(26, 26, 26, 0.9) 100%);
         }
 
         .projects-container {
@@ -33,7 +33,7 @@
         .filter-btn {
             padding: 0.7rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(66, 185, 131, 0.3);
+            border: 2px solid rgba(46, 230, 166, 0.3);
             border-radius: 25px;
             color: var(--text-light);
             cursor: pointer;
@@ -47,7 +47,7 @@
             background: var(--primary-color);
             border-color: var(--primary-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(66, 185, 131, 0.3);
+            box-shadow: 0 5px 15px rgba(46, 230, 166, 0.3);
         }
 
         /* Projects Grid */
@@ -65,7 +65,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(66, 185, 131, 0.1);
+            border: 1px solid rgba(46, 230, 166, 0.1);
             cursor: default;
         }
 
@@ -76,7 +76,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(66, 185, 131, 0.1) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(46, 230, 166, 0.1) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.4s ease;
             pointer-events: none; /* 🟢 Fix: allow link clicks */
@@ -84,8 +84,8 @@
 
         .project-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(66, 185, 131, 0.2);
-            border-color: rgba(66, 185, 131, 0.5);
+            box-shadow: 0 20px 40px rgba(46, 230, 166, 0.2);
+            border-color: rgba(46, 230, 166, 0.5);
         }
 
         .project-card:hover::before {
@@ -106,7 +106,7 @@
         }
 
         .project-year {
-            background: rgba(66, 185, 131, 0.2);
+            background: rgba(46, 230, 166, 0.2);
             color: var(--primary-color);
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
@@ -137,18 +137,18 @@
         }
 
         .tech-tag {
-            background: rgba(66, 185, 131, 0.15);
+            background: rgba(46, 230, 166, 0.15);
             color: var(--primary-color);
             padding: 0.4rem 0.9rem;
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: 500;
-            border: 1px solid rgba(66, 185, 131, 0.3);
+            border: 1px solid rgba(46, 230, 166, 0.3);
             transition: all 0.3s ease;
         }
 
         .tech-tag:hover {
-            background: rgba(66, 185, 131, 0.25);
+            background: rgba(46, 230, 166, 0.25);
             transform: scale(1.05);
         }
 
@@ -165,14 +165,14 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.7rem 1.3rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #3da876 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--neon-cyan) 100%);
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(66, 185, 131, 0.3);
+            box-shadow: 0 4px 15px rgba(46, 230, 166, 0.3);
             position: relative;
             z-index: 20; /* 🟢 Fix */
             pointer-events: auto; /* 🟢 Fix: clickable again */
@@ -180,8 +180,8 @@
 
         .project-link:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(66, 185, 131, 0.4);
-            background: linear-gradient(135deg, #3da876 0%, var(--primary-color) 100%);
+            box-shadow: 0 8px 25px rgba(46, 230, 166, 0.4);
+            background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--primary-color) 100%);
         }
 
         .project-link.secondary {
@@ -205,7 +205,7 @@
             gap: 1rem;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid rgba(66, 185, 131, 0.3);
+            border-bottom: 2px solid rgba(46, 230, 166, 0.3);
         }
 
         .category-icon {
@@ -273,10 +273,10 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <img src="images/punchline.png" alt="Github punchline">
-                <span class="logo-text">TAHMID'S PORTFOLIO</span>
+                <img src="images/punchline.png" alt="Raven logo">
+                <span class="logo-text">TAHMID.RAVEN</span>
             </div>
-            
+
             <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -287,7 +287,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html" class="active">About Me</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
                 <li><a href="myblog.html">BookReviews</a></li>
                 <li><a href="contacts.html">Contact</a></li>
                 <li><a href="email.html" class="cta-button">Email Me</a></li>
@@ -298,7 +298,7 @@
     <main class="about-page">
         <div class="projects-page-header">
             <h1 class="glitch" data-text="My Projects">My Projects</h1>
-            <h2 style="color: var(--primary-color); margin-top: 1rem;">Showcasing Innovation & Creativity</h2>
+            <h2 class="mono" style="color: var(--neon-cyan); margin-top: 1rem;">// games · apps · systems · hardware — select a module below</h2>
         </div>
 
         <div class="projects-container">
@@ -880,7 +880,7 @@
                 <a href="aboutme.html">About Me</a>
                 <a href="contacts.html">Contact</a>
             </div>
-            <p class="copyright">Tahmid Iqbal © 2025 - All rights reserved</p>
+            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -888,6 +888,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/terminal.js"></script>
     <script>
         // Category Filter Functionality
         document.addEventListener('DOMContentLoaded', function() {

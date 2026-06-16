@@ -3,19 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Tahmid Raven</title>
+    <title>About Me — Tahmid Raven</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="images/punchline.png" type="image/png">
+    <style>
+        /* Experience timeline accent */
+        .exp-item { text-align: left; }
+        .exp-item .role-meta {
+            font-family: var(--mono);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-top: 0.2rem;
+        }
+        .exp-item .badge-now {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            color: #04110c;
+            background: linear-gradient(135deg, var(--primary-color), var(--neon-cyan));
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .skill-category {
+            background: var(--bg-panel);
+            border: 1px solid var(--line);
+            padding: 1.4rem;
+            border-radius: 10px;
+            text-align: left;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .skill-category:hover { border-color: var(--neon-cyan); transform: translateY(-4px); }
+        .skill-category h3 { color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.05rem; font-family: var(--mono); }
+        .skill-category p { color: var(--text-muted); font-size: 0.95rem; }
+        .stat-group-title {
+            font-family: var(--mono);
+            color: var(--neon-cyan);
+            font-size: 0.95rem;
+            margin: 1.6rem 0 0.4rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <img src="images/punchline.png" alt="Github Luchadortocat">
-                <span class="logo-text">TAHMID'S PORTFOLIO</span>
+                <img src="images/punchline.png" alt="Raven logo">
+                <span class="logo-text">TAHMID.RAVEN</span>
             </div>
-            
+
             <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -26,7 +66,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html" class="active">About Me</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
                 <li><a href="myblog.html">BookReviews</a></li>
                 <li><a href="contacts.html">Contact</a></li>
                 <li><a href="email.html" class="cta-button">Email Me</a></li>
@@ -37,115 +77,179 @@
     <main class="about-page">
         <div class="about-header">
             <h1 class="glitch" data-text="Tahmid Iqbal">Tahmid Iqbal</h1>
-            <h2>Game Developer & Full-Stack Engineer</h2>
+            <h2>Game Developer &amp; Full-Stack Engineer</h2>
             <div class="typing-container">
-                <div class="typing-text">Game Development | Full-Stack | Systems Programming | Always Learning</div>
+                <div class="typing-text">Game Dev · Engine Optimization · Full-Stack · Always Learning</div>
             </div>
         </div>
 
         <section class="about-section">
-            <h2>✨ Summary</h2>
-            <p style="color: #ccc; line-height: 1.8; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
-                Game Developer with hands-on experience in Unity, Godot, Flutter, and web Frameworks. Recent CS graduate from BRAC University with a track record of building diverse projects—from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about crafting interactive experiences, solving complex problems, and continuously learning cutting-edge tech.
+            <h2 class="term-prefix mono">cat summary.txt</h2>
+            <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                Game Developer specializing in optimized 2D/3D interactive experiences using <strong style="color:var(--primary-color)">Cocos Creator</strong>, <strong style="color:var(--primary-color)">Unity</strong>, and <strong style="color:var(--primary-color)">Godot</strong>. Recent CS graduate from BRAC University with a track record of building diverse, cross-platform applications in Flutter — from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about creating expressive gameplay, adding visual polish &amp; game juice, and optimizing technical pipelines for seamless deployment.
             </p>
         </section>
 
         <section class="about-section">
-            <h2>🎓 Education</h2>
+            <h2 class="term-prefix mono">ls /education</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>BRAC University</h3>
-                    <p><strong>Bachelor of Science in Computer Science & Engineering</strong></p>
-                    <p>CGPA: 3.26 | Fall 2021 - Summer 2025</p>
-                    <p style="color: #999; font-size: 0.9rem;">Dhaka, Bangladesh</p>
+                    <p><strong>B.Sc. in Computer Science &amp; Engineering</strong></p>
+                    <p>CGPA: 3.26 | Fall 2021 – Summer 2025</p>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Dhaka, Bangladesh</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-school"></i>
                     <h3>Dinajpur Government College</h3>
                     <p><strong>Higher Secondary Certificate (HSC)</strong></p>
                     <p>GPA: 5.00 | 2020</p>
-                    <p style="color: #999; font-size: 0.9rem;">Dinajpur, Bangladesh</p>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Dinajpur, Bangladesh</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-school"></i>
                     <h3>Dinajpur Zilla School</h3>
                     <p><strong>Secondary School Certificate (SSC)</strong></p>
                     <p>GPA: 5.00 | 2018</p>
-                    <p style="color: #999; font-size: 0.9rem;">Dinajpur, Bangladesh</p>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Dinajpur, Bangladesh</p>
                 </div>
             </div>
         </section>
 
         <section class="about-section">
-            <h2>💼 Experience</h2>
+            <h2 class="term-prefix mono">./experience --all</h2>
             <div class="about-grid">
-                <div class="about-item" style="text-align: left;">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Director of Press Release & Publications</h3>
-                    <p><strong>BRAC University Computer Club (BUCC)</strong></p>
-                    <p>2022 - 2025 | Dhaka, Bangladesh</p>
-                    <ul style="color: #ccc; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Improved formal writing skills by creating tech-related articles in a corporate-like environment</li>
-                        <li>Worked in a team to upgrade personal and professional capabilities</li>
-                        <li>Participated in events like IntraHactive 1.0, IT Career Guidelines, and AI Workshop</li>
+                <div class="about-item exp-item">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Game Developer <span class="badge-now">NOW</span></h3>
+                    <p><strong>Revo Interactive Ltd.</strong></p>
+                    <p class="role-meta">Mar 2026 – Present · Gulshan, Dhaka (On-site)</p>
+                    <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+                        <li>Develop &amp; optimize interactive playable games in Cocos Creator + TypeScript for ad networks like Mintegral, Unity, and Adikteev.</li>
+                        <li>Boost player engagement by integrating game-juice elements across 3D and 2D games.</li>
+                        <li>Engineered a custom Squoosh Batch CLI (Bash) to compress bulk PNG/JPG assets, optimizing the asset pipeline.</li>
+                        <li>Built OneForAll CocosPackageAutomation tools to streamline cross-platform publishing.</li>
                     </ul>
                 </div>
-                <div class="about-item" style="text-align: left;">
+                <div class="about-item exp-item">
+                    <i class="fas fa-code"></i>
+                    <h3>Game Developer Intern</h3>
+                    <p><strong>Revo Interactive Ltd.</strong></p>
+                    <p class="role-meta">Dec 2025 – Feb 2026 · Gulshan, Dhaka (On-site)</p>
+                    <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+                        <li>Gained hands-on expertise in PixiJS and Cocos Creator with optimized 2D &amp; 3D physics rendering.</li>
+                        <li>Engineered non-linear gameplay progression and managed state transitions for client projects.</li>
+                    </ul>
+                </div>
+                <div class="about-item exp-item">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Director of Press Release &amp; Publications</h3>
+                    <p><strong>BRAC University Computer Club (BUCC)</strong></p>
+                    <p class="role-meta">2022 – 2025 · Dhaka, Bangladesh</p>
+                    <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+                        <li>Authored tech articles and improved formal writing in a corporate-like environment.</li>
+                        <li>Co-organized major campus events including IntraHacktive and AI Workshops.</li>
+                    </ul>
+                </div>
+                <div class="about-item exp-item">
                     <i class="fas fa-users"></i>
                     <h3>Director of Publication</h3>
-                    <p><strong>BRAC University Communication & Language Club (BUCLC)</strong></p>
-                    <p>2022 - 2025 | Dhaka, Bangladesh</p>
-                    <ul style="color: #ccc; margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Joined to enhance communication skills; transitioned from introvert to confident collaborator</li>
-                        <li>Built connections and overcame social anxieties through team projects and events</li>
-                        <li>Organized SPEAKATHON, Speak Bold, Cultural Exchange, Through The Lens, and Vocal Verse</li>
+                    <p><strong>BRAC University Communication &amp; Language Club (BUCLC)</strong></p>
+                    <p class="role-meta">2022 – 2025 · Dhaka, Bangladesh</p>
+                    <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+                        <li>Transitioned from introvert to confident collaborator; built connections through team projects.</li>
+                        <li>Organized SPEAKATHON, Speak Bold, Cultural Exchange, and Vocal Verse.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section class="featured-project">
-            <h2>🎮 Featured Project: RougeKnight</h2>
+            <h2 class="term-prefix mono">run featured_project</h2>
             <div class="project-showcase">
                 <div class="video-container">
                     <img src="https://img.youtube.com/vi/9yOeBbe6nXI/maxresdefault.jpg" alt="RougeKnight Gameplay">
-                    <div class="project-links">
-                        <a href="https://www.youtube.com/watch?v=9yOeBbe6nXI" target="_blank" class="project-btn">
-                            <i class="fab fa-youtube"></i> Watch Gameplay
-                        </a>
-                        <a href="https://ravendeath.itch.io/rougeknight" target="_blank" class="project-btn">
-                            <i class="fas fa-download"></i> Download Game
-                        </a>
-                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=9yOeBbe6nXI" target="_blank" class="project-btn">
+                        <i class="fab fa-youtube"></i> Watch Gameplay
+                    </a>
+                    <a href="https://ravendeath.itch.io/rougeknight" target="_blank" class="project-btn">
+                        <i class="fas fa-download"></i> Download RougeKnight
+                    </a>
                 </div>
             </div>
         </section>
 
         <section class="skills-section">
-            <h2>🛠️ Technical Skills</h2>
-            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                <div class="skill-item" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; text-align: left;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Game Engines</h3>
-                    <p style="color: #ccc; font-size: 0.95rem;">Godot (GDScript), Unreal (C#)</p>
+            <h2 class="term-prefix mono">skills --tree</h2>
+
+            <!-- Skill tree / XP bars -->
+            <div class="stat-tree">
+                <div>
+                    <div class="stat-group-title">// game development</div>
+                    <div class="stat-row">
+                        <div class="stat-label"><span>Godot · GDScript</span><span class="lvl">LV.90</span></div>
+                        <div class="stat-bar"><span data-level="90"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>Cocos Creator · TypeScript</span><span class="lvl">LV.88</span></div>
+                        <div class="stat-bar"><span data-level="88"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>Unity · C#</span><span class="lvl">LV.78</span></div>
+                        <div class="stat-bar"><span data-level="78"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>PixiJS · Defold</span><span class="lvl">LV.75</span></div>
+                        <div class="stat-bar"><span data-level="75"></span></div>
+                    </div>
                 </div>
-                <div class="skill-item" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; text-align: left;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Languages</h3>
-                    <p style="color: #ccc; font-size: 0.95rem;">Python, C++, GDScript, Django, Dart, C, HTML, Tailwind CSS, PHP, JavaScript, React</p>
+                <div>
+                    <div class="stat-group-title">// engineering</div>
+                    <div class="stat-row">
+                        <div class="stat-label"><span>Flutter · Dart</span><span class="lvl">LV.85</span></div>
+                        <div class="stat-bar"><span data-level="85"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>Python · C / C++</span><span class="lvl">LV.84</span></div>
+                        <div class="stat-bar"><span data-level="84"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>JavaScript · React · MERN</span><span class="lvl">LV.82</span></div>
+                        <div class="stat-bar"><span data-level="82"></span></div>
+                    </div>
+                    <div class="stat-row" style="margin-top:1rem;">
+                        <div class="stat-label"><span>Git · Linux · MySQL</span><span class="lvl">LV.85</span></div>
+                        <div class="stat-bar"><span data-level="85"></span></div>
+                    </div>
                 </div>
-                <div class="skill-item" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; text-align: left;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Frameworks & Libraries</h3>
-                    <p style="color: #ccc; font-size: 0.95rem;">Flutter, MERN Stack, ML/DL, React Native</p>
+            </div>
+
+            <!-- Detailed stack -->
+            <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2.4rem;">
+                <div class="skill-category">
+                    <h3>Game Engines</h3>
+                    <p>Godot 4.6 (GDScript), Unity (C#), Cocos Creator 3.8.7 (TypeScript), Defold, PixiJS</p>
                 </div>
-                <div class="skill-item" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 10px; text-align: left;">
-                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem; font-size: 1.1rem;">Tools & Platforms</h3>
-                    <p style="color: #ccc; font-size: 0.95rem;">Git, Linux, MySQL, MariaDB, STM-F446RE, Arduino, Raspberry Pi 4</p>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>Python, C++, GDScript, Dart, C, PHP, JavaScript, React, Lua, Angular</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks &amp; Libraries</h3>
+                    <p>Flutter, MERN/MEAN Stack, Django, ML/DL, React Native</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools &amp; Platforms</h3>
+                    <p>Git, Linux, MySQL, Blender, Aseprite, STM-F446RE, Arduino, Raspberry Pi 4</p>
                 </div>
             </div>
         </section>
 
         <section class="about-section">
-            <h2>📜 Trainings & Certifications</h2>
+            <h2 class="term-prefix mono">ls /certifications</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-certificate"></i>
@@ -165,20 +269,20 @@
                 <div class="about-item">
                     <i class="fas fa-award"></i>
                     <h3>Duke of Edinburgh</h3>
-                    <p>International Award - Bronze Level</p>
+                    <p>International Award — Bronze Level</p>
                 </div>
             </div>
         </section>
 
         <section class="about-section">
-            <h2>🌟 Soft Skills</h2>
-            <p style="color: #ccc; line-height: 1.8; text-align: center; font-size: 1.1rem;">
-                Team Collaboration, Problem-Solving, Time Management, Communication
+            <h2 class="term-prefix mono">echo $SOFT_SKILLS</h2>
+            <p style="color: var(--text-muted); line-height: 1.8; text-align: center; font-size: 1.1rem;">
+                Team Collaboration · Problem-Solving · Time Management · Communication
             </p>
         </section>
 
         <section class="about-section">
-            <h2>🌍 Languages</h2>
+            <h2 class="term-prefix mono">locale --languages</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-language"></i>
@@ -199,17 +303,17 @@
         </section>
 
         <section class="about-section">
-            <h2>🎯 Extracurricular Activities & Hobbies</h2>
+            <h2 class="term-prefix mono">cat hobbies.log</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-robot"></i>
                     <h3>Robotics</h3>
-                    <p>Enthusiast (Arduino & Raspberry Pi)</p>
+                    <p>Enthusiast (Arduino &amp; Raspberry Pi)</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-music"></i>
                     <h3>Music</h3>
-                    <p>Rabindra Sangeet & LOFI, Vocal Verse - BUCLC</p>
+                    <p>Rabindra Sangeet &amp; LOFI, Vocal Verse — BUCLC</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-handshake"></i>
@@ -217,7 +321,7 @@
                     <p>BRACU 16th Convocation, TechConnect Career Fair</p>
                 </div>
                 <div class="about-item">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-keyboard"></i>
                     <h3>Hobbies</h3>
                     <p>Keyboard Modding, Competitive Gaming, Reading, Music</p>
                 </div>
@@ -225,7 +329,7 @@
         </section>
 
         <section class="contact-section">
-            <h2>📫 Connect with Me</h2>
+            <h2 class="term-prefix mono">connect --me</h2>
             <div class="contact-links">
                 <a href="mailto:tahmidraven@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -243,12 +347,12 @@
                     <i class="fas fa-gamepad"></i>
                     <span>Itch.io: ravendeath.itch.io</span>
                 </a>
-                <a href="https://tahmidraven.online/" class="contact-item" target="_blank">
+                <a href="https://tahmidraven.com/" class="contact-item" target="_blank">
                     <i class="fas fa-globe"></i>
-                    <span>tahmidraven.online</span>
+                    <span>tahmidraven.com</span>
                 </a>
             </div>
-            <p style="color: #999; text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+            <p style="color: var(--text-dim); text-align: center; margin-top: 1rem; font-size: 0.9rem;">
                 <i class="fas fa-map-marker-alt"></i> South Badda, Dhaka, Bangladesh
             </p>
         </section>
@@ -260,9 +364,8 @@
                 <a href="index.html">Home</a>
                 <a href="aboutme.html">About Me</a>
                 <a href="contacts.html">Contact</a>
-
             </div>
-            <p class="copyright">Tahmid Iqbal © 2025 - All rights reserved</p>
+            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -270,5 +373,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/terminal.js"></script>
 </body>
 </html>

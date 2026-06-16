@@ -1,50 +1,43 @@
-# Tahmid Raven Portfolio 🌐
+# Tahmid Raven — Portfolio 🌐⟁
 
-Welcome to the **revamped portfolio of Tahmid Raven**! This repository contains the latest version of my personal website, showcasing projects, animations, and interactive features.
+The personal portfolio of **Tahmid "Raven" Iqbal** — Game Developer @ Revo Interactive.
+Live at **[tahmidraven.com](https://tahmidraven.com)** · hosted on GitHub Pages.
 
----
-<img width="1873" height="1001" alt="Screenshot 2025-11-11 182924" src="https://github.com/user-attachments/assets/23d138f3-2a61-45c1-a3e8-eaa97e3620ec" />
-<img width="1850" height="983" alt="Screenshot 2025-11-11 182725" src="https://github.com/user-attachments/assets/724cca1a-5c8d-4247-8162-e417e39c03dd" />
-<img width="1824" height="994" alt="Screenshot 2025-11-11 182738" src="https://github.com/user-attachments/assets/b9bf57a7-9d7e-46a7-aebd-6bf1efe0081d" />
-
-## 🌟 Features
-
-- **Animated Preloader:**  
-  Displays a raven animation on page load. The preloader is **shown once per session**, with a shorter animation for subsequent reloads.
-
-- **Interactive Hero Section:**  
-  Engaging glitch text, animated titles, and dynamic project buttons.
-
-- **Projects Showcase:**  
-  - Projects are displayed in **cards**.  
-  - **Filterable by category** for easy browsing.  
-  - Smooth hover effects and clickable links to live projects or repos.
-
-- **CV Section:**  
-  - **Viewable in-browser** or downloadable as PDF.  
-  - Last updated: **Today**.
-
-- **Image Carousel:**  
-  - Swipe, keyboard, and button navigation supported.  
-  - Customizable slide durations.  
-  - Fully responsive.
-
-- **Responsive Design:**  
-  Optimized for desktop, tablet, and mobile screens.
-
-- **Social Links:**  
-  Quick access to GitHub, LinkedIn, Instagram, Discord, YouTube, and more.
-
-- **Back to Top Button:**  
-  Smooth scrolling experience.
+> Revamped **June 2026** with a **Cyberpunk Terminal / neon-noir** theme — kept tasteful and
+> recruiter-readable (it's a project showcase, not a game site).
 
 ---
+
+## ✨ What's new in the June 2026 revamp
+
+- **Cyberpunk-terminal design system** — neon-mint/cyan/magenta palette, CRT scanline overlay,
+  monospace terminal accents, glowing neon cards & buttons. All in `css/style.css`.
+- **Cinematic boot sequence** — the landing boots `raven.exe` with a typed BIOS-style log and
+  progress bar (shown once per session, skippable with **Enter** / click).
+- **Terminal HUD hero** — live status chip, typewriter command line, command-style buttons
+  (`$ ./view_projects.sh`), and a HUD-framed photo carousel with a player stat panel.
+- **Skill tree / XP bars** — skills on the About page render as animated level bars
+  (`LV.90` etc.) that fill on scroll.
+- **Playable easter eggs** — Konami code (`↑ ↑ ↓ ↓ ← → ← → B A`) unlocks "Developer Mode"
+  (achievement toast + matrix rain), plus a subtle interface-sound toggle (off by default).
+- **Updated content from the June 2026 CV** — added the **Revo Interactive** Game Developer
+  roles, corrected the engine stack (**Unity, Cocos Creator, Defold, PixiJS**), and the CV
+  download now points to `TAHMID_IQBAL_GD_June26.pdf`.
+
+## 🗂 Pages
+
+`index.html` · `projects.html` · `cv.html` · `aboutme.html` · `myblog.html` · `contacts.html`
 
 ## 🛠 Tech Stack
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Animations:** CSS keyframes for glitch, pulse, and fade effects  
-- **Icons:** [Font Awesome](https://fontawesome.com/)  
-- **Hosting:** GitHub Pages (deployment-ready)  
+- **Frontend:** HTML, CSS, vanilla JavaScript (no build step)
+- **Fonts:** Space Grotesk, JetBrains Mono, Orbitron (Google Fonts)
+- **Icons:** [Font Awesome](https://fontawesome.com/)
+- **Scripts:** `js/main.js` (nav, carousel, back-to-top) · `js/terminal.js` (boot/typewriter
+  helpers, scroll reveal, animated stat bars, sound toggle, Konami easter egg)
+- **Hosting:** GitHub Pages → `tahmidraven.com`
 
-New updates on June_2026
+## ♿ Accessibility
+
+Respects `prefers-reduced-motion` (animations, typewriter, and reveals are disabled/instant),
+keeps text high-contrast, and the boot sequence can always be skipped.

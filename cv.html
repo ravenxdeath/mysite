@@ -9,11 +9,13 @@
     <link rel="icon" href="images/punchline.png" type="image/png">
     <style>
         .cv-container {
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
+            padding: 2.4rem;
+            background: var(--bg-panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,229,255,0.06);
         }
 
         .cv-header {
@@ -54,11 +56,14 @@
 
         .cv-section h2 {
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-family: var(--mono);
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(66, 185, 131, 0.3);
+            border-bottom: 1px solid var(--line);
         }
+        .cv-section h2::before { content: '> '; color: var(--neon-cyan); }
 
         .cv-section p {
             color: #ccc;
@@ -131,10 +136,12 @@
         }
 
         .skill-category {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line);
             padding: 1rem;
             border-radius: 8px;
         }
+        .skill-category:hover { border-color: var(--neon-cyan); }
 
         .skill-category strong {
             color: var(--primary-color);
@@ -146,20 +153,28 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
+            padding: 0.8rem 1.6rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--neon-cyan));
+            color: #04110c;
+            font-family: var(--mono);
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: 700;
             transition: all 0.3s ease;
-            margin-bottom: 2rem;
+            box-shadow: 0 0 16px rgba(46,230,166,0.3);
         }
 
         .download-cv-btn:hover {
-            background-color: #3da876;
             transform: translateY(-2px);
+            box-shadow: 0 0 26px rgba(46,230,166,0.55);
         }
+        .cv-updated {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-top: 0.7rem;
+        }
+        .cv-updated b { color: var(--primary-color); }
 
         @media print {
             .navbar, .footer, .download-cv-btn {
@@ -185,10 +200,10 @@
     <nav class="navbar">
         <div class="nav-content">
             <div class="logo">
-                <img src="images/punchline.png" alt="Github Luchadortocat">
-                <span class="logo-text">TAHMID'S PORTFOLIO</span>
+                <img src="images/punchline.png" alt="Raven logo">
+                <span class="logo-text">TAHMID.RAVEN</span>
             </div>
-            
+
             <div class="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -199,7 +214,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html" class="active">About Me</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
                 <li><a href="myblog.html">BookReviews</a></li>
                 <li><a href="contacts.html">Contact</a></li>
                 <li><a href="email.html" class="cta-button">Email Me</a></li>
@@ -215,9 +230,10 @@
 
         <div class="cv-container">
              <div style="text-align: center; margin-bottom: 2rem;">
-                 <a href="TAHMID_IQBAL_GD_Nov25.pdf" download class="download-cv-btn">
-                     <i class="fas fa-download"></i> Download My CV PDF
+                 <a href="TAHMID_IQBAL_GD_June26.pdf" download class="download-cv-btn">
+                     <i class="fas fa-download"></i> Download CV (PDF)
                  </a>
+                 <p class="cv-updated">// last updated: <b>June 2026</b></p>
              </div>
 
             <!-- Header -->
@@ -232,7 +248,7 @@
                     <span>|</span>
                     <a href="https://ravendeath.itch.io" target="_blank"><i class="fas fa-gamepad"></i> ravendeath.itch.io</a>
                     <span>|</span>
-                    <a href="https://tahmidraven.online" target="_blank"><i class="fas fa-globe"></i> tahmidraven.online</a>
+                    <a href="https://tahmidraven.com" target="_blank"><i class="fas fa-globe"></i> tahmidraven.com</a>
                 </div>
                 <div style="margin-top: 0.5rem; color: #999;">
                     <i class="fas fa-map-marker-alt"></i> South Badda, Dhaka, Bangladesh
@@ -243,7 +259,7 @@
             <div class="cv-section">
                 <h2>Summary</h2>
                 <p>
-                    Game Developer with hands-on experience in Unity, Godot, Flutter, and web Frameworks. Recent CS graduate from BRAC University with a track record of building diverse projects—from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about crafting interactive experiences, solving complex problems, and continuously learning cutting-edge tech.
+                    Game Developer specializing in optimized 2D/3D interactive experiences using Cocos Creator, Unity, and Godot. Recent CS graduate with a track record of building diverse, cross-platform applications in Flutter. Passionate about creating expressive gameplay, adding visual polish, and optimizing technical pipelines for seamless deployment.
                 </p>
             </div>
 
@@ -287,16 +303,16 @@
                 <h2>Technical Skills</h2>
                 <div class="skills-list">
                     <div class="skill-category">
-                        <strong>Game Engines:</strong> Godot (GDScript), Unreal (C#)
+                        <strong>Game Engines:</strong> Godot 4.6 (GDScript), Unity (C#), Cocos Creator 3.8.7 (TypeScript), Defold, PixiJS
                     </div>
                     <div class="skill-category">
-                        <strong>Languages:</strong> Python, C++, GDScript, Django, Dart, C, HTML, Tailwind CSS, PHP, JavaScript, React
+                        <strong>Languages:</strong> Python, C++, GDScript, Dart, C, PHP, JavaScript, React, Lua, Angular
                     </div>
                     <div class="skill-category">
-                        <strong>Frameworks & Libraries:</strong> Flutter, MERN Stack, ML/DL, React Native
+                        <strong>Frameworks & Libraries:</strong> Flutter, MERN/MEAN Stack, Django, ML/DL, React Native
                     </div>
                     <div class="skill-category">
-                        <strong>Tools & Platforms:</strong> Git, Linux, MySQL, MariaDB, STM-F446RE, Arduino, Raspberry Pi 4
+                        <strong>Tools & Platforms:</strong> Git, Linux, MySQL, Blender, Aseprite, STM-F446RE, Arduino, Raspberry Pi 4
                     </div>
                 </div>
             </div>
@@ -304,6 +320,34 @@
             <!-- Experience -->
             <div class="cv-section">
                 <h2>Experience</h2>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Game Developer</div>
+                            <div class="cv-item-org">Revo Interactive Ltd. — Gulshan, Dhaka, Bangladesh (On-site)</div>
+                        </div>
+                        <div class="cv-item-date">Mar 2026 -- Present</div>
+                    </div>
+                    <ul>
+                        <li>Develop and optimize interactive playable games using Cocos Creator and TypeScript for deployment across ad networks like Mintegral, Unity, and Adikteev.</li>
+                        <li>Enhance player engagement by integrating game juice elements for both 3D and 2D games.</li>
+                        <li>Engineered a custom Squoosh Batch CLI tool using Bash scripting to process and compress bulk PNG/JPG assets, significantly optimizing the game asset pipeline.</li>
+                        <li>Developed OneForAll CocosPackageAutomation tools to streamline cross-platform publishing workflows.</li>
+                    </ul>
+                </div>
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <div>
+                            <div class="cv-item-title">Game Developer Intern</div>
+                            <div class="cv-item-org">Revo Interactive Ltd. — Gulshan, Dhaka, Bangladesh (On-site)</div>
+                        </div>
+                        <div class="cv-item-date">Dec 2025 -- Feb 2026</div>
+                    </div>
+                    <ul>
+                        <li>Gained hands-on expertise in PixiJS and Cocos Creator, focusing on optimized 2D & 3D physics rendering.</li>
+                        <li>Engineered non-linear gameplay progression and managed state transitions for client projects.</li>
+                    </ul>
+                </div>
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <div>
@@ -671,7 +715,7 @@
                 <a href="aboutme.html">About Me</a>
                 <a href="contacts.html">Contact</a>
             </div>
-            <p class="copyright">Tahmid Iqbal © 2025 - All rights reserved</p>
+            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -679,6 +723,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/terminal.js"></script>
 </body>
 </html>
 
