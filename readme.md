@@ -47,3 +47,4 @@ Welcome to the **revamped portfolio of Tahmid Raven**! This repository contains 
 - **Icons:** [Font Awesome](https://fontawesome.com/)  
 - **Hosting:** GitHub Pages (deployment-ready)  
 
+New updates on June_2026
