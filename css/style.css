@@ -526,6 +526,11 @@ body.no-scroll { overflow: hidden; }
     .profile-img, .image-carousel, .carousel-container { width: 300px; height: 300px; }
 }
 
+/* Hidden on desktop; revealed as a hamburger on tablet/mobile.
+   MUST come BEFORE the media query below, or (equal specificity)
+   this rule would win and hide the toggle at every width. */
+.menu-toggle { display: none; }
+
 /* Collapse the 7-item nav to a hamburger early enough that the
    monospace links never crowd the logo on tablets. */
 @media (max-width: 900px) {
@@ -553,8 +558,6 @@ body.no-scroll { overflow: hidden; }
     .footer-links { flex-direction: column; gap: 1rem; }
     .glitch { font-size: 2.8rem; }
 }
-
-.menu-toggle { display: none; }
 
 @media (max-width: 480px) {
     .nav-content { padding: 0 1.1rem; }
