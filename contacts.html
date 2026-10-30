@@ -161,37 +161,26 @@
             transform: translateY(-2px);
         }
     </style>
+    <meta name="description" content="Get in touch with Tahmid Raven about game development, collaboration, and interactive projects.">
+    <meta name="theme-color" content="#101110">
+    <link rel="stylesheet" href="css/arcade.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
 
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
-            </ul>
+            <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
         </div>
     </nav>
 
-    <main class="about-page">
+    <main class="about-page" id="main">
         <div class="about-header">
-            <h1 class="glitch" data-text="Contact Me">Contact Me</h1>
-            <h2>Let's Connect and Create Something Amazing</h2>
+            <h1 class="glitch">Let’s make it playable.</h1>
+            <h2>A project, a collaboration, or just a hello — I’d love to hear it.</h2>
         </div>
 
         
@@ -207,7 +196,6 @@
                         <p class="contact-info">For general inquiries and collaborations</p>
                         <a href="mailto:tahmidraven@gmail.com" class="contact-link">
                             tahmidraven@gmail.com
-                            <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -219,7 +207,6 @@
                         <p class="contact-info">Call or text me anytime</p>
                         <a href="tel:+8801773714424" class="contact-link">
                             +880 1773 714424
-                            <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -243,7 +230,6 @@
                         <p class="contact-info">For professional connections and networking</p>
                         <a href="https://www.linkedin.com/in/tahmidiqbal/" class="contact-link" target="_blank">
                             TAHMID IQBAL
-                            <i class="fas fa-arrow-right"></i>
                         </a>
                         </div>
                 </div>
@@ -255,7 +241,6 @@
                         <p class="contact-info">Quick messages and informal chat</p>
                         <a href="https://wa.me/01773714424" class="contact-link">
                             +880 1773714424
-                            <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -268,7 +253,6 @@
                         <p class="contact-info">Reach Me Out on my Discord server For Gaming Sessions & to Hangout</p>
                         <a href="https://discord.gg/VhcnyyrqFJ" class="contact-link" target="_blank">
                             A MURDER OF CROWS
-                            <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -303,7 +287,8 @@
 
             <div class="contact-form">
                 <h3 class="contact-title">Send Me a Message</h3>
-                <form action="#" method="POST">
+                <p style="color:var(--text-muted);margin-bottom:24px">This opens a draft in your email app. No message is sent or stored by this website.</p>
+                <form action="mailto:tahmidraven@gmail.com" method="GET" data-email-form>
                     <div class="form-group">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" id="name" name="name" class="form-input" required>
@@ -316,7 +301,8 @@
                         <label for="message" class="form-label">Message</label>
                         <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn">Compose email</button>
+                    <p id="email-form-status" role="status" style="color:var(--text-muted);margin-top:16px"></p>
                 </form>
             </div>
         </div>
@@ -324,13 +310,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
- 
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
+            <div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -338,6 +318,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
 </body>
 </html>

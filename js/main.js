@@ -1,116 +1,91 @@
+/* Shared navigation and progressive enhancements. No build step required. */
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle?.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
+    const socials = [
+        ['GitHub', 'github', 'https://github.com/TahmidRaven'],
+        ['LinkedIn', 'linkedin', 'https://www.linkedin.com/in/tahmidiqbal/'],
+        ['Facebook', 'facebook', 'https://www.facebook.com/profile.php?id=100073382900528'],
+        ['itch.io', 'itch-io', 'https://ravendeath.itch.io/'],
+        ['Instagram', 'instagram', 'https://www.instagram.com/tahmid_raven/'],
+        ['Discord', 'discord', 'https://discord.gg/VhcnyyrqFJ'],
+        ['YouTube', 'youtube', 'https://www.youtube.com/@tahmidraven']
+    ];
+    const footer = document.querySelector('.footer-content');
+    if (footer && !footer.querySelector('[data-social-links]')) {
+        const group = document.createElement('div');
+        group.className = 'footer-socials';
+        group.dataset.socialLinks = '';
+        group.setAttribute('aria-label', 'Social profiles');
+        footer.appendChild(group);
+    }
+    document.querySelectorAll('[data-social-links]').forEach(group => {
+        group.innerHTML = socials.map(([name, icon, url]) => `<a class="social-icon" href="${url}" aria-label="${name}" title="${name}" target="_blank" rel="noopener noreferrer"><i class="fab fa-${icon}" aria-hidden="true"></i></a>`).join('');
     });
 
-    // Image Carousel
-    const carousel = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    let currentSlide = 0;
-    const totalSlides = slides.length;
+    const menu = document.querySelector('.menu-toggle');
+    document.querySelectorAll('.nav-resume').forEach(link => {
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-download';
+        icon.setAttribute('aria-hidden', 'true');
+        link.prepend(icon);
+    });
+    const links = document.querySelector('.nav-links');
+    const closeMenu = () => {
+        links?.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+        menu?.setAttribute('aria-expanded', 'false');
+        menu?.setAttribute('aria-label', 'Open navigation');
+    };
+    menu?.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') !== 'true';
+        links?.classList.toggle('active', open);
+        document.body.classList.toggle('no-scroll', open);
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+    });
+    links?.addEventListener('click', event => {
+        if (event.target.closest('a')) closeMenu();
+    });
+    window.matchMedia('(min-width: 901px)').addEventListener('change', closeMenu);
 
-    function updateCarousel() {
-        // Update slides
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-        });
-        
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentSlide);
-        });
-        
-        // Move track
-        if (carousel) {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    const page = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href') === page) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
         }
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateCarousel();
-    }
-
-    // Button events
-    nextBtn?.addEventListener('click', nextSlide);
-    prevBtn?.addEventListener('click', prevSlide);
-
-    // Indicator events
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => goToSlide(index));
     });
-
-    // Touch/Swipe events
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const carouselContainer = document.querySelector('.carousel-container');
-
-    carouselContainer?.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.rel = 'noopener noreferrer';
     });
-
-    carouselContainer?.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+    document.querySelectorAll('.stat-bar > span[data-level]').forEach(bar => {
+        bar.style.width = `${Math.max(0, Math.min(100, Number(bar.dataset.level) || 0))}%`;
     });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide(); // Swipe left - next
-            } else {
-                prevSlide(); // Swipe right - previous
-            }
-        }
-    }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevSlide();
-        if (e.key === 'ArrowRight') nextSlide();
-    });
-
-    // Auto-play - change slide every 3 seconds
-    setInterval(nextSlide, 2500);
-
-    // Back to top button
-    const backToTopButton = document.getElementById('backToTop');
-    if (backToTopButton) {
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+    document.querySelectorAll('.filter-btn[data-category]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.classList.contains('active')));
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn[data-category]').forEach(other => {
+                other.setAttribute('aria-pressed', String(other === button));
             });
         });
+    });
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        const update = () => backToTop.classList.toggle('visible', window.scrollY > 300);
+        window.addEventListener('scroll', update, { passive: true });
+        update();
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }));
     }
+
+    // A static site cannot deliver messages itself. Open the visitor's mail app instead.
+    document.querySelector('[data-email-form]')?.addEventListener('submit', event => {
+        event.preventDefault();
+        const fields = new FormData(event.currentTarget);
+        const subject = encodeURIComponent(`Portfolio inquiry from ${fields.get('name')}`);
+        const body = encodeURIComponent(`${fields.get('message')}\n\nFrom: ${fields.get('name')}\nReply to: ${fields.get('email')}`);
+        location.href = `mailto:tahmidraven@gmail.com?subject=${subject}&body=${body}`;
+        document.getElementById('email-form-status').textContent = 'Your email app has been requested. Review and send your message there, or email tahmidraven@gmail.com directly.';
+    });
 });

@@ -91,37 +91,26 @@
             margin: 0.5rem 0;
         }
     </style>
+    <meta name="description" content="Tahmid Raven’s book reviews: fantasy, favourite characters, and thoughts from the bookshelf.">
+    <meta name="theme-color" content="#101110">
+    <link rel="stylesheet" href="css/arcade.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
 
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
-            </ul>
+            <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
         </div>
     </nav>
 
-    <main class="about-page">
+    <main class="about-page" id="main">
         <div class="about-header">
             <h1 class="glitch" data-text="My Blog">My Book Reviews</h1>
-            <h2>Where I Dump My Thoughts</h2>
+            <h2>Off-screen adventures. Thoughts from my bookshelf.</h2>
         </div>
 
         <div class="blog-container">
@@ -238,13 +227,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
- 
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
+            <div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -252,6 +235,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
 </body>
 </html>

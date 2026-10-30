@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arcade — Tahmid Raven</title>
+    <meta name="description" content="Play Tahmid Raven’s browser games, explore game-jam collaborations, and discover downloadable games.">
+    <meta name="theme-color" content="#101110">
+    <link rel="icon" href="images/punchline.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/arcade.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/games-data.js" defer></script>
+    <script src="js/arcade.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation"><div class="nav-content">
+        <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+        <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
+    </div></nav>
+    <main id="main" class="site-wrap">
+        <header class="library-header"><p class="eyebrow">THE AFTER HOURS ARCADE</p><h1 class="glitch">A few good reasons<br>to press play.</h1><p>Game-jam weekends, personal experiments, and things built for the joy of it. Pick any browser game below and play right here. No installs, no game builds stored on this site.</p></header>
+        <section class="arcade-station" id="play" aria-label="Browser game player"><div data-inline-player></div><noscript><p>Enable JavaScript for the player, or visit <a href="https://ravendeath.itch.io/">my itch.io page</a>.</p></noscript></section>
+        <div class="library-toolbar">
+            <div class="filter-buttons" role="group" aria-label="Filter games"><button class="filter-btn active" data-game-filter="all" aria-pressed="true">All games</button><button class="filter-btn" data-game-filter="browser" aria-pressed="false">Browser playable</button><button class="filter-btn" data-game-filter="download" aria-pressed="false">Downloads</button><button class="filter-btn" data-game-filter="jam" aria-pressed="false">Game jams</button></div>
+            <label class="search-label" for="game-search">FIND A GAME<input class="game-search" id="game-search" type="search" placeholder="Search titles or engines…" autocomplete="off"></label>
+        </div>
+        <p class="library-count" data-game-count role="status" aria-live="polite"></p>
+        <div class="game-grid library-grid" data-game-library></div>
+        <p class="library-empty" data-game-empty hidden>No matches this round. Try another title or filter.</p>
+        <noscript><p class="library-note">The interactive library needs JavaScript. You can still <a href="https://ravendeath.itch.io/">browse my projects on itch.io</a>, play <a href="https://dan5626.itch.io/the-last-tribe">The Last Tribe</a>, or visit <a href="https://feastfury.tahmidraven.com/">FeastFury</a>.</p></noscript>
+    </main>
+    <footer class="footer"><div class="footer-content"><div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div></div></footer>
+</body>
+</html>

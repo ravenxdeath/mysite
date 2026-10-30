@@ -195,46 +195,40 @@
             }
         }
     </style>
+    <meta name="description" content="Tahmid Iqbal’s November 2026 resume: game development, gameplay systems, shaders, cross-platform publishing, and tools.">
+    <meta name="theme-color" content="#101110">
+    <link rel="stylesheet" href="css/arcade.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
 
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
-            </ul>
+            <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
         </div>
     </nav>
 
-    <main class="about-page">
+    <main class="about-page" id="main">
         <div class="about-header">
-            <h1 class="glitch" data-text="Curriculum Vitae">Curriculum Vitae</h1>
-            <h2>Tahmid Iqbal</h2>
+            <h1 class="glitch">The experience behind the work.</h1>
+            <h2>Tahmid Iqbal · Game Developer · November 2026</h2>
         </div>
 
         <div class="cv-container">
              <div style="text-align: center; margin-bottom: 2rem;">
-                 <a href="TAHMID_IQBAL_GD_June26.pdf" download class="download-cv-btn">
-                     <i class="fas fa-download"></i> Download CV (PDF)
+                 <div class="resume-actions">
+                 <a href="TAHMID_IQBAL_GD_Nov26.pdf" download class="download-cv-btn">
+                      <i class="fas fa-download"></i> Download CV (PDF)
                  </a>
-                 <p class="cv-updated">// last updated: <b>June 2026</b></p>
+                 <a class="button secondary" href="TAHMID_IQBAL_GD_Nov26.pdf" target="_blank" rel="noopener noreferrer">View PDF</a>
+                 </div>
+                 <p class="cv-updated">Last updated: <b>November 2026</b> · Official PDF above; expanded portfolio history below.</p>
              </div>
+
+            <details class="cv-section"><summary class="text-link accent" style="cursor:pointer">Preview the current resume</summary><object class="resume-preview" data="TAHMID_IQBAL_GD_Nov26.pdf" type="application/pdf" aria-label="November 2026 resume PDF"><p>Your browser cannot preview this PDF. <a href="TAHMID_IQBAL_GD_Nov26.pdf">Open the resume instead.</a></p></object></details>
 
             <!-- Header -->
             <div class="cv-header">
@@ -259,7 +253,7 @@
             <div class="cv-section">
                 <h2>Summary</h2>
                 <p>
-                    Game Developer specializing in optimized 2D/3D interactive experiences using Cocos Creator, Unity, and Godot. Recent CS graduate with a track record of building diverse, cross-platform applications in Flutter. Passionate about creating expressive gameplay, adding visual polish, and optimizing technical pipelines for seamless deployment.
+                    Game Developer with professional experience building optimized 2D/3D interactive experiences and playable advertisements using Godot, Cocos Creator, and TypeScript. Experienced in collaborative game-jam development, gameplay systems, shaders, and cross-platform publishing workflows, with additional experience building applications in Flutter.
                 </p>
             </div>
 
@@ -303,13 +297,13 @@
                 <h2>Technical Skills</h2>
                 <div class="skills-list">
                     <div class="skill-category">
-                        <strong>Game Engines:</strong> Godot 4.6 (GDScript), Unity (C#), Cocos Creator 3.8.7 (TypeScript), Defold, PixiJS
+                        <strong>Game Engines &amp; Libraries:</strong> Godot (GDScript), Unity (C#), Cocos Creator (TypeScript), LittleJS, Defold, PixiJS
                     </div>
                     <div class="skill-category">
-                        <strong>Languages:</strong> Python, C++, GDScript, Dart, C, PHP, JavaScript, React, Lua, Angular
+                        <strong>Languages:</strong> GDScript, TypeScript, JavaScript, C#, Python, C++, Dart, C, PHP, Lua
                     </div>
                     <div class="skill-category">
-                        <strong>Frameworks & Libraries:</strong> Flutter, MERN/MEAN Stack, Django, ML/DL, React Native
+                        <strong>Frameworks &amp; Libraries:</strong> Flutter, React, Angular, MERN/MEAN Stack, Django, ML/DL, React Native
                     </div>
                     <div class="skill-category">
                         <strong>Tools & Platforms:</strong> Git, Linux, MySQL, Blender, Aseprite, STM-F446RE, Arduino, Raspberry Pi 4
@@ -320,32 +314,20 @@
             <!-- Experience -->
             <div class="cv-section">
                 <h2>Experience</h2>
+                <div class="cv-item"><div class="cv-item-header"><div><div class="cv-item-title">Game Developer (Full-time)</div><div class="cv-item-org">KreaTech — Remote / Offsite</div></div><div class="cv-item-date">Aug 2026 – Present</div></div><ul><li>Develop games using the Godot Engine.</li><li>Work remotely with <a href="https://www.idnerd.com/" target="_blank" rel="noopener noreferrer">IDNERD STUDIO LTD</a>, Hong Kong, through KreaTech.</li></ul></div>
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <div>
-                            <div class="cv-item-title">Game Developer</div>
+                            <div class="cv-item-title">Game Developer (including internship)</div>
                             <div class="cv-item-org">Revo Interactive Ltd. — Gulshan, Dhaka, Bangladesh (On-site)</div>
                         </div>
-                        <div class="cv-item-date">Mar 2026 -- Present</div>
+                        <div class="cv-item-date">Nov 2025 – Nov 2026</div>
                     </div>
                     <ul>
-                        <li>Develop and optimize interactive playable games using Cocos Creator and TypeScript for deployment across ad networks like Mintegral, Unity, and Adikteev.</li>
-                        <li>Enhance player engagement by integrating game juice elements for both 3D and 2D games.</li>
+                        <li>Developed and optimized 2D/3D playable advertising experiences across social casino, puzzle, farming, and monster-collection genres.</li>
+                        <li>Built with Cocos Creator, TypeScript, and PixiJS for Mintegral, Unity, and Adikteev; implemented game feel, visual polish, gameplay progression, and state transitions.</li>
                         <li>Engineered a custom Squoosh Batch CLI tool using Bash scripting to process and compress bulk PNG/JPG assets, significantly optimizing the game asset pipeline.</li>
                         <li>Developed OneForAll CocosPackageAutomation tools to streamline cross-platform publishing workflows.</li>
-                    </ul>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-item-header">
-                        <div>
-                            <div class="cv-item-title">Game Developer Intern</div>
-                            <div class="cv-item-org">Revo Interactive Ltd. — Gulshan, Dhaka, Bangladesh (On-site)</div>
-                        </div>
-                        <div class="cv-item-date">Dec 2025 -- Feb 2026</div>
-                    </div>
-                    <ul>
-                        <li>Gained hands-on expertise in PixiJS and Cocos Creator, focusing on optimized 2D & 3D physics rendering.</li>
-                        <li>Engineered non-linear gameplay progression and managed state transitions for client projects.</li>
                     </ul>
                 </div>
                 <div class="cv-item">
@@ -381,6 +363,10 @@
             <!-- Projects -->
             <div class="cv-section">
                 <h2>Projects</h2>
+                <div class="cv-item"><div class="cv-item-header"><div class="cv-item-title"><a href="games.html?game=the-last-tribe">The Last Tribe: Survival &amp; Social Deduction</a> | Godot, GDScript</div><div class="cv-item-date">2026</div></div><ul><li>Placed 66th out of 2,181 entries at Brackeys Game Jam 2026.2.</li><li>Contributed shaders and system design for a survival/social-deduction game.</li></ul></div>
+                <div class="cv-item"><div class="cv-item-header"><div class="cv-item-title"><a href="games.html?game=lastpunch">LastPunch: Boss-Rush Game</a> | Godot, GDScript</div><div class="cv-item-date">2026</div></div><ul><li>Contributed programming, shaders, systems, and gameplay design for GMTK Game Jam 2026.</li><li>Timed boss fights with upgrade-card choices between rounds.</li></ul></div>
+                <div class="cv-item"><div class="cv-item-header"><div class="cv-item-title"><a href="games.html?game=crooked-garden">Crooked Garden: Arcade Survival Game</a> | LittleJS, JavaScript</div><div class="cv-item-date">2026</div></div><ul><li>Built a vine-growing survival game for LittleJS Jam 3: trap bugs and manage water.</li><li>Features combos, rewinds, retries, and cross-platform leaderboards.</li></ul></div>
+                <div class="cv-item"><div class="cv-item-title"><a href="games.html?game=feastfury">FeastFury: Match-3 Web Game</a> | Cocos Creator</div><ul><li>Built a match-3 game using Cocos Creator and published it for browser play.</li></ul></div>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -710,12 +696,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
+            <div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -723,7 +704,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
 </body>
 </html>
-

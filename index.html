@@ -1,375 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tahmid Raven — Game Developer // Portfolio</title>
-<meta name="description" content="Tahmid Iqbal (Raven) — Game Developer at Revo Interactive. Cocos Creator, Unity, Godot, Flutter. Interactive games, tools, and full-stack projects.">
-
-<!-- Preload key images -->
-<link rel="preload" as="image" href="images/vinlandsaga0k.webp">
-<link rel="preload" as="image" href="images/raven-main.jpg">
-<link rel="preload" as="image" href="images/Cox23.jpg">
-<link rel="preload" as="image" href="images/TarcMuseumTour.webp">
-
-<!-- Favicon -->
-<link rel="icon" href="images/punchline.png" type="image/png">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<!-- Main stylesheet -->
-<link rel="stylesheet" href="css/style.css">
-
-<style>
-  body, html { overflow-x: hidden; }
-
-  /* ===== Boot Sequence Preloader ===== */
-  #preloader {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    background:
-      radial-gradient(circle at 50% 40%, rgba(0,229,255,0.08), transparent 60%),
-      #06070b;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
-  }
-
-  .boot-logo {
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    border: 2px solid var(--neon-cyan);
-    box-shadow: var(--glow-cyan);
-    margin-bottom: 1.6rem;
-    animation: pulse 2.2s infinite ease-in-out;
-  }
-  @keyframes pulse { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
-
-  .boot-window {
-    width: min(560px, 90vw);
-    background: rgba(8,9,13,0.72);
-    border: 1px solid var(--line-cyan);
-    border-radius: 10px;
-    box-shadow: 0 0 40px rgba(0,229,255,0.15);
-    overflow: hidden;
-    font-family: var(--mono);
-  }
-  .boot-titlebar {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding: 0.6rem 0.9rem;
-    background: rgba(0,229,255,0.06);
-    border-bottom: 1px solid var(--line-cyan);
-    font-size: 0.8rem; color: var(--text-muted);
-  }
-  .boot-titlebar .dotrow { display: flex; gap: 6px; margin-right: 0.6rem; }
-  .boot-titlebar .dotrow span { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .d1 { background: var(--neon-magenta); } .d2 { background: var(--neon-amber); } .d3 { background: var(--primary-color); }
-
-  #boot-log {
-    padding: 1rem 1.2rem;
-    min-height: 168px;
-    font-size: 0.86rem;
-    line-height: 1.9;
-    color: var(--text-muted);
-    white-space: pre-wrap;
-  }
-  #boot-log .ok { color: var(--primary-color); }
-  #boot-log .cy { color: var(--neon-cyan); }
-  #boot-log .done { color: var(--neon-amber); }
-
-  .boot-bar {
-    height: 6px; margin: 0 1.2rem 1.1rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--line);
-    border-radius: 4px; overflow: hidden;
-  }
-  .boot-bar > span {
-    display: block; height: 100%; width: 0;
-    background: linear-gradient(90deg, var(--primary-color), var(--neon-cyan));
-    box-shadow: var(--glow-green);
-    transition: width 0.25s linear;
-  }
-
-  .boot-skip {
-    margin-top: 1.4rem;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    letter-spacing: 1px;
-  }
-  .boot-skip b { color: var(--neon-cyan); }
-
-  #preloader.hide { opacity: 0; visibility: hidden; }
-  #content { opacity: 0; transition: opacity 1s ease; }
-  #content.show { opacity: 1; }
-
-  /* ===== Hero command buttons ===== */
-  .hero-cmds {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    margin-top: 1.6rem;
-    max-width: 360px;
-  }
-  .cmd-btn {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.92rem;
-    text-decoration: none;
-    color: var(--text-light);
-    background: rgba(14,16,24,0.7);
-    border: 1px solid var(--line);
-    border-left: 3px solid var(--primary-color);
-    padding: 0.7rem 1rem;
-    border-radius: 6px;
-    transition: all 0.25s ease;
-  }
-  .cmd-btn .arrow { margin-left: auto; color: var(--text-dim); transition: transform 0.25s ease; }
-  .cmd-btn:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    background: rgba(46,230,166,0.08);
-    transform: translateX(6px);
-    box-shadow: -4px 0 14px rgba(46,230,166,0.2);
-  }
-  .cmd-btn:hover .arrow { transform: translateX(4px); color: var(--primary-color); }
-  .cmd-btn .pfx { color: var(--neon-cyan); }
-
-  /* ===== HUD portrait stats overlay ===== */
-  .hud-frame { position: relative; }
-  .hud-stats {
-    position: absolute;
-    left: -14px; bottom: 18px;
-    background: rgba(8,9,13,0.85);
-    border: 1px solid var(--line-cyan);
-    border-radius: 8px;
-    padding: 0.7rem 0.9rem;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    line-height: 1.7;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 20px rgba(0,229,255,0.15);
-    z-index: 14;
-  }
-  .hud-stats .k { color: var(--text-dim); }
-  .hud-stats .v { color: var(--primary-color); }
-  .hud-stats .cy { color: var(--neon-cyan); }
-
-  @media (max-width: 992px) {
-    .hero-cmds { margin-left: auto; margin-right: auto; }
-    /* Don't overlay the photo on stacked/mobile layouts */
-    .hud-stats { display: none; }
-  }
-  @media (max-width: 480px) {
-    .boot-logo { width: 88px; height: 88px; }
-    #boot-log { font-size: 0.76rem; min-height: 150px; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tahmid Raven — Games, Systems &amp; Other Experiments</title>
+    <meta name="description" content="Tahmid Iqbal (Raven), game developer. Play my games, explore gameplay systems, shaders and tools, and get to know the person behind them.">
+    <meta name="theme-color" content="#101110">
+    <meta property="og:title" content="Tahmid Raven — Game Developer">
+    <meta property="og:description" content="Games worth another round. Gameplay, shaders, tools, and interactive experiments.">
+    <meta property="og:image" content="https://tahmidraven.com/images/games/feastfury.webp">
+    <link rel="icon" href="images/punchline.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/arcade.css">
+    <link rel="preload" as="image" href="images/games/feastfury.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="js/main.js" defer></script>
+    <script src="js/games-data.js" defer></script>
+    <script src="js/arcade.js" defer></script>
 </head>
-
 <body>
-
-<!-- ===== Boot Sequence Preloader ===== -->
-<div id="preloader">
-  <img src="images/punchline.png" class="boot-logo" alt="Raven logo">
-  <div class="boot-window">
-    <div class="boot-titlebar">
-      <span class="dotrow"><span class="d1"></span><span class="d2"></span><span class="d3"></span></span>
-      raven@portfolio:~ — booting raven.exe
-    </div>
-    <div id="boot-log"></div>
-    <div class="boot-bar"><span id="boot-progress"></span></div>
-  </div>
-  <p class="boot-skip">press <b>[ ENTER ]</b> or click to skip ▸</p>
-</div>
-
-<!-- ===== Page Content ===== -->
-<div id="content">
-    <!-- NAVIGATION -->
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
-
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+            <ul class="nav-links" id="site-nav">
+                <li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- HERO SECTION -->
-    <main class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="hud-tag"><span class="dot"></span> STATUS: ONLINE · GAME DEV @ REVO INTERACTIVE</span>
-                <h1 class="glitch" data-text="Tahmid Iqbal">Tahmid Iqbal</h1>
-                <p class="subtitle">Game Developer &amp; Full-Stack Engineer</p>
-
-                <p class="hero-terminal mono"><span class="prompt">raven@dhaka:~$</span>
-                    <span data-typewriter data-lines="building optimized 2D/3D games in Cocos Creator.&#10;crafting game juice &amp; visual polish.&#10;shipping cross-platform apps with Flutter.&#10;Godot · Unity · Defold · PixiJS"></span></p>
-
-                <!-- COMMAND BUTTONS -->
-                <div class="hero-cmds">
-                    <a href="projects.html" class="cmd-btn">
-                        <span class="pfx">$</span> ./view_projects.sh
-                        <i class="fas fa-chevron-right arrow"></i>
-                    </a>
-                    <a href="aboutme.html" class="cmd-btn">
-                        <span class="pfx">$</span> whoami --about
-                        <i class="fas fa-chevron-right arrow"></i>
-                    </a>
-                    <a href="cv.html" class="cmd-btn">
-                        <span class="pfx">$</span> cat resume.pdf
-                        <i class="fas fa-chevron-right arrow"></i>
-                    </a>
-                </div>
-
-                <!-- SOCIAL LINKS -->
-                <div class="social-links">
-                    <a href="https://github.com/TahmidRaven" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/tahmidiqbal/" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100073382900528" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://ravendeath.itch.io/" class="social-icon" aria-label="itch.io"><i class="fab fa-itch-io"></i></a>
-                    <a href="https://www.instagram.com/tahmid_raven/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://discord.gg/VhcnyyrqFJ" class="social-icon" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="https://www.youtube.com/@tahmidraven" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
+    <main id="main" class="site-wrap">
+        <section class="arcade-hero" aria-labelledby="hero-title">
+            <div>
+                <p class="eyebrow"><span class="status-dot"></span>TAHMID IQBAL / GAME DEVELOPER</p>
+                <h1 id="hero-title">I build games<br>worth <em>another<br>round.</em></h1>
+                <p class="hero-copy">A little craft. A lot of game feel.<br>I make interactive experiences, build tools, and turn ideas into things you can play.</p>
+                <div class="action-row"><a class="button" href="games.html#play">Explore the arcade</a><a class="text-link" href="aboutme.html">Meet the developer</a></div>
+                <div class="social-links hero-socials" data-social-links aria-label="Find me online"></div>
             </div>
-
-            <!-- CAROUSEL / HUD PORTRAIT -->
-            <div class="hero-image">
-                <div class="image-carousel hud-frame">
-                    <button class="carousel-btn prev-btn" aria-label="Previous image">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-container">
-                        <div class="carousel-track">
-                            <div class="carousel-slide"><img src="images/TarcMuseumTour.webp" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
-                            <div class="carousel-slide"><img src="images/Cox23.jpg" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
-                            <div class="carousel-slide"><img src="images/raven-main.jpg" alt="Tahmid Raven" class="profile-img" loading="eager"></div>
-                            <div class="carousel-slide active"><img src="images/RS69.jpg" alt="Tahmid Raven" class="profile-img"></div>
-                            <div class="carousel-slide"><img src="images/shadapathor24.png" alt="Tahmid Raven" class="profile-img"></div>
-                            <div class="carousel-slide"><img src="images/matita23.png" alt="Tahmid Raven" class="profile-img"></div>
-                        </div>
-                    </div>
-                    <button class="carousel-btn next-btn" aria-label="Next image">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="carousel-indicators">
-                        <span class="indicator active" data-slide="0"></span>
-                        <span class="indicator" data-slide="1"></span>
-                        <span class="indicator" data-slide="2"></span>
-                        <span class="indicator" data-slide="3"></span>
-                    </div>
-                    <div class="hud-stats">
-                        <div><span class="k">PLAYER</span> <span class="v">Tahmid "Raven" Iqbal</span></div>
-                        <div><span class="k">CLASS</span> <span class="cy">Game Developer</span></div>
-                        <div><span class="k">BASE</span> <span class="v">Dhaka, BD</span></div>
-                        <div><span class="k">ENGINE</span> <span class="cy">Cocos · Unity · Godot</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <a class="featured-art" href="games.html?game=feastfury#play" aria-label="Play FeastFury">
+                <img src="images/games/feastfury.webp" alt="FeastFury — pop snacks and beat the diner rush" width="1200" height="630" fetchpriority="high">
+                <div class="art-caption"><strong>FEASTFURY</strong><span>ENDLESS TAP-BLAST · PLAY IN BROWSER</span></div>
+            </a>
+        </section>
+        <div class="toolbox" aria-label="My toolbox"><span class="eyebrow">THE TOOLBOX</span><span>Godot / GDScript</span><span>Cocos Creator / TypeScript</span><span>LittleJS</span><span>Shaders &amp; game feel</span><span>Publishing tools</span></div>
+        <section class="home-section" aria-labelledby="selected-title">
+            <div class="section-heading"><div><p class="eyebrow">01 / MADE TO BE PLAYED</p><h2 id="selected-title">Pick your next game.</h2></div><div class="section-actions"><a class="button secondary" href="games.html">The full arcade</a><a class="button secondary" href="projects.html">All projects</a></div></div>
+            <div class="game-grid selected-grid" data-selected-games tabindex="0" role="region" aria-label="All games — swipe to browse"></div>
+            <noscript><p>Play <a href="https://feastfury.tahmidraven.com/">FeastFury</a>, <a href="https://meadow-run.tahmidraven.com/">Meadow Run</a>, or <a href="https://dan5626.itch.io/the-last-tribe">The Last Tribe</a> on their original hosts. JavaScript enables the embedded arcade.</p></noscript>
+        </section>
+        <section class="about-teaser home-section" aria-labelledby="about-title">
+            <img src="images/raven-main.jpg" alt="Tahmid Iqbal" width="320" height="360" loading="lazy">
+            <div><p class="eyebrow">02 / THE PERSON BEHIND THE PIXELS</p><h2 id="about-title">Tahmid. Raven.<br>Usually building something.</h2><p>I’m a game developer based in Dhaka and a Computer Science &amp; Engineering graduate from BRAC University. I work with Godot at KreaTech, collaborating remotely with IDNERD Studio in Hong Kong.</p><p>Outside the editor: books, keyboards, music, and the occasional hardware experiment. There’s more to me than the project grid.</p><div class="action-row"><a class="text-link accent" href="aboutme.html">A little more about me</a><a class="text-link" href="myblog.html">On my bookshelf</a><a class="button secondary" href="mailto:tahmidraven@gmail.com">Say hello</a></div></div>
+        </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved · <span class="mono">made with caffeine &amp; game juice</span></p>
-        </div>
-        <button id="backToTop" aria-label="Back to top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </footer>
-</div> <!-- End content -->
-
-<script src="js/main.js"></script>
-<script src="js/terminal.js"></script>
-
-<!-- Boot Sequence Script -->
-<script>
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    const content   = document.getElementById("content");
-    const log       = document.getElementById("boot-log");
-    const progress  = document.getElementById("boot-progress");
-    const reduce    = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const isFirstLoad = !sessionStorage.getItem("preloaderShown");
-    document.body.style.overflow = "hidden";
-
-    const lines = [
-      ['[ BOOT ] ', 'raven.exe v2026.6 — initializing…', 'cy'],
-      ['[  OK  ] ', 'mounting /portfolio', 'ok'],
-      ['[  OK  ] ', 'loading game_dev modules', 'ok'],
-      ['[  OK  ] ', 'engines: Cocos Creator · Unity · Godot · Defold', 'ok'],
-      ['[  OK  ] ', 'uplink established @ Revo Interactive', 'ok'],
-      ['[ DONE ] ', 'welcome, operator ▸', 'done'],
-    ];
-
-    let finished = false;
-    function reveal() {
-      if (finished) return;
-      finished = true;
-      sessionStorage.setItem("preloaderShown", "true");
-      preloader.classList.add("hide");
-      content.style.display = "block";
-      content.classList.add("show");
-      document.body.style.overflow = "auto";
-    }
-
-    // Allow skipping
-    const skip = () => reveal();
-    document.addEventListener("keydown", e => { if (e.key === "Enter") skip(); }, { once: false });
-    preloader.addEventListener("click", skip);
-
-    if (reduce || !isFirstLoad) {
-      // Short path: dump the log instantly, brief hold
-      log.innerHTML = lines.map(l => `<span class="${l[2]}">${l[0]}</span>${l[1]}`).join('\n');
-      progress.style.width = "100%";
-      setTimeout(reveal, isFirstLoad ? 900 : 500);
-      return;
-    }
-
-    // Full typed boot sequence
-    let i = 0;
-    function nextLine() {
-      if (finished) return;
-      if (i >= lines.length) { setTimeout(reveal, 650); return; }
-      const [tag, msg, cls] = lines[i];
-      log.innerHTML += `<span class="${cls}">${tag}</span>${msg}\n`;
-      progress.style.width = Math.round(((i + 1) / lines.length) * 100) + "%";
-      i++;
-      setTimeout(nextLine, 520);
-    }
-    nextLine();
-
-    // Safety: never trap the user
-    setTimeout(reveal, 6000);
-  });
-</script>
+    <footer class="footer"><div class="footer-content"><div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div></div></footer>
 </body>
 </html>

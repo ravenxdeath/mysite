@@ -47,51 +47,42 @@
             letter-spacing: 0.5px;
         }
     </style>
+    <meta name="description" content="Meet Tahmid Iqbal: game developer, BRAC University graduate, reader, keyboard tinkerer, and maker of interactive things.">
+    <meta name="theme-color" content="#101110">
+    <link rel="stylesheet" href="css/arcade.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
 
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
-            </ul>
+            <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
         </div>
     </nav>
 
-    <main class="about-page">
+    <main class="about-page" id="main">
         <div class="about-header">
             <h1 class="glitch" data-text="Tahmid Iqbal">Tahmid Iqbal</h1>
-            <h2>Game Developer &amp; Full-Stack Engineer</h2>
+            <h2>Game developer. Curious human. Usually building something.</h2>
             <div class="typing-container">
                 <div class="typing-text">Game Dev · Engine Optimization · Full-Stack · Always Learning</div>
             </div>
         </div>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">cat summary.txt</h2>
+            <h2>A little about me</h2>
             <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">
-                Game Developer specializing in optimized 2D/3D interactive experiences using <strong style="color:var(--primary-color)">Cocos Creator</strong>, <strong style="color:var(--primary-color)">Unity</strong>, and <strong style="color:var(--primary-color)">Godot</strong>. Recent CS graduate from BRAC University with a track record of building diverse, cross-platform applications in Flutter — from retro gaming consoles and 2D platformers to productivity apps and full-stack marketplaces. Passionate about creating expressive gameplay, adding visual polish &amp; game juice, and optimizing technical pipelines for seamless deployment.
+                I’m Tahmid Iqbal — Raven online — a game developer based in Dhaka and a Computer Science &amp; Engineering graduate from BRAC University. I build optimized 2D/3D interactive experiences using <strong style="color:var(--primary-color)">Godot</strong>, <strong style="color:var(--primary-color)">Cocos Creator</strong>, and TypeScript, with additional work in Unity, LittleJS, and Flutter. I enjoy gameplay systems, expressive shaders, game feel, and the tools that make shipping a little easier. Game jams are where I get to experiment, collaborate, and turn a strange idea into something playable.
             </p>
+            <div class="portrait-strip"><img src="images/raven-main.jpg" alt="Tahmid Iqbal" loading="lazy"><img src="images/Cox23.jpg" alt="A moment from Cox’s Bazar" loading="lazy"><img src="images/TarcMuseumTour.webp" alt="From a museum tour" loading="lazy"></div>
+            <p style="color:var(--text-muted);margin-top:24px">Away from code, I’m into books, music, keyboard modding, and hardware experiments. My <a class="accent" href="myblog.html">book reviews</a> live here too — not everything needs to be a project.</p>
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">ls /education</h2>
+            <h2>Education</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-graduation-cap"></i>
@@ -118,28 +109,19 @@
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">./experience --all</h2>
+            <h2>Where I’ve been building</h2>
             <div class="about-grid">
+                <div class="about-item exp-item"><i class="fas fa-gamepad" aria-hidden="true"></i><h3>Game Developer <span class="badge-now">NOW</span></h3><p><strong>KreaTech</strong></p><p class="role-meta">Aug 2026 – Present · Remote / Offsite</p><ul style="color:var(--text-muted);margin-top:1rem;padding-left:1.5rem;line-height:1.8"><li>Develop games using Godot.</li><li>Work remotely with <a href="https://www.idnerd.com/" class="accent" target="_blank" rel="noopener noreferrer">IDNERD STUDIO LTD</a>, Hong Kong, through KreaTech.</li></ul></div>
                 <div class="about-item exp-item">
                     <i class="fas fa-gamepad"></i>
-                    <h3>Game Developer <span class="badge-now">NOW</span></h3>
+                    <h3>Game Developer (including internship)</h3>
                     <p><strong>Revo Interactive Ltd.</strong></p>
-                    <p class="role-meta">Mar 2026 – Present · Gulshan, Dhaka (On-site)</p>
+                    <p class="role-meta">Nov 2025 – Nov 2026 · Gulshan, Dhaka (On-site)</p>
                     <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Develop &amp; optimize interactive playable games in Cocos Creator + TypeScript for ad networks like Mintegral, Unity, and Adikteev.</li>
-                        <li>Boost player engagement by integrating game-juice elements across 3D and 2D games.</li>
+                        <li>Developed &amp; optimized 2D/3D playable advertising experiences using Cocos Creator, TypeScript, and PixiJS for Mintegral, Unity, and Adikteev.</li>
+                        <li>Added game feel, visual polish, gameplay progression, and state transitions across social casino, puzzle, farming, and monster-collection projects.</li>
                         <li>Engineered a custom Squoosh Batch CLI (Bash) to compress bulk PNG/JPG assets, optimizing the asset pipeline.</li>
                         <li>Built OneForAll CocosPackageAutomation tools to streamline cross-platform publishing.</li>
-                    </ul>
-                </div>
-                <div class="about-item exp-item">
-                    <i class="fas fa-code"></i>
-                    <h3>Game Developer Intern</h3>
-                    <p><strong>Revo Interactive Ltd.</strong></p>
-                    <p class="role-meta">Dec 2025 – Feb 2026 · Gulshan, Dhaka (On-site)</p>
-                    <ul style="color: var(--text-muted); margin-top: 1rem; padding-left: 1.5rem; line-height: 1.8;">
-                        <li>Gained hands-on expertise in PixiJS and Cocos Creator with optimized 2D &amp; 3D physics rendering.</li>
-                        <li>Engineered non-linear gameplay progression and managed state transitions for client projects.</li>
                     </ul>
                 </div>
                 <div class="about-item exp-item">
@@ -166,7 +148,7 @@
         </section>
 
         <section class="featured-project">
-            <h2 class="term-prefix mono">run featured_project</h2>
+            <h2>An earlier adventure: RougeKnight</h2>
             <div class="project-showcase">
                 <div class="video-container">
                     <img src="https://img.youtube.com/vi/9yOeBbe6nXI/maxresdefault.jpg" alt="RougeKnight Gameplay">
@@ -176,14 +158,14 @@
                         <i class="fab fa-youtube"></i> Watch Gameplay
                     </a>
                     <a href="https://ravendeath.itch.io/rougeknight" target="_blank" class="project-btn">
-                        <i class="fas fa-download"></i> Download RougeKnight
+                        <i class="fas fa-gamepad"></i> Play RougeKnight on itch.io
                     </a>
                 </div>
             </div>
         </section>
 
         <section class="skills-section">
-            <h2 class="term-prefix mono">skills --tree</h2>
+            <h2>The toolbox</h2>
 
             <!-- Skill tree / XP bars -->
             <div class="stat-tree">
@@ -231,11 +213,11 @@
             <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 2.4rem;">
                 <div class="skill-category">
                     <h3>Game Engines</h3>
-                    <p>Godot 4.6 (GDScript), Unity (C#), Cocos Creator 3.8.7 (TypeScript), Defold, PixiJS</p>
+                    <p>Godot (GDScript), Unity (C#), Cocos Creator (TypeScript), LittleJS, Defold, PixiJS</p>
                 </div>
                 <div class="skill-category">
                     <h3>Languages</h3>
-                    <p>Python, C++, GDScript, Dart, C, PHP, JavaScript, React, Lua, Angular</p>
+                    <p>GDScript, TypeScript, JavaScript, C#, Python, C++, Dart, C, PHP, Lua</p>
                 </div>
                 <div class="skill-category">
                     <h3>Frameworks &amp; Libraries</h3>
@@ -249,7 +231,7 @@
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">ls /certifications</h2>
+            <h2>Learning along the way</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-certificate"></i>
@@ -275,14 +257,14 @@
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">echo $SOFT_SKILLS</h2>
+            <h2>How I work</h2>
             <p style="color: var(--text-muted); line-height: 1.8; text-align: center; font-size: 1.1rem;">
                 Team Collaboration · Problem-Solving · Time Management · Communication
             </p>
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">locale --languages</h2>
+            <h2>Languages</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-language"></i>
@@ -303,7 +285,7 @@
         </section>
 
         <section class="about-section">
-            <h2 class="term-prefix mono">cat hobbies.log</h2>
+            <h2>Outside the editor</h2>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-robot"></i>
@@ -329,7 +311,7 @@
         </section>
 
         <section class="contact-section">
-            <h2 class="term-prefix mono">connect --me</h2>
+            <h2>Let’s connect</h2>
             <div class="contact-links">
                 <a href="mailto:tahmidraven@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -360,12 +342,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
+            <div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -373,6 +350,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
 </body>
 </html>

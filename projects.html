@@ -267,38 +267,27 @@
             display: none;
         }
     </style>
+    <meta name="description" content="Explore Tahmid Raven’s games, apps, publishing tools, web projects, systems programming, and hardware experiments.">
+    <meta name="theme-color" content="#101110">
+    <link rel="stylesheet" href="css/arcade.css">
 </head>
 
 <body>
-    <nav class="navbar">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="logo">
-                <img src="images/punchline.png" alt="Raven logo">
-                <span class="logo-text">TAHMID.RAVEN</span>
-            </div>
+            <a class="logo" href="index.html" aria-label="Raven home"><img src="images/punchline.png" alt="" width="36" height="36"><span class="logo-text">RAVEN</span></a>
 
-            <div class="menu-toggle">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV <i class="fas fa-download"></i></a></li>
-                <li><a href="aboutme.html">About Me</a></li>
-                <li><a href="myblog.html">BookReviews</a></li>
-                <li><a href="contacts.html">Contact</a></li>
-                <li><a href="email.html" class="cta-button">Email Me</a></li>
-            </ul>
+            <ul class="nav-links" id="site-nav"><li><a href="games.html">Games</a></li><li><a href="projects.html">Projects</a></li><li><a href="aboutme.html">About me</a></li><li><a href="myblog.html">Book reviews</a></li><li><a href="contacts.html">Contact</a></li><li><a class="nav-resume" href="cv.html">Resume</a></li></ul>
         </div>
     </nav>
 
-    <main class="about-page">
+    <main class="about-page" id="main">
         <div class="projects-page-header">
             <h1 class="glitch" data-text="My Projects">My Projects</h1>
-            <h2 class="mono" style="color: var(--neon-cyan); margin-top: 1rem;">// games · apps · systems · hardware — select a module below</h2>
+            <h2 style="color:var(--text-muted);margin-top:1rem;font-size:1.1rem;font-weight:400">Games, tools, apps, and ideas that made it out of the notebook.</h2>
         </div>
 
         <div class="projects-container">
@@ -312,15 +301,54 @@
                 <button class="filter-btn" data-category="hardware">🤖 Hardware</button>
                 <button class="filter-btn" data-category="ml">🤖 ML</button>
                 <button class="filter-btn" data-category="misc">🔧 Misc</button>
+                <button class="filter-btn" data-category="tools">Tools &amp; pipelines</button>
             </div>
+
+            <section class="category-section" data-category="tools">
+                <div class="category-header"><h2 class="category-title">Tools behind the games</h2></div>
+                <div class="projects-grid">
+                    <article class="project-card"><div class="project-header"><div><p class="eyebrow">ASSET PIPELINE</p><h3 class="project-title" style="margin-top:14px">Squoosh Batch CLI</h3></div></div><p class="project-description">A Bash tool for bulk PNG/JPG compression, built to simplify and optimize the game asset pipeline.</p><div class="tech-stack"><span class="tech-tag">Bash</span><span class="tech-tag">Asset compression</span></div><a class="project-link" href="https://github.com/TahmidRaven/Squoosh_Batch_CLI" target="_blank" rel="noopener noreferrer">View code</a></article>
+                    <article class="project-card"><div class="project-header"><div><p class="eyebrow">PUBLISHING WORKFLOW</p><h3 class="project-title" style="margin-top:14px">OneForAll Cocos Automation</h3></div></div><p class="project-description">Cocos packaging automation to streamline cross-platform publishing workflows and reduce repetitive release work.</p><div class="tech-stack"><span class="tech-tag">Cocos Creator</span><span class="tech-tag">Automation</span></div><a class="project-link" href="https://github.com/TahmidRaven/OneForAll_CocosPackageAutomation" target="_blank" rel="noopener noreferrer">View code</a></article>
+                </div>
+            </section>
 
             <!-- Game Development -->
             <section class="category-section" data-category="game">
                 <div class="category-header">
                     <i class="fas fa-gamepad category-icon"></i>
-                    <h2 class="category-title">Game Development</h2>
+                    <h2 class="category-title">Games</h2>
                 </div>
                 <div class="projects-grid">
+                    <article class="project-card" data-project-game="feastfury">
+                        <div class="project-header"><div><i class="fas fa-gamepad project-icon" aria-hidden="true"></i><h3 class="project-title">FeastFury: Endless Tap-Blast</h3></div><span class="project-year">2026</span></div>
+                        <p class="project-description">Pop connected snacks, break crates, and beat the rising diner rush. An endless browser puzzle with powerups, escalating waves, and a Day/Night diner interface.</p>
+                        <div class="tech-stack"><span class="tech-tag">Cocos Creator</span><span class="tech-tag">TypeScript</span></div>
+                        <div class="project-links"><button type="button" class="project-link" data-play="feastfury"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button></div>
+                    </article>
+                    <article class="project-card" data-project-game="meadow-run">
+                        <div class="project-header"><div><i class="fas fa-gamepad project-icon" aria-hidden="true"></i><h3 class="project-title">Meadow Run: Endless Harvesting</h3></div><span class="project-year">2026</span></div>
+                        <p class="project-description">Harvest carrots, sell your haul at the market, and upgrade your tools in a low-poly farm adventure. Supports keyboard movement and touch/drag controls.</p>
+                        <div class="tech-stack"><span class="tech-tag">Cocos Creator</span><span class="tech-tag">TypeScript</span></div>
+                        <div class="project-links"><button type="button" class="project-link" data-play="meadow-run"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button></div>
+                    </article>
+                    <article class="project-card" data-project-game="the-last-tribe">
+                        <div class="project-header"><div><i class="fas fa-gamepad project-icon" aria-hidden="true"></i><h3 class="project-title">The Last Tribe: Survival &amp; Social Deduction</h3></div><span class="project-year">2026</span></div>
+                        <p class="project-description">Gather resources and uncover shapeshifters hiding among your tribe. Contributed shaders and system design. Placed 66th out of 2,181 entries at Brackeys Game Jam 2026.2.</p>
+                        <div class="tech-stack"><span class="tech-tag">Godot</span><span class="tech-tag">GDScript</span><span class="tech-tag">Shaders</span></div>
+                        <div class="project-links"><button type="button" class="project-link" data-play="the-last-tribe"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button></div>
+                    </article>
+                    <article class="project-card" data-project-game="lastpunch">
+                        <div class="project-header"><div><i class="fas fa-gamepad project-icon" aria-hidden="true"></i><h3 class="project-title">LastPunch: Boss-Rush Game</h3></div><span class="project-year">2026</span></div>
+                        <p class="project-description">Timed boss fights with upgrade-card choices between rounds. Contributed programming, shaders, systems, and gameplay design for this GMTK Game Jam 2026 entry.</p>
+                        <div class="tech-stack"><span class="tech-tag">Godot</span><span class="tech-tag">GDScript</span><span class="tech-tag">Shaders</span></div>
+                        <div class="project-links"><button type="button" class="project-link" data-play="lastpunch"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button></div>
+                    </article>
+                    <article class="project-card" data-project-game="crooked-garden">
+                        <div class="project-header"><div><i class="fas fa-gamepad project-icon" aria-hidden="true"></i><h3 class="project-title">Crooked Garden: Arcade Survival</h3></div><span class="project-year">2026</span></div>
+                        <p class="project-description">Grow a vine, trap bugs, and restore three gardens before your water runs out. Built for LittleJS Jam 3 with combos, rewinds, retries, and cross-platform leaderboards.</p>
+                        <div class="tech-stack"><span class="tech-tag">LittleJS</span><span class="tech-tag">JavaScript</span></div>
+                        <div class="project-links"><button type="button" class="project-link" data-play="crooked-garden"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button><a href="https://github.com/TahmidRaven/Crooked_Garden_LittleJS" class="project-link secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
+                    </article>
                     <div class="project-card">
                         <div class="project-header">
                             <div>
@@ -353,7 +381,7 @@
                             <span class="tech-tag">GDScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://ravendeath.itch.io/rougeknight" class="project-link" target="_blank"><i class="fas fa-download"></i> Play Game</a>
+                            <button type="button" class="project-link" data-play="rougeknight"><i class="fas fa-play" aria-hidden="true"></i> Play in browser</button>
                             <a href="https://youtu.be/9yOeBbe6nXI" class="project-link secondary" target="_blank"><i class="fab fa-youtube"></i> Watch</a>
                         </div>
                     </div>
@@ -429,6 +457,12 @@
                     <h2 class="category-title">Mobile Development</h2>
                 </div>
                 <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-header"><div><i class="fas fa-calculator project-icon" aria-hidden="true"></i><h3 class="project-title">VangtiNai: BDT Change Calculator</h3></div></div>
+                        <p class="project-description">An everyday utility that calculates how much change you can give in Bangladeshi taka. A practical app, separate from the game arcade.</p>
+                        <div class="tech-stack"><span class="tech-tag">Utility app</span><span class="tech-tag">BDT</span></div>
+                        <div class="project-links"><a href="https://ravendeath.itch.io/vangtinai" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-mobile-alt" aria-hidden="true"></i> View App</a></div>
+                    </article>
                     <div class="project-card">
                         <div class="project-header">
                             <div>
@@ -875,12 +909,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="aboutme.html">About Me</a>
-                <a href="contacts.html">Contact</a>
-            </div>
-            <p class="copyright">Tahmid Iqbal © 2026 — All rights reserved</p>
+            <div class="footer-bottom"><p class="copyright">© 2026 Tahmid Iqbal</p><div class="footer-socials" data-social-links aria-label="Social profiles"></div><span>MADE IN DHAKA. PLAYED ANYWHERE.</span></div>
         </div>
         <button id="backToTop" aria-label="Back to top">
             <i class="fas fa-arrow-up"></i>
@@ -888,7 +917,8 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/terminal.js"></script>
+    <script src="js/games-data.js"></script>
+    <script src="js/arcade.js"></script>
     <script>
         // Category Filter Functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -903,11 +933,6 @@
                     categorySections.forEach(section => {
                         if (category === 'all' || section.getAttribute('data-category') === category) {
                             section.style.display = 'block';
-                            const cards = section.querySelectorAll('.project-card');
-                            cards.forEach((card, index) => {
-                                card.style.animation = `fadeInUp 0.6s ease forwards`;
-                                card.style.animationDelay = `${index * 0.1}s`;
-                            });
                         } else {
                             section.style.display = 'none';
                         }
