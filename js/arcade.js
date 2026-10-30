@@ -5,6 +5,17 @@
     const browserGames = games.filter(game => game.category === 'browser');
     const library = document.querySelector('[data-game-library]');
     const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+    const embedOrigins = new Set(['https://itch.io', 'https://feastfury.tahmidraven.com', 'https://meadow-run.tahmidraven.com']);
+    function embedURL(game) {
+        try {
+            if (!game.embed && !/^\d+$/.test(game.upload || '')) return null;
+            const url = new URL(game.embed || `https://itch.io/embed-upload/${game.upload}?color=101110`);
+            // scripts + same-origin are needed for game engines/storage, so never
+            // give that sandbox combination to a document on the portfolio origin.
+            if (url.protocol !== 'https:' || url.username || url.password || url.origin === location.origin || !embedOrigins.has(url.origin)) return null;
+            return url.href;
+        } catch { return null; }
+    }
 
     function card(game) {
         const title = escapeHTML(game.title);
@@ -121,14 +132,22 @@
         }
         function load() {
             if (!current || current.category !== 'browser') return;
+            const source = embedURL(current);
+            if (!source) {
+                status.textContent = 'This embed address is not approved. Use Open original to visit the game instead.';
+                return;
+            }
             unload();
             const version = generation;
             const iframe = document.createElement('iframe');
             iframe.title = `${current.title} — hosted game`;
             iframe.allow = 'autoplay; fullscreen; gamepad';
             iframe.allowFullscreen = true;
+            // Keep game scripts, saves, pointer/orientation locks, and user-opened
+            // credit links working. No top navigation, forms, downloads, or modals.
+            iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock allow-orientation-lock allow-popups allow-popups-to-escape-sandbox');
             iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-            iframe.src = current.embed || `https://itch.io/embed-upload/${current.upload}?color=101110`;
+            iframe.src = source;
             status.textContent = 'Loading the game from its host. Some engine builds take a little longer; Open original is available if your browser cannot run it here.';
             iframe.addEventListener('load', () => {
                 if (version !== generation) return;

@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "test": "node tests/smoke.cjs",
-    "test:live": "node tests/live-games.cjs"
+    "test:live": "node tests/live-games.cjs",
+    "test:security": "node tests/security.cjs"
   },
   "devDependencies": {
     "playwright": "1.64.1"

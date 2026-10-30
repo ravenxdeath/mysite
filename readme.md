@@ -118,3 +118,71 @@ externally hosted game completes loading or gameplay. Screenshots go in ignored
 appear, Godot startup overlays must be removed, and the two directly hosted Cocos
 games must reach a loaded scene. This is a startup check, not a complete gameplay
 test; it records third-party warnings/errors in `test-results/live/results.json`.
+
+## Security hardening — no hosting or DNS changes
+
+The `.html` URL extension is normal for a static website, not a vulnerability.
+The following protections are implemented in the site's own files:
+
+- **CSP on all eight HTML pages**, placed before any resource loads. Scripts are
+  restricted to this site's origin; inline scripts and `eval` are not allowed.
+  The Projects filter now lives in `js/main.js` rather than an inline script.
+- **Explicit resource allowlists:** site images and the existing YouTube thumbnail;
+  Google Fonts and the pinned Font Awesome CDN; the official same-origin PDF; and
+  game frames from itch.io's embed-upload path or the two approved game subdomains.
+  Parent-page network connections and injected base URLs are blocked. Contact
+  forms are restricted to `mailto:`; the website still never sends/stores messages.
+- **Subresource Integrity:** every Font Awesome 6.5.1 stylesheet link includes a
+  verified SHA-384 digest and anonymous CORS mode. Modified CDN CSS is rejected.
+- **Explicit referrer policy:** `strict-origin-when-cross-origin` prevents the
+  portfolio's path/query from being sent to another origin, while retaining the
+  origin information needed by normal embeds and external resources.
+- **Sandboxed game frames** block direct top-level navigation (even following a
+  user gesture), forms, downloads, and browser modals. Scripts, origin storage,
+  pointer lock, orientation lock, and fullscreen remain available for gameplay.
+  Popups and sandbox escape **for those new popup windows only** remain allowed
+  so in-game credit/creator links can open normally; browser popup blocking still
+  applies. The embedded frame itself cannot remove its restrictions.
+- **Embed URL validation:** only HTTPS URLs on the three approved embed origins
+  are accepted, with numeric itch upload IDs. URLs with credentials, unapproved
+  origins, or the portfolio's own origin are refused. This same-origin guard is
+  important when combining `allow-scripts` with `allow-same-origin`: game frames
+  remain cross-origin from the portfolio, preserving the browser's isolation.
+
+### Intentional limits
+
+- Inline **styles** remain allowed for the existing layouts and dynamic sizing;
+  this does not permit inline JavaScript. Google Fonts CSS is allowlisted but not
+  integrity-pinned because its response varies by browser. The PDF object is
+  restricted to this origin rather than disabled, to retain resume preview.
+- A parent-page CSP does not audit or restrict every request made inside a
+  separately hosted game. Those games and their providers remain trust boundaries;
+  sandboxing is defense in depth, not proof that third-party code is harmless.
+- HTML meta policies cannot enforce `frame-ancestors`, `X-Frame-Options`,
+  `X-Content-Type-Options`, or other HTTP response headers. No fake meta equivalents,
+  proxy/CDN setup, hosting configuration, DNS, or game-repo changes were made.
+- Testing is not a comprehensive penetration test or a complete gameplay audit.
+
+### Verify before pushing
+
+With the local HTTP server running, use the browser setup documented above:
+
+```sh
+npm test
+npm run test:security
+npm run test:live
+npm audit
+```
+
+`test:security` uses Chromium to verify consistent CSPs and no normal page-policy
+violations, rejection of harmless inline-script/base/frame/connect/form canaries,
+rejection of deliberately modified CDN CSS, allowed PDF preview, blocked sandbox
+parent-DOM/top-navigation access, working game-origin storage and fullscreen,
+and rejection of unapproved embed URLs. Test fixtures intercept their network
+requests locally; they do not attack the external game providers.
+
+The UI suite covers all eight pages at four widths, filters, the carousel,
+navigation, and game-player lifecycle. The live suite additionally checks startup
+of all ten real game exports under the sandbox. Some itch exports already log
+service-worker permission warnings; those are recorded separately from startup
+failures. These checks do not guarantee every level, device, or browser is bug-free.

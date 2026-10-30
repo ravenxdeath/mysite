@@ -67,7 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
         button.setAttribute('aria-pressed', String(button.classList.contains('active')));
         button.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn[data-category]').forEach(other => {
+                other.classList.toggle('active', other === button);
                 other.setAttribute('aria-pressed', String(other === button));
+            });
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.hidden = button.dataset.category !== 'all' && section.dataset.category !== button.dataset.category;
             });
         });
     });
