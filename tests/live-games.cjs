@@ -29,7 +29,7 @@ const base = process.env.TEST_BASE_URL || 'http://127.0.0.1:4173';
                     // Godot's canvas exists during download; startup only succeeds when
                     // its status overlay is removed. Don't mistake a canvas for readiness.
                     await frame.locator('#status').waitFor({ state: 'detached', timeout: 60000 });
-                    if (['meadow-run', 'feastfury'].includes(game.id)) {
+                    if (['pocket-monsters', 'meadow-run', 'feastfury'].includes(game.id)) {
                         await page.frames().find(f => f.url().startsWith(game.embed)).waitForFunction(() => window.cc?.director.getScene()?.getChildByName('Canvas'), null, { timeout: 60000 });
                     }
                     await station.screenshot({ path: `test-results/live/${game.id}.png` });

@@ -3,6 +3,13 @@
    The current Godot exports are non-threaded and support the hosted player. */
 window.RAVEN_GAMES = [
     {
+        id: 'pocket-monsters', title: 'Pocket Monsters', category: 'browser', jam: false,
+        meta: 'Color-linking puzzle · Web game', engine: 'Cocos Creator · TypeScript',
+        description: 'Everyone needs a friend. Connect matching little monsters across five colorful puzzles.',
+        url: 'https://pocket-monster.tahmidraven.com/', embed: 'https://pocket-monster.tahmidraven.com/', image: 'images/games/pocket-monsters.webp', aspect: '16 / 9',
+        controls: 'Connect matching monsters using the on-screen controls. See the in-game instructions for puzzle rules.'
+    },
+    {
         id: 'the-last-tribe', title: 'The Last Tribe', category: 'browser', jam: true,
         meta: 'Brackeys 2026.2 · 66 / 2,181', engine: 'Godot · GDScript',
         description: 'Gather resources, survive the wilderness, and uncover the shapeshifters hiding among your tribe.',

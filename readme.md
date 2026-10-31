@@ -13,9 +13,9 @@ Space Grotesk, Orbitron, JetBrains Mono, and Share Tech Mono.
   pauses during interaction/gameplay and respects reduced-motion preferences.
   Arcade/All projects buttons, introduction, and contact remain.
 - `games.html`: searchable, filterable game library and click-to-load player.
-- All ten current browser games are available in the shared dropdown player;
-  Meadow Run and FeastFury have original covers generated in their respective game
-  repositories. The hero features FeastFury. All seven original social icons remain.
+- All eleven current browser games are available in the shared dropdown player;
+  Pocket Monsters, Meadow Run, and FeastFury use original covers from their game
+  repositories. The hero features Pocket Monsters. All seven original social icons remain.
 - `projects.html`: the existing project archive plus pipeline tools, with new and
   older games combined in one Games section using the same project-card layout.
   Source links use Code buttons only where a public repository is verified.
@@ -61,7 +61,7 @@ so test the original and embedded experience when updating a game's upload. Futu
 threaded exports may need host/header changes or a different embed strategy.
 Download-only projects never get a misleading browser Play action.
 PomoKaijuu and VangtiNai are apps, so they stay in Projects, not the Games catalog.
-The catalog contains ten browser games and one downloadable game.
+The catalog contains eleven browser games and one downloadable game.
 
 The player uses a definite full width and a shared viewport ratio (landscape on
 desktop, portrait on small screens), independent of the selected game. Its height
@@ -108,14 +108,14 @@ If your shell sets `NODE_OPTIONS=--no-experimental-fetch`, clear it for Playwrig
 
 Tests cover desktop/mobile pages at four widths, no horizontal overflow,
 shared card-track alignment, navigation, retained favicon, all seven social icons,
-arrow-free links, catalog filters/search, all ten dropdown options, iframe
+arrow-free links, catalog filters/search, all eleven dropdown options, iframe
 loading/switching/unloading, focus, deep links, and PDF delivery.
 They stub the external itch frame for deterministic UI testing; they do not prove each
 externally hosted game completes loading or gameplay. Screenshots go in ignored
 `test-results/`. External fonts and Font Awesome require a network connection.
 
 `npm run test:live` optionally checks the actual external builds: canvases must
-appear, Godot startup overlays must be removed, and the two directly hosted Cocos
+appear, Godot startup overlays must be removed, and the three directly hosted Cocos
 games must reach a loaded scene. This is a startup check, not a complete gameplay
 test; it records third-party warnings/errors in `test-results/live/results.json`.
 
@@ -129,7 +129,7 @@ The following protections are implemented in the site's own files:
   The Projects filter now lives in `js/main.js` rather than an inline script.
 - **Explicit resource allowlists:** site images and the existing YouTube thumbnail;
   Google Fonts and the pinned Font Awesome CDN; the official same-origin PDF; and
-  game frames from itch.io's embed-upload path or the two approved game subdomains.
+  game frames from itch.io's embed-upload path or the three approved game subdomains.
   Parent-page network connections and injected base URLs are blocked. Contact
   forms are restricted to `mailto:`; the website still never sends/stores messages.
 - **Subresource Integrity:** every Font Awesome 6.5.1 stylesheet link includes a
@@ -143,7 +143,7 @@ The following protections are implemented in the site's own files:
   Popups and sandbox escape **for those new popup windows only** remain allowed
   so in-game credit/creator links can open normally; browser popup blocking still
   applies. The embedded frame itself cannot remove its restrictions.
-- **Embed URL validation:** only HTTPS URLs on the three approved embed origins
+- **Embed URL validation:** only HTTPS URLs on the four approved embed origins
   are accepted, with numeric itch upload IDs. URLs with credentials, unapproved
   origins, or the portfolio's own origin are refused. This same-origin guard is
   important when combining `allow-scripts` with `allow-same-origin`: game frames

@@ -5,7 +5,7 @@
     const browserGames = games.filter(game => game.category === 'browser');
     const library = document.querySelector('[data-game-library]');
     const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-    const embedOrigins = new Set(['https://itch.io', 'https://feastfury.tahmidraven.com', 'https://meadow-run.tahmidraven.com']);
+    const embedOrigins = new Set(['https://itch.io', 'https://feastfury.tahmidraven.com', 'https://meadow-run.tahmidraven.com', 'https://pocket-monster.tahmidraven.com']);
     function embedURL(game) {
         try {
             if (!game.embed && !/^\d+$/.test(game.upload || '')) return null;
@@ -32,7 +32,7 @@
     }
     const selected = document.querySelector('[data-selected-games]');
     if (selected) {
-        const featuredIds = ['feastfury', 'meadow-run', 'the-last-tribe'];
+        const featuredIds = ['pocket-monsters', 'feastfury', 'meadow-run', 'the-last-tribe'];
         const orderedGames = [...featuredIds.map(id => games.find(game => game.id === id)).filter(Boolean), ...games.filter(game => !featuredIds.includes(game.id))];
         selected.innerHTML = orderedGames.map(card).join('');
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');

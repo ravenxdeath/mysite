@@ -60,6 +60,7 @@ function fillsPlayer(geometry) {
         await context.route('https://itch.io/embed-upload/**', fixture);
         await context.route('https://feastfury.tahmidraven.com/**', fixture);
         await context.route('https://meadow-run.tahmidraven.com/**', fixture);
+        await context.route('https://pocket-monster.tahmidraven.com/**', fixture);
         const pages = ['index.html', 'games.html', 'aboutme.html', 'projects.html', 'cv.html', 'myblog.html', 'contacts.html', 'email.html'];
         for (const path of pages) {
             const response = await page.goto(`${base}/${path}`);
@@ -76,7 +77,8 @@ function fillsPlayer(geometry) {
             }
         }
         await page.goto(`${base}/index.html`);
-        assert.equal(await page.locator('.game-card').count(), 11, 'Homepage carousel contains all games');
+        assert.equal(await page.locator('.game-card').count(), 12, 'Homepage carousel contains all games');
+        assert.equal(await page.locator('[data-selected-games] .game-card').first().getAttribute('id'), 'game-pocket-monsters');
         const carousel = page.locator('[data-selected-games]');
         assert.equal(await page.locator('[data-games-previous], [data-games-next], #games-scroll-hint, .carousel-controls').count(), 0, 'No carousel controls or hint');
         assert.equal(await carousel.evaluate(el => getComputedStyle(el).scrollbarWidth), 'none');
@@ -96,7 +98,7 @@ function fillsPlayer(geometry) {
         await carousel.evaluate(el => { el.scrollTo({ left: 0, behavior: 'instant' }); });
         await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
         assert.equal(await page.locator('.hero-socials .social-icon').count(), 7);
-        assert.match(await page.locator('.featured-art img').getAttribute('src'), /feastfury/);
+        assert.match(await page.locator('.featured-art img').getAttribute('src'), /pocket-monsters/);
         assert.equal(await page.locator('iframe').count(), 0, 'No autoloaded games');
         await alignedRows(page, '.game-grid', '.game-card', ['.game-meta', 'h3', '.game-description', '.game-actions']);
         assert.equal(await page.locator('[aria-labelledby="builds-title"]').count(), 0, 'No Behind the Build homepage section');
@@ -107,7 +109,7 @@ function fillsPlayer(geometry) {
         await page.locator('[data-play="feastfury"]').click();
         const modal = page.locator('dialog');
         assert.equal(await modal.isVisible(), true);
-        assert.equal(await modal.locator('[data-game-select] option').count(), 10);
+        assert.equal(await modal.locator('[data-game-select] option').count(), 11);
         assert.match(await modal.locator('iframe').getAttribute('src'), /feastfury/);
         fillsPlayer(await playerGeometry(modal.locator('[data-modal-player]')));
         await modal.locator('[data-game-select]').selectOption('lastpunch');
@@ -120,12 +122,12 @@ function fillsPlayer(geometry) {
 
         await page.goto(`${base}/games.html`);
         const station = page.locator('[data-inline-player]');
-        assert.equal(await page.locator('.game-card').count(), 11);
+        assert.equal(await page.locator('.game-card').count(), 12);
         assert.equal(await page.locator('#game-pomokaijuu, #game-vangtinai').count(), 0, 'Apps are not listed in Games');
-        assert.equal(await station.locator('[data-game-select] option').count(), 10);
+        assert.equal(await station.locator('[data-game-select] option').count(), 11);
         assert.equal(await page.locator('iframe').count(), 0);
         await page.getByRole('button', { name: 'Browser playable', exact: true }).click();
-        assert.equal(await page.locator('.game-card').count(), 10);
+        assert.equal(await page.locator('.game-card').count(), 11);
         await page.getByRole('button', { name: 'Downloads', exact: true }).click();
         assert.equal(await page.locator('.game-card').count(), 1);
         await page.getByRole('button', { name: 'Game jams', exact: true }).click();
@@ -137,7 +139,7 @@ function fillsPlayer(geometry) {
         assert.equal(await page.locator('.game-card').count(), 0);
         assert.equal(await page.locator('[data-game-empty]').isVisible(), true);
         await page.locator('#game-search').fill('');
-        for (const id of ['feastfury', 'meadow-run', 'the-last-tribe', 'crooked-garden', 'lastpunch', 'uber-yeets', 'seriouspoker', 'rougeknight', 'defuseit', 'minisnake']) {
+        for (const id of ['pocket-monsters', 'feastfury', 'meadow-run', 'the-last-tribe', 'crooked-garden', 'lastpunch', 'uber-yeets', 'seriouspoker', 'rougeknight', 'defuseit', 'minisnake']) {
             await station.locator('[data-game-select]').selectOption(id);
             assert.equal(await page.locator('iframe').count(), 0);
             await station.locator('[data-launch]').click();
@@ -152,7 +154,7 @@ function fillsPlayer(geometry) {
         for (const [width, height] of [[1280, 720], [1920, 1080], [768, 600], [390, 844]]) {
             await page.setViewportSize({ width, height });
             let expectedHeight;
-            for (const id of ['feastfury', 'meadow-run', 'the-last-tribe', 'crooked-garden', 'lastpunch', 'uber-yeets', 'seriouspoker', 'rougeknight', 'defuseit', 'minisnake']) {
+            for (const id of ['pocket-monsters', 'feastfury', 'meadow-run', 'the-last-tribe', 'crooked-garden', 'lastpunch', 'uber-yeets', 'seriouspoker', 'rougeknight', 'defuseit', 'minisnake']) {
                 await station.locator('[data-game-select]').selectOption(id);
                 const preview = await playerGeometry(station);
                 fillsPlayer(preview);
@@ -174,6 +176,12 @@ function fillsPlayer(geometry) {
         assert.equal(await station.locator('[data-game-select]').inputValue(), 'lastpunch');
         assert.equal(await page.locator('iframe').count(), 0, 'Deep link only previews');
         await page.screenshot({ path: 'test-results/arcade-desktop.png', fullPage: true });
+        await page.goto(`${base}/games.html?game=pocket-monsters#play`);
+        assert.equal(await station.locator('[data-game-select]').inputValue(), 'pocket-monsters');
+        assert.equal(await page.locator('iframe').count(), 0, 'Pocket Monsters deep link only previews');
+        await station.locator('[data-launch]').click();
+        assert.equal(await station.locator('iframe').getAttribute('src'), 'https://pocket-monster.tahmidraven.com/');
+        await station.locator('[data-stop]').click();
 
         await page.goto(`${base}/projects.html`);
         const codeButtons = page.locator('.project-link[href^="https://github.com/"]');
@@ -188,8 +196,12 @@ function fillsPlayer(geometry) {
         await page.getByRole('button', { name: 'All Projects', exact: true }).click();
         await alignedRows(page, '.projects-grid', '.project-card', ['.project-description', '.tech-stack', '.project-links, .project-card > .project-link']);
         assert.equal(await page.locator('.category-section[data-category="game"]').count(), 1, 'One unified Games project section');
-        assert.equal(await page.locator('.projects-grid > [data-project-game]').count(), 5, 'New games use the normal project grid');
-        assert.equal(await page.locator('[data-project-game] button.project-link .fa-play').count(), 5);
+        assert.equal(await page.locator('.projects-grid > [data-project-game]').count(), 6, 'New games use the normal project grid');
+        assert.equal(await page.locator('[data-project-game] button.project-link .fa-play').count(), 6);
+        await page.locator('[data-play="pocket-monsters"]').click();
+        assert.equal(await modal.locator('iframe').getAttribute('src'), 'https://pocket-monster.tahmidraven.com/');
+        await modal.locator('.player-close').click();
+        await page.waitForFunction(() => document.querySelectorAll('iframe').length === 0);
         assert.equal(await page.locator('.game-card, [data-recent-games]').count(), 0, 'No separate arcade-style project cards');
         assert.equal(await page.locator('[data-project-game] a').filter({ hasText: 'Details' }).count(), 0);
         assert.equal(await page.locator('[data-project-game="crooked-garden"] a[href="https://github.com/TahmidRaven/Crooked_Garden_LittleJS"]').count(), 1, 'Verified public source gets a Code button');
@@ -227,6 +239,6 @@ function fillsPlayer(geometry) {
         await page.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode().catch(() => {}))));
         await page.screenshot({ path: 'test-results/arcade-mobile.png', fullPage: true });
         assert.deepEqual(errors, [], 'No uncaught JavaScript errors');
-        console.log('PASS: 8 pages at 4 widths; aligned card tracks; 7 social icons; 11 games; apps retained only in Projects; all 10 browser games selectable/loadable; consistent full-width player at 4 viewport sizes; filters; player lifecycle; modal focus; deep links; resume.');
+        console.log('PASS: 8 pages at 4 widths; aligned card tracks; 7 social icons; 12 games; apps retained only in Projects; all 11 browser games selectable/loadable; consistent full-width player at 4 viewport sizes; filters; player lifecycle; modal focus; deep links; resume.');
     } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exitCode = 1; });
